@@ -1,0 +1,2 @@
+class ActivityTagsController < ApplicationController
+end
