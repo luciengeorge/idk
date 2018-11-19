@@ -9,6 +9,12 @@ class EventsController < ApplicationController
   def show
   end
 
+  def new
+  end
+
+  def create
+  end
+
   def update
     @event.update(event_params)
     if event.save
