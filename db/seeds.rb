@@ -19,3 +19,14 @@ Category.destroy_all
 User.destroy_all
 
 puts 'Database cleaned!'
+
+puts 'Creating users...'
+
+User.create!(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
+User.create!(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
+User.create!(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
+User.create!(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
+
+puts 'Users created!'
+
+
