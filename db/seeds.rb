@@ -29,4 +29,31 @@ User.create!(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gma
 
 puts 'Users created!'
 
+puts 'Creating categories...'
 
+# category = Category.create!(title: 'food')
+
+puts 'Categories created!'
+
+puts 'Creating activities...'
+
+# park_activity = Activity.create!(title: 'park', category: category)
+
+puts 'activities created!'
+
+puts 'Creating tags...'
+
+# Tag.create!(name: "outdoor")
+
+puts 'Tags created!'
+
+puts 'Adding tags to activities...'
+
+# park_tags = [tag1, tag2, ... , tagn]
+# park_tags.each do |tag|
+#   ActivityTag.create!(activity: park_activity, tag:tag)
+# end
+
+# ActivityTag.create!(activity: activity, tag: tag)
+
+puts 'Tags added!'
