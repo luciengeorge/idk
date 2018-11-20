@@ -5,9 +5,6 @@ class WishesController < ApplicationController
     # @event = Event.all
   end
 
-  # def show
-  #   @wish = Wish.find(params[:id])
-  # end
   def create
     Wish.create(user: current_user, activity: Activity.find(params[:activity_id]))
     redirect_to category_path(Activity.find(params[:activity_id]).category)
@@ -18,7 +15,4 @@ class WishesController < ApplicationController
     @wish.delete
     redirect_to wishes_path
   end
-
-  # def new
-  # end
 end
