@@ -1,5 +1,5 @@
 <%= link_to conversation_path(conversation), class:"message-card-link" do %>
-  <div class="message">
+  <div class="message hidden-xs">
     <div class="left-div">
       <% if recipient.photo? %>
         <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
@@ -7,7 +7,7 @@
         <%= image_tag('default-avatar.png', class: "avatar-large") %>
       <% end %>
       <div class="recipient-name">
-        <div style="border-right:1px solid #000; height:50px; border-color: rgba(0, 0, 0, 0.3); width: 150px; align-items: left; display: flex;">
+        <div style="border-right:1px solid #000; height:50px; border-color: rgba(0, 0, 0, 0.3); max-width: 150px; align-items: left; display: flex;">
           <p>
             <strong>
               <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %>
@@ -20,7 +20,8 @@
         <% if conversation.messages.empty? %>
           <p>No Messages yet</p>
         <% else %>
-          <p><em><%= conversation.messages.last.body %></em></p>
+          <% display_message = "#{conversation.messages.last.body.first(77)}..." if conversation.messages.last.body.length > 80 %>
+          <p><em><%= display_message %></em></p>
         <% end %>
       </div>
     </div>
@@ -35,6 +36,49 @@
             <%= unread_messages %>
           </div>
           <p class="date-created"><%= conversation.messages.last.message_time %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="message hidden-md hidden-lg hidden-xl hidden-sm">
+    <div class="left-div">
+      <% if recipient.photo? %>
+        <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
+      <% else %>
+        <%= image_tag('default-avatar.png', class: "avatar") %>
+      <% end %>
+      <div class="recipient-name">
+        <div style="height:50px; max-width: 150px; align-items: left; display: flex; font-size: 10px;">
+          <p>
+            <strong>
+              <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize} -" %>
+            </strong>
+          </p>
+
+        </div>
+      </div>
+      <div class="message-body">
+        <% if conversation.messages.empty? %>
+          <p style="font-size: 10px;">No Messages yet</p>
+        <% else %>
+          <% display_message = "#{conversation.messages.last.body.first(5)}..." if conversation.messages.last.body.length > 8 %>
+          <p style="font-size: 10px;"><em><%= display_message %></em></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-div">
+      <% unless conversation.messages.empty? %>
+        <% if unread_messages.zero? && conversation.id == params[:id].to_i %>
+          <p class="date-created" style="font-size: 8px;"><%= conversation.messages.last.message_time %></p>
+        <% elsif unread_messages.zero? %>
+          <p class="date-created" style="font-size: 8px;"><%= conversation.messages.last.message_time %></p>
+        <% else %>
+          <div class="avatar-unread-messages avatar" style="background-color: red; color: white;">
+            <%= unread_messages %>
+          </div>
+          <p class="date-created" style="font-size: 8px;"><%= conversation.messages.last.message_time %></p>
         <% end %>
       <% end %>
     </div>
