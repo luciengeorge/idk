@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
   resources :events, except: [:new, :create]
   resources :activities, only: [:show] do
     resources :events, only: [:new, :create]
-    resources :wishes
+    resources :wishes, only: [:new, :create]
   end
   resources :conversations do
     resources :messages

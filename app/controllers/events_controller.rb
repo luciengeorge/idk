@@ -6,13 +6,24 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show
+  def new
+    @event = Event.new
   end
 
-  def new
+  def show
+    @event = Event.find(params[:id])
+    @activity = @event.activity
   end
 
   def create
+    @event = Event.new(event_params)
+    @event.activity = Activity.find(params[:activity_id])
+    hosting = Hosting.new(user: current_user, event: @event)
+    if @event.save && hosting.save
+      redirect_to event_path(@event)
+    else
+      render "events/new"
+    end
   end
 
   def update

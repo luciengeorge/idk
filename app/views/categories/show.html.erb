@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -51,3 +52,15 @@
         <a class="card-link" href="#" ></a>
       </div>
  -->
+
+
+
+<% @activities.each do |activity| %>
+  <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
+  <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
+    <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: 'delete' %></p>
+  <% else %>
+    <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: 'post' %></p>
+  <% end %>
+<% end %>
+
