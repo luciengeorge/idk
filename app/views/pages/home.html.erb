@@ -1,13 +1,39 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <%= link_to @link, class:"questionmark" do %>
-        <i class="fas fa-question-circle questionmark"></i>
-      <% end %>
+<!-- <div class="container">
+  <div id="home-idk">
+    <span id="wheel-idk"><p>IDK</p></span>
+    <i class="fas fa-question-circle" id="wheel-1"></i>
+    <i class="fas fa-question-circle" id="wheel-2"></i>
+    <i class="fas fa-question-circle" id="wheel-3"></i>
+    <i class="fas fa-question-circle" id="wheel-4"></i>
+
+      <i class="fas fa-question-circle"></i>
+
+  </div> -->
+
+<div id="wrapper">
+
+  <div id="wheel">
+    <div id="inner-wheel">
+      <div class="sec"><span class="fa fa-bell-o"></span></div>
+      <div class="sec"><span class="fa fa-comment-o"></span></div>
+      <div class="sec"><span class="fa fa-smile-o"></span></div>
+      <div class="sec"><span class="fa fa-heart-o"></span></div>
+      <div class="sec"><span class="fa fa-star-o"></span></div>
+      <div class="sec"><span class="fa fa-lightbulb-o"></span></div>
     </div>
-  </div>
+
+    <div id="spin">
+    <div id="inner-spin"></div>
+    </div>
+
+    <div id="shine"></div>
+    </div>
 </div>
 
 
+
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/wheel' %>
+<% end %>
 
