@@ -23,6 +23,7 @@
       <% else %>
         <%= link_to "INBOX (#{unread_messages})", conversations_path, class: "navbar-wagon-item navbar-wagon-link unread" %>
       <% end %>
+      <li><%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -72,6 +73,7 @@
           <% else %>
             <li><%= link_to "INBOX (#{unread_messages})", conversations_path, class: "navbar-wagon-item navbar-wagon-link unread" %></li>
           <% end %>
+          <li><%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
         </ul>
       </div>
     <% else %>
