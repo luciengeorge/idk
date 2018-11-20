@@ -4,6 +4,7 @@
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   margin: 20px 0;
+  border: none;
 }
 
 .message-show {
@@ -32,7 +33,6 @@
   flex-grow: 1;
   p {
     font-size: 16px;
-    padding: 5px;
     margin: auto;
   }
 }
@@ -54,6 +54,7 @@
   margin: 0 20px;
   display: flex;
   align-items: center;
+  color: black;
   justify-content: space-around;
   p {
     padding: 5px;
@@ -62,8 +63,8 @@
 }
 
 .date-created {
-  margin: 10px 0;
   font-size: 12px;
+  margin: 0;
 }
 
 .message-card-link {
