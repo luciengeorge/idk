@@ -7,7 +7,8 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation.messages.reject do |message|
+    # raise
+    @conversation.messages.each do |message|
       message.update(read: true) if message.user_id != current_user.id
     end
     @messages = @conversation.messages
@@ -19,7 +20,8 @@ class ConversationsController < ApplicationController
     #   @over_ten = false
     #   @messages = @conversation.messages
     # end
-    @messages.last.read = true if @messages.last && (@messages.last.user_id != current_user.id)
+    # raise
+    # @messages.last.read = true if @messages.last && (@messages.last.user_id != current_user.id)
     @message = @conversation.messages.new
   end
 
