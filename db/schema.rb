@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_105915) do
     t.text "description"
     t.bigint "category_id"
     t.datetime "date"
-    t.string "price"
+    t.float "price"
     t.string "photo"
     t.string "location"
     t.integer "age"

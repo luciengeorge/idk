@@ -1,1 +1,11 @@
 <h1>This is the show page for categories</h1>
+
+
+<% @activities.each do |activity| %>
+  <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
+  <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
+    <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: 'delete' %></p>
+  <% else %>
+    <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: 'post' %></p>
+  <% end %>
+<% end %>

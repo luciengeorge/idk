@@ -1,2 +1,6 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to "IDK", activity_path(Activity.all.sample) %>
+<%= link_to "Random Category", category_path(Category.all.sample) %>
+

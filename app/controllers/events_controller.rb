@@ -12,17 +12,17 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @activity = Activity.find(params[:id])
+    @activity = @event.activity
   end
 
   def create
     @event = Event.new(event_params)
-    @event.activity = Activity.find(params[:event_id])
-    @event.user = current_user
-    if event.save
-      redirect_to event_path(@event.activity)
+    @event.activity = Activity.find(params[:activity_id])
+    hosting = Hosting.new(user: current_user, event: @event)
+    if @event.save && hosting.save
+      redirect_to event_path(@event)
     else
-      render :new
+      render "events/new"
     end
   end
 
