@@ -32,9 +32,9 @@
               <% user = User.find(message.user_id) %>
               <% if user == current_user %>
                 <li>
-                  <div class="message-div" style="">
+                  <div class="message-div" style="justify-content: flex-end;">
                     <div class="message-right">
-                      <p class="message-sender text-right">
+                      <p class="message-sender text-justify">
                         <%= message.body.upcase %>
                       </p>
                     </div>
@@ -42,9 +42,9 @@
                 </li>
               <% else %>
                 <li>
-                  <div class="message-div" style="">
+                  <div class="message-div" style="justify-content:flex-start;">
                     <div class="message-left">
-                      <p class="message-receiver text-left">
+                      <p class="message-receiver text-justifyy ">
                         <%= message.body.upcase %>
                       </p>
                     </div>
