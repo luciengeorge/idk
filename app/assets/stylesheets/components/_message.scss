@@ -21,12 +21,6 @@
   flex-grow: 1;
 }
 
-.inbox {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
 .header-inbox {
   display: flex;
   align-items: center;
@@ -55,6 +49,8 @@
 .messages {
   width: 70%;
   margin: 0 auto;
+  max-height: 70vh;
+  overflow: scroll;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);

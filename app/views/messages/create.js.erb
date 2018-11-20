@@ -1,0 +1,25 @@
+updateScroll = (() => {
+  messages = document.getElementById('messages');
+  messages.scrollTop = messages.scrollHeight;
+});
+
+updateScroll();
+
+refreshForm = ((innerHtml) => {
+  sendMessageForm = document.getElementById('send-message-form');
+  sendMessageForm.innerHtml = innerHtml;
+});
+
+addMessage = ((messageHtml) => {
+  messageList = document.getElementById('message-list');
+  messageList.insertAdjacentHTML('beforeend', messageHtml)
+});
+
+<% if @message.errors.any? %>
+  refreshForm('<%= j render "conversations/form_message", conversation: @conversation, message: @message %>');
+<% else %>
+  addMessage('<%= j render "show", message: @message %>');
+  updateScroll();
+  messageBody = document.getElementById('message_body');
+  messageBody.value = ""
+<% end %>
