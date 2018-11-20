@@ -20,8 +20,12 @@
         <% if conversation.messages.empty? %>
           <p>No Messages yet</p>
         <% else %>
-          <% display_message = "#{conversation.messages.last.body.first(77)}..." if conversation.messages.last.body.length > 80 %>
-          <p><em><%= display_message %></em></p>
+          <% if conversation.messages.last.body.length > 80 %>
+            <% display_message = "#{conversation.messages.last.body.first(77)}..." %>
+            <p><em><%= display_message %></em></p>
+          <% else %>
+            <p><em><%= conversation.messages.last.body %></em></p>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -63,8 +67,12 @@
         <% if conversation.messages.empty? %>
           <p style="font-size: 10px;">No Messages yet</p>
         <% else %>
-          <% display_message = "#{conversation.messages.last.body.first(5)}..." if conversation.messages.last.body.length > 8 %>
-          <p style="font-size: 10px;"><em><%= display_message %></em></p>
+          <% if conversation.messages.last.body.length > 8 %>
+            <% display_message = "#{conversation.messages.last.body.first(5)}..." %>
+            <p style="font-size: 10px;"><em><%= display_message %></em></p>
+          <% else %>
+            <p style="font-size: 10px;"><em><%= conversation.messages.last.body %></em></p>
+          <% end %>
         <% end %>
       </div>
     </div>
