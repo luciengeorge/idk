@@ -2,15 +2,12 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Pages#home</h1>
-      <p>Find me in app/views/pages/home.html.erb</p>
+      <%= link_to @link, class:"questionmark" do %>
+        <i class="fas fa-question-circle questionmark"></i>
+      <% end %>
     </div>
   </div>
 </div>
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "IDK", activity_path(Activity.all.sample) %>
-<%= link_to "Random Category", category_path(Category.all.sample) %>
 
 

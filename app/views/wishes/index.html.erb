@@ -1,5 +1,6 @@
 <h1>The Wish list Index</h1>
 
-<p><%= @wish.each do |wish| %></p>
+<p><% @wish.each do |wish| %></p>
 <p><%= wish.activity.title %></p>
+<p><%= wish.activity.description %></p>
 <% end %>
