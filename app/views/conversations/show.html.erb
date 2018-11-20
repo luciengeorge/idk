@@ -25,39 +25,37 @@
       </div>
     </div>
     <div class="inbox">
-      <div class="messages">
-        <% @messages.each_with_index do |message, index| %>
-          <% if message.body %>
-            <% user = User.find(message.user_id) %>
-            <% if user == current_user %>
-              <div class="message-div" style="">
-                <div class="message-right">
-                  <p class="message-sender text-right">
-                    <%= message.body.upcase %>
-                  </p>
-                </div>
-              </div>
-            <% else %>
-              <div class="message-div" style="">
-                <div class="message-left">
-                  <p class="message-receiver text-left">
-                    <%= message.body.upcase %>
-                  </p>
-                </div>
-              </div>
+      <div class="messages" id="messages">
+        <ul class="list-unstyled" id="message-list" style="margin: 0;">
+          <% @messages.each_with_index do |message, index| %>
+            <% if message.body %>
+              <% user = User.find(message.user_id) %>
+              <% if user == current_user %>
+                <li>
+                  <div class="message-div" style="">
+                    <div class="message-right">
+                      <p class="message-sender text-right">
+                        <%= message.body.upcase %>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              <% else %>
+                <li>
+                  <div class="message-div" style="">
+                    <div class="message-left">
+                      <p class="message-receiver text-left">
+                        <%= message.body.upcase %>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-        <div class="form-div">
-          <%= form_for [@conversation, @message], html: { class: "ui reply form" } do |f| %>
-            <%= f.text_area :body, class:"form-control" %>
-            <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-            <%= button_tag(type: 'submit', class: "btn btn-homepage-small") do %>
-              SEND <i class="fab fa-telegram-plane"></i>
-            <% end %>
-          <% end %>
-        </div>
+        </ul>
       </div>
+      <%= render 'form_message', conversation: @conversation, message: @message %>
     </div>
   </div>
 </div>

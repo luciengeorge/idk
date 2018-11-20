@@ -9,7 +9,17 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    redirect_to conversation_path(@conversation) if @message.save
+    if @message.save
+      respond_to do |format|
+        format.html { redirect_to conversation_path(@conversation) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'conversations/show' }
+        format.js
+      end
+    end
   end
 
   private
