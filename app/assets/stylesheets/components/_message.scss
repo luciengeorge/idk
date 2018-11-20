@@ -49,7 +49,8 @@
 .messages {
   width: 70%;
   margin: 0 auto;
-  max-height: 70vh;
+  min-height: 60vh;
+  max-height: 60vh;
   overflow: scroll;
   padding: 15px;
   border-radius: 10px;
