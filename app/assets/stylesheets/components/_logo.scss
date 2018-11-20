@@ -1,0 +1,15 @@
+p {
+  font-size: 30px;
+  color: $eerie-black;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+  margin: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.logo-period {
+  color: $usc-gold;
+}
