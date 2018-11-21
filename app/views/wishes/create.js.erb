@@ -1,0 +1,6 @@
+console.log("create");
+document.querySelector("[data-wish-id='<%= @activity.id %>']").remove();
+card = document.querySelector("[data-card-id='<%= @activity.id %>']");
+link = "<p><%= link_to 'Remove from Wishlist', wish_path(Wish.where(user: current_user, activity: @activity).first.id), method: :delete, data: { wish_id: '<%= @activity.id %>' }, remote: true %></p>";
+
+card.insertAdjacentHTML('beforeend', link);
