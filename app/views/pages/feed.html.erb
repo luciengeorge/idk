@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="container">
+    <h1>FEED PAGE</h1>
+    <% @events.each do |event| %>
+      <div class="feed-card">
+        <div class="feed-card-left">
+          <%= cl_image_tag(event.activity.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <p><%= "#{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize} is going to #{event.activity.title}" %></p>
+        </div>
+        <div class="feed-card-right"></div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>
