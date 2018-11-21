@@ -1,8 +1,13 @@
-<h1>This is the index page for categories</h1>
-<ul class="list-group">
-  <% @categories.each do |category| %>
-    <li class="list-group-item">
-      <%= link_to category.title, category_path(category) %>
-    </li>
-  <% end %>
-</ul>
+<div class="wrapper">
+  <div class="container">
+    <h1>This is the index page for categories</h1>
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <li class="list-group-item">
+          <%= link_to category.title, category_path(category) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

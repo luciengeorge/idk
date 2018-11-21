@@ -9,5 +9,4 @@ class PagesController < ApplicationController
       @link = category_path(Category.all.sample)
     end
   end
-
 end
