@@ -1,4 +1,3 @@
-console.log("hello?");
 var degree = 1800;
 //number of clicks = 0
 var clicks = 0;
@@ -18,6 +17,7 @@ $(document).ready(function(){
     var newDegree = degree*clicks;
     var extraDegree = Math.floor(Math.random() * (360 - 1 + 1)) + 1;
     totalDegree = newDegree+extraDegree;
+    $('#totalDegree').val(totalDegree)
 
     /*let's make the spin btn to tilt every
     time the edge of the section hits
@@ -36,7 +36,7 @@ $(document).ready(function(){
 
         var aoY = t.offset().top;
         $("#txt").html(aoY);
-        console.log(aoY);
+        // console.log(aoY);
 
         /*23.7 is the minumum offset number that
         each section can get, in a 30 angle degree.
@@ -54,7 +54,11 @@ $(document).ready(function(){
 
       $('#inner-wheel').css({
         'transform' : 'rotate(' + totalDegree + 'deg)'
-      });
+      })
+
+      setInterval(() => {
+        $('form').submit()
+      }, 4000)
 
       noY = t.offset().top;
 
