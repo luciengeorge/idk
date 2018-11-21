@@ -1,67 +1,3 @@
-// // Specific CSS for your home-page
-// .question-mark {
-//   font-size: 30vw;
-//   color: $eerie-black;
-// }
-
-// #home-idk {
-//   position: relative;
-//   height: 50vh;
-//   align-items: center;
-//   text-align: center;
-
-// }
-
-// #wheel-idk {
-//   border-radius: 50%;
-//   position: absolute;
-//   height: 12vw;
-//   width: 12vw;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   background-color: $rose-red;
-//   p {
-//     margin: 0 auto;
-//     color: white;
-//   }
-// }
-
-// #wheel-1 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   top: 0;
-//   left: 0;
-// }
-
-// #wheel-2 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   top: 0;
-//   right: 0px;
-// }
-
-// #wheel-3 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   bottom: 0;
-//   left: 0;
-// }
-
-// #wheel-4 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   bottom: 0;
-//   right: 0;
-// }
 
 *{  margin:0; padding:0; }
 
@@ -330,5 +266,11 @@ opacity:0.1;
 .spin {
   -webkit-animation: hh 0.1s; /* Chrome, Safari, Opera */
     animation: hh 0.1s;
+}
+
+.weather-icon {
+  p {
+    font-size: 20px;
+  }
 }
 
