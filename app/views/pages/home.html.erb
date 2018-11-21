@@ -1,8 +1,4 @@
-
-
-
 <div id="wrapper">
-
   <div id="wheel">
     <div id="inner-wheel">
       <div class="sec"><span class="fa fa-bell-o"></span></div> <!-- food -->
@@ -12,21 +8,44 @@
       <div class="sec"><span class="fa fa-star-o"></span></div> <!-- IDK -->
       <div class="sec"><span class="fa fa-lightbulb-o"></span></div> <!-- chill -->
     </div>
-
-    <%# link_to @link do %>
-      <div id="spin">
-        <div id="inner-spin"></div>
-      </div>
-    <%# end %>
+    <div id="spin">
+      <div id="inner-spin"></div>
+    </div>
 
     <%= form_tag '/' %>
     <%= hidden_field_tag 'totalDegree', 0 %>
-    <%# end %>
 
     <div id="shine"></div>
   </div>
 </div>
 
+<div class='weather-icon'>
+  <% if @today["summary"].downcase.include? "cloudy" %>
+  <p><i class="fas fa-cloud"></i></p>
+  <% elsif @today["summary"].downcase.include? "rain" %>
+  <p><i class="fas fa-tint"></i></p>
+  <% elsif @today["summary"].downcase.include? "clear" %>
+  <p><i class="fas fa-cloud-sun"></i></p>
+  <% elsif @today["summary"].downcase.include? "lightening" %>
+  <p><i class="fas fa-bolt"></i></p>
+  <% elsif @today["summary"].downcase.include? "sunny" %>
+  <p><i class="fas fa-sun"></i></p>
+  <% elsif @today["summary"].downcase.include? "sun" %>
+  <p><i class="fas fa-sun"></i></p>
+  <% elsif @today["summary"].downcase.include? "sunshine" %>
+  <p><i class="fas fa-sun"></i></p>
+  <% elsif @today["summary"].downcase.include? "hot" %>
+  <p><i class="fas fa-temperature-high"></i></p>
+  <% elsif @today["summary"].downcase.include? "foggy" %>
+  <p><i class="fas fa-smog"></i></p>
+  <% elsif @today["summay"].downcase.include? "snow" %>
+  <p><i class="fas fa-snowflake"></i></p>
+  <% elsif @today["summary"].downcase.include? "windy" %>
+  <p><i class="fas fa-wind"></i></p>
+  <% else @today["summary"].downcase.include? "wind" %>
+  <p><i class="fas fa-wind"></i></p>
+  <% end %>
+</div>
 
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'components/wheel' %>
