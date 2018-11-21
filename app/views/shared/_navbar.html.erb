@@ -86,29 +86,29 @@
   <div class="logo">
     <div class='weather-icon'>
       <% if @today["summary"].downcase.include? "cloudy" %>
-      <p><i class="fas fa-cloud"></i></p>
+        <p><i class="fas fa-cloud"></i></p>
       <% elsif @today["summary"].downcase.include? "rain" %>
-      <p><i class="fas fa-tint"></i></p>
+        <p><i class="fas fa-tint"></i></p>
       <% elsif @today["summary"].downcase.include? "clear" %>
-      <p><i class="fas fa-cloud-sun"></i></p>
+        <p><i class="fas fa-cloud-sun"></i></p>
       <% elsif @today["summary"].downcase.include? "lightening" %>
-      <p><i class="fas fa-bolt"></i></p>
+        <p><i class="fas fa-bolt"></i></p>
       <% elsif @today["summary"].downcase.include? "sunny" %>
-      <p><i class="fas fa-sun"></i></p>
+        <p><i class="fas fa-sun"></i></p>
       <% elsif @today["summary"].downcase.include? "sun" %>
-      <p><i class="fas fa-sun"></i></p>
+        <p><i class="fas fa-sun"></i></p>
       <% elsif @today["summary"].downcase.include? "sunshine" %>
-      <p><i class="fas fa-sun"></i></p>
+        <p><i class="fas fa-sun"></i></p>
       <% elsif @today["summary"].downcase.include? "hot" %>
-      <p><i class="fas fa-temperature-high"></i></p>
+        <p><i class="fas fa-temperature-high"></i></p>
       <% elsif @today["summary"].downcase.include? "foggy" %>
-      <p><i class="fas fa-smog"></i></p>
+        <p><i class="fas fa-smog"></i></p>
       <% elsif @today["summay"].downcase.include? "snow" %>
-      <p><i class="fas fa-snowflake"></i></p>
+        <p><i class="fas fa-snowflake"></i></p>
       <% elsif @today["summary"].downcase.include? "windy" %>
-      <p><i class="fas fa-wind"></i></p>
+        <p><i class="fas fa-wind"></i></p>
       <% else @today["summary"].downcase.include? "wind" %>
-      <p><i class="fas fa-wind"></i></p>
+        <p><i class="fas fa-wind"></i></p>
       <% end %>
     </div>
     <%= link_to root_path do %>
