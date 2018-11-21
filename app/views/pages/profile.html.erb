@@ -3,7 +3,7 @@
     <% if current_user.photo? %>
       <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% else %>
-      <%= cl_image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
+      <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% end %>
     <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></h1>
     <p>AGE: <%= current_user.age %></p>
