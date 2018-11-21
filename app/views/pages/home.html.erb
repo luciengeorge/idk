@@ -12,7 +12,6 @@
   </div> -->
 
 <div id="wrapper">
-
   <div id="wheel">
     <div id="inner-wheel">
       <div class="sec"><span class="fa fa-bell-o"></span></div>
@@ -22,18 +21,15 @@
       <div class="sec"><span class="fa fa-star-o"></span></div>
       <div class="sec"><span class="fa fa-lightbulb-o"></span></div>
     </div>
-
     <div id="spin">
-    <div id="inner-spin"></div>
+      <div id="inner-spin">
+      </div>
     </div>
-
-    <div id="shine"></div>
+    <div id="shine">
     </div>
+  </div>
 </div>
-
-
 
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'components/wheel' %>
 <% end %>
-
