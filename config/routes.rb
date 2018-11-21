@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: :registrations }
   root to: 'pages#home'
+  get '/profile', to: 'pages#profile'
+  get '/feed', to: 'pages#feed'
   resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
   resources :events, except: [:new, :create]
