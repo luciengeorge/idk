@@ -1,5 +1,4 @@
 class WishesController < ApplicationController
-
   def index
     @wish = Wish.where(user: current_user)
     # @event = Event.all

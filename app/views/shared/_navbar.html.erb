@@ -1,4 +1,37 @@
 <div class="navbar-wagon">
+  <!-- Logo -->
+  <div class="logo">
+    <%= link_to root_path do %>
+      <p class="logo-text">idk<strong class="logo-period">.</strong></p>
+    <% end %>
+    <div class='weather-icon'>
+      <% if @today["summary"].downcase.include? "cloudy" %>
+        <p><i class="fas fa-cloud"></i></p>
+      <% elsif @today["summary"].downcase.include? "rain" %>
+        <p><i class="fas fa-tint"></i></p>
+      <% elsif @today["summary"].downcase.include? "clear" %>
+        <p><i class="fas fa-cloud-sun"></i></p>
+      <% elsif @today["summary"].downcase.include? "lightening" %>
+        <p><i class="fas fa-bolt"></i></p>
+      <% elsif @today["summary"].downcase.include? "sunny" %>
+        <p><i class="fas fa-sun"></i></p>
+      <% elsif @today["summary"].downcase.include? "sun" %>
+        <p><i class="fas fa-sun"></i></p>
+      <% elsif @today["summary"].downcase.include? "sunshine" %>
+        <p><i class="fas fa-sun"></i></p>
+      <% elsif @today["summary"].downcase.include? "hot" %>
+        <p><i class="fas fa-temperature-high"></i></p>
+      <% elsif @today["summary"].downcase.include? "foggy" %>
+        <p><i class="fas fa-smog"></i></p>
+      <% elsif @today["summay"].downcase.include? "snow" %>
+        <p><i class="fas fa-snowflake"></i></p>
+      <% elsif @today["summary"].downcase.include? "windy" %>
+        <p><i class="fas fa-wind"></i></p>
+      <% else @today["summary"].downcase.include? "wind" %>
+        <p><i class="fas fa-wind"></i></p>
+      <% end %>
+    </div>
+  </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -57,7 +90,7 @@
     <% if user_signed_in? %>
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-        <ul class="dropdown-menu navbar-wagon-dropdown-menu">
+        <ul class="dropdown-menu pull-right navbar-wagon-dropdown-menu">
           <% conversations = Conversation.where(recipient_id: current_user.id).or(Conversation.where(sender_id: current_user.id)) %>
           <% unread_messages = [] %>
           <% conversations.each do |conversation| %>
@@ -82,39 +115,6 @@
     <% end %>
   </div>
 
-  <!-- Logo -->
-  <div class="logo">
-    <div class='weather-icon'>
-      <% if @today["summary"].downcase.include? "cloudy" %>
-        <p><i class="fas fa-cloud"></i></p>
-      <% elsif @today["summary"].downcase.include? "rain" %>
-        <p><i class="fas fa-tint"></i></p>
-      <% elsif @today["summary"].downcase.include? "clear" %>
-        <p><i class="fas fa-cloud-sun"></i></p>
-      <% elsif @today["summary"].downcase.include? "lightening" %>
-        <p><i class="fas fa-bolt"></i></p>
-      <% elsif @today["summary"].downcase.include? "sunny" %>
-        <p><i class="fas fa-sun"></i></p>
-      <% elsif @today["summary"].downcase.include? "sun" %>
-        <p><i class="fas fa-sun"></i></p>
-      <% elsif @today["summary"].downcase.include? "sunshine" %>
-        <p><i class="fas fa-sun"></i></p>
-      <% elsif @today["summary"].downcase.include? "hot" %>
-        <p><i class="fas fa-temperature-high"></i></p>
-      <% elsif @today["summary"].downcase.include? "foggy" %>
-        <p><i class="fas fa-smog"></i></p>
-      <% elsif @today["summay"].downcase.include? "snow" %>
-        <p><i class="fas fa-snowflake"></i></p>
-      <% elsif @today["summary"].downcase.include? "windy" %>
-        <p><i class="fas fa-wind"></i></p>
-      <% else @today["summary"].downcase.include? "wind" %>
-        <p><i class="fas fa-wind"></i></p>
-      <% end %>
-    </div>
-    <%= link_to root_path do %>
-      <p class="logo-text">idk<strong class="logo-period">.</strong></p>
-    <% end %>
-  </div>
 
   <% if user_signed_in? %>
     <!-- right div dissapearing on mobile -->
@@ -137,8 +137,6 @@
         </div>
       </div>
     </div>
-  <% else %>
-    <div></div>
   <% end %>
 </div>
 
