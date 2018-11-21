@@ -1,8 +1,22 @@
 <div class="container">
   <h2 class="text-center"><%= @category.title %></h2>
   <div class="row">
+    <div class="col-xs-12">
+      <%= form_tag(category_path(@category), :method => "get", id: "search-form", class: "form-inline") do %>
+        <%= select_tag "number_of_people", options_for_select([ "", "alone", "couple", "small group", "large group" ], params[:number_of_people]), class: "form-control index-search" %>
+        <%= select_tag "who_are_you_with", options_for_select([ "", "parents", "friends", "mistress", "partner", "co worker", "someone from out of town", "grandparents", "the boys", "the girls", "boss" ], params[:who_are_you_with]), class: "form-control index-search" %>
+        <%= select_tag "location", options_for_select([ "", "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kengsington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search" %>
+        <%= select_tag "vibe", options_for_select([ "", "romantic", "sexy", "chill",  "quiet", "swanky", "loud", "trendy", "posh", "discreet",  "with a view" ], params[:vibe]), class: "form-control index-search" %>
+        <%= submit_tag "FILTER", :name => nil, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
     <% @activities.each do |activity| %>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card">
           <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://dviq2fr5a4i8l.cloudfront.net/images/_listingGrid/Andina-NH-Homepage-2.jpg?mtime=20180531173725');">
           </div>
@@ -19,48 +33,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
- -->
-
-

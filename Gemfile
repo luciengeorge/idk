@@ -16,8 +16,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pg_search'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
