@@ -1,0 +1,15 @@
+.feed-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.feed-card-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  p {
+    margin: 0 10px;
+  }
+}

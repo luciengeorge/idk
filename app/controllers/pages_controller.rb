@@ -7,9 +7,9 @@ class PagesController < ApplicationController
     when 0..30
       category = Category.find_by_title('food')
       redirect_to category_path(category)
-     when 31..90
+    when 31..90
       redirect_to activity_path(Activity.all.sample)
-     when 91..160
+    when 91..160
       category = Category.find_by_title('drink')
       redirect_to category_path(category)
     when 161..210
@@ -17,12 +17,21 @@ class PagesController < ApplicationController
       redirect_to category_path(category)
     when 211..262
       redirect_to activity_path(Activity.all.sample)
-     when 263..330
+    when 263..330
       category = Category.find_by_title('chill')
       redirect_to category_path(category)
-     when 331..359
+    when 331..359
       category = Category.find_by_title('food')
       redirect_to category_path(category)
     end
+  end
+
+  def feed
+    users = User.all
+    @events = []
+    users.each do |user|
+      @events << user.events
+    end
+    @events = @events.flatten.sort_by(&:date).reverse
   end
 end
