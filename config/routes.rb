@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: :registrations }
   root to: 'pages#home'
+  get '/profile', to: 'pages#profile'
+  get '/feed', to: 'pages#feed'
   resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
   resources :events, except: [:new, :create]
@@ -11,5 +13,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  post '/', to: 'pages#wheel'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="text-center"><%= @category.title %></h2>
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag(category_path(@category), :method => "get", id: "search-form", class: "form-inline") do %>

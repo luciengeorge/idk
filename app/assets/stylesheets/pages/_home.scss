@@ -1,67 +1,3 @@
-// // Specific CSS for your home-page
-// .question-mark {
-//   font-size: 30vw;
-//   color: $eerie-black;
-// }
-
-// #home-idk {
-//   position: relative;
-//   height: 50vh;
-//   align-items: center;
-//   text-align: center;
-
-// }
-
-// #wheel-idk {
-//   border-radius: 50%;
-//   position: absolute;
-//   height: 12vw;
-//   width: 12vw;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   background-color: $rose-red;
-//   p {
-//     margin: 0 auto;
-//     color: white;
-//   }
-// }
-
-// #wheel-1 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   top: 0;
-//   left: 0;
-// }
-
-// #wheel-2 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   top: 0;
-//   right: 0px;
-// }
-
-// #wheel-3 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   bottom: 0;
-//   left: 0;
-// }
-
-// #wheel-4 {
-//   font-size: 30vw;
-//   position: absolute;
-//   color: $viridian-green;
-//   display: flex;
-//   bottom: 0;
-//   right: 0;
-// }
 
 *{  margin:0; padding:0; }
 
@@ -142,7 +78,7 @@ a{
   -moz-transform: rotate(60deg);
   -o-transform: rotate(60deg);
   -ms-transform: rotate(60deg);
-  border-color: #16a085 transparent;
+  border-color: $baby-powder transparent;
 }
 #wheel div.sec:nth-child(2){
   transform: rotate(120deg);
@@ -150,7 +86,7 @@ a{
   -moz-transform: rotate(120deg);
   -o-transform: rotate(120deg);
   -ms-transform: rotate(120deg);
-  border-color: #2980b9 transparent;
+  border-color: $viridian-green transparent;
 }
 #wheel div.sec:nth-child(3){
   transform: rotate(180deg);
@@ -158,7 +94,7 @@ a{
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  border-color: #34495e transparent;
+  border-color: $usc-gold transparent;
 }
 #wheel div.sec:nth-child(4){
   transform: rotate(240deg);
@@ -166,7 +102,7 @@ a{
   -moz-transform: rotate(240deg);
   -o-transform: rotate(240deg);
   -ms-transform: rotate(240deg);
-  border-color: #f39c12 transparent;
+  border-color: $rose-red transparent;
 }
 #wheel div.sec:nth-child(5){
   transform: rotate(300deg);
@@ -174,15 +110,16 @@ a{
   -moz-transform: rotate(300deg);
   -o-transform: rotate(300deg);
   -ms-transform: rotate(300deg);
-  border-color: #d35400 transparent;
+  border-color: $eerie-black transparent;
 }
+
 #wheel div.sec:nth-child(6){
   transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
-  border-color: #c0392b transparent;
+  border-color: $silver-sand transparent;
 }
 
 
@@ -330,5 +267,11 @@ opacity:0.1;
 .spin {
   -webkit-animation: hh 0.1s; /* Chrome, Safari, Opera */
     animation: hh 0.1s;
+}
+
+.weather-icon {
+  p {
+    font-size: 20px;
+  }
 }
 

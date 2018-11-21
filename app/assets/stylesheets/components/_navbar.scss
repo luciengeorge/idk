@@ -8,13 +8,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5vh;
   font-family: $my-font;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 5px;
+  }
 }
 
 /* User Avatar */
@@ -70,15 +77,15 @@
   color: red !important;
 }
 
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
-}
+// .navbar-wagon-dropdown-menu:before {
+//   content: ' ';
+//   height: 10px;
+//   width: 10px;
+//   position: absolute;
+//   right: 10px;
+//   top: -6px;
+//   background-color: white;
+//   transform: rotate(45deg);
+//   border-left: 1px solid #E6E6E6;
+//   border-top: 1px solid #E6E6E6;
+// }
