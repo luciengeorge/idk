@@ -31,8 +31,8 @@ class ApplicationController < ActionController::Base
     store_location_for(:user, request.fullpath)
   end
   def home
-    forecast = JSON.parse(open("https://api.darksky.net/forecast/fb6e29ca175e8558227b0cc4d2ea70f0/51.5074,0.1278").read)
-    days_array = forecast['daily']['data']
-    @today = days_array[0]
+    # forecast = JSON.parse(open("https://api.darksky.net/forecast/fb6e29ca175e8558227b0cc4d2ea70f0/51.5074,0.1278").read)
+    # days_array = forecast['daily']['data']
+    # @today = days_array[0]
   end
 end
