@@ -1,13 +1,13 @@
 class WishesController < ApplicationController
-  before_action :find_activity, only: %i[create destroy]
+  before_action :find_activity, only: %i[create]
   def index
     @wish = Wish.where(user: current_user)
     # @event = Event.all
   end
 
   def create
-    wish = Wish.new(user: current_user, activity: @activity)
-    if wish.save!
+    @wish = Wish.new(user: current_user, activity: @activity)
+    if @wish.save!
       respond_to do |format|
         format.html { redirect_to category_path(@activity.category) }
         format.js
@@ -23,9 +23,10 @@ class WishesController < ApplicationController
 
   def destroy
     @wish = Wish.find(params[:id])
-    if @wish.delete!
+    @activity = @wish.activity
+    if @wish.delete
       respond_to do |format|
-        format.html { redirect_to wish_path(@wish) }
+        format.html { redirect_to activity_path(@activity) }
         format.js
       end
     else

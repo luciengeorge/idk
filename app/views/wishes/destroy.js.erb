@@ -1,6 +1,5 @@
-console.log('destroy');
+document.getElementById("activity_<%= @activity.id %>").remove();
+var card = document.getElementById("card_<%= @activity.id %>");
+var link = "<p><a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='post' href='/activities/<%= @activity.id %>/wishes'>Add to Wishlist</a></p>"
 
-// wishButton = document.querySelector("[data-wish-id='<%= @activity.id %>']").remove()
-// wishButton.addEventListener(('click'), () => {
-//   wishButton.innerText = 'Add wish to list'
-// });
+card.insertAdjacentHTML('beforeend', link);

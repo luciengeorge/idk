@@ -6,12 +6,12 @@
         <div class="card">
           <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://dviq2fr5a4i8l.cloudfront.net/images/_listingGrid/Andina-NH-Homepage-2.jpg?mtime=20180531173725');">
           </div>
-          <div class="card-info" data-card-id="<%= activity.id %>">
+          <div class="card-info" id="card_<%= activity.id %>">
             <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
             <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
-              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, data: { wish_id: activity.id }, remote: true %></p>
+              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" %></p>
             <% else %>
-              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: :post, remote: true, data: { wish_id: activity.id } %></p>
+              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" %></p>
             <% end %>
           </div>
         </div>

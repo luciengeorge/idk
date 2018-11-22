@@ -1,6 +1,5 @@
-console.log("create");
-document.querySelector("[data-wish-id='<%= @activity.id %>']").remove();
-card = document.querySelector("[data-card-id='<%= @activity.id %>']");
-link = "<p><%= link_to 'Remove from Wishlist', wish_path(Wish.where(user: current_user, activity: @activity).first.id), method: :delete, data: { wish_id: '<%= @activity.id %>' }, remote: true %></p>";
+document.getElementById("activity_<%= @activity.id %>").remove();
+var card = document.getElementById("card_<%= @activity.id %>");
+var link = "<p><a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/wishes/<%= @wish.id %>'>Remove from Wishlist</a></p>"
 
 card.insertAdjacentHTML('beforeend', link);
