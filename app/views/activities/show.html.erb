@@ -1,5 +1,4 @@
 <div class="wrapper">
-  <!-- <%= link_to "BACK", category_path(@activity.category) %> -->
   <div class="activity-show-card">
     <div class="activity-photo" style="background-image: linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%), url('<%= cl_image_path @activity.photo %>');">
       <h2 class="text-center" style="color: white;"><%= @activity.title %></h2>
@@ -21,7 +20,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <div class="card-links">
         <div class="left-link-div">
-          <%= link_to category_path(@activity.category) do %>
+          <%= link_to "#{category_path(@activity.category)}/#card_#{@activity.id}" do %>
             <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
           <% end %>
         </div>
@@ -48,11 +47,6 @@
     </div>
   </div>
   <div class="container">
-
-    <button type="button" class="btn btn-default btn-homepage" data-toggle="modal" data-target="#exampleModalCenter">
-      Create Event
-    </button>
-
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -88,7 +82,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
