@@ -30,9 +30,11 @@ class ApplicationController < ActionController::Base
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
   end
+
   def home
-    forecast = JSON.parse(open("https://api.darksky.net/forecast/fb6e29ca175e8558227b0cc4d2ea70f0/51.5074,0.1278").read)
-    days_array = forecast['daily']['data']
-    @today = days_array[0]
+    @location = Geocoder.search('london').first.coordinates
+    forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@location[0]}&lon=#{@location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
+    days_array = forecast['list']
+    @today = days_array[0]['weather'][0]['main']
   end
 end

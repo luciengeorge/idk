@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.text :description
       t.references :category, foreign_key: true
       t.datetime :date
-      t.float :price
+      t.string :price
       t.string :photo
       t.string :location
       t.integer :age

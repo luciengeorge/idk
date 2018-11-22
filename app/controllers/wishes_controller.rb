@@ -18,7 +18,6 @@ class WishesController < ApplicationController
         format.js
       end
     end
-    # redirect_to category_path(Activity.find(params[:activity_id]).category)
   end
 
   def destroy
@@ -35,7 +34,6 @@ class WishesController < ApplicationController
         format.js
       end
     end
-    # redirect_to wishes_path
   end
 
   private
