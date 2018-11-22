@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'pg_search'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
+gem 'geocoder'
 
 
 group :development do

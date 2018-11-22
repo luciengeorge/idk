@@ -3,7 +3,11 @@
   margin-bottom: 4vh;
   border-radius: 20px;
   overflow: hidden;
-  height: 70vh;
+  max-height: 70vh;
+  // transition: all 0.6s ease;
+  // &:hover {
+  //   transform: scale(1.02);
+  // }
 }
 
 .card-image {
@@ -13,7 +17,13 @@
 }
 
 .card-info {
-  padding: 10px;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin: 0;
+  }
 }
 
 // .card {

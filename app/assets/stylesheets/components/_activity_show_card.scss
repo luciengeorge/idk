@@ -1,0 +1,44 @@
+.activity-show-card {
+  width: 100vw;
+  height: 100vh;
+}
+
+.activity-photo {
+  height: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  h2 {
+    margin: 0;
+  }
+}
+
+.activity-info {
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  hr {
+    margin: 10px 0;
+    border: 1.5px solid #C4C4C4;
+  }
+}
+
+.card-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin: 10px 0;
+}
+
+.right-link-div {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: space-around;
+}
