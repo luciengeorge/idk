@@ -1,25 +1,25 @@
 <div class="container">
-<div id="wrapper" class="wrapper-for-homepage-wheel">
-  <div id="wheel">
-    <div id="inner-wheel">
-      <div class="sec"><span><%= image_tag 'chill.png', class: "emoji-icons chill-icon" %></span></div> <!-- chill -->
-      <div class="sec"><span><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-green" %></span></div> <!-- IDK -->
-      <div class="sec"><span><%= image_tag 'adventure.png', class: "emoji-icons adv-icon" %></span></div> <!-- adventure -->
-      <div class="sec"><span><%= image_tag 'drink.png', class: "emoji-icons drink-icon" %></span></div> <!-- drink -->
-      <div class="sec"><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-black" %></span></div> <!-- IDK -->
-      <div class="sec"><span><%= image_tag 'food_icon.png', class: "emoji-icons food-icon" %></span></div> <!-- chill -->
+  <div id="wrapper" class="wrapper-for-homepage-wheel">
+    <div id="wheel">
+      <div id="inner-wheel">
+        <div class="sec"><span><%= image_tag 'chill.png', class: "emoji-icons chill-icon" %></span></div> <!-- chill -->
+        <div class="sec"><span><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-green" %></span></div> <!-- IDK -->
+        <div class="sec"><span><%= image_tag 'adventure.png', class: "emoji-icons adv-icon" %></span></div> <!-- adventure -->
+        <div class="sec"><span><%= image_tag 'drink.png', class: "emoji-icons drink-icon" %></span></div> <!-- drink -->
+        <div class="sec"><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-black" %></span></div> <!-- IDK -->
+        <div class="sec"><span><%= image_tag 'food.png', class: "emoji-icons food-icon" %></span></div> <!-- chill -->
+      </div>
+      <div id="spin">
+
+        <div id="inner-spin"></div>
+      </div>
+
+      <%= form_tag '/' %>
+      <%= hidden_field_tag 'totalDegree', 0 %>
+
+      <div id="shine"></div>
     </div>
-    <div id="spin">
-
-      <div id="inner-spin"></div>
-    </div>
-
-    <%= form_tag '/' %>
-    <%= hidden_field_tag 'totalDegree', 0 %>
-
-    <div id="shine"></div>
   </div>
-</div>
 </div>
 
 <%= content_for(:after_js) do %>
@@ -29,22 +29,26 @@
 <div class="footer">
     <div class="food footer-links">
       <%= link_to category_path(Category.find_by(title: 'food')) do %>
-      <%= image_tag 'food_icon.png', class: "footer-icons" %>
+        <%= image_tag 'food.png', class: "footer-icons" %>
+        <p class="footer-title">Food</p>
       <% end %>
     </div>
     <div class="drinks footer-links">
       <%= link_to category_path(Category.find_by(title: 'drink')) do %>
-      <%= image_tag 'drink.png', class: "footer-icons drinks-height" %>
+        <%= image_tag 'drink.png', class: "footer-icons drinks-height" %>
+        <p class="footer-title">Drink</p>
       <% end %>
     </div>
     <div class="adventure footer-links">
       <%= link_to category_path(Category.find_by(title: 'adventure')) do %>
-      <%= image_tag 'adventure.png', class: "footer-icons" %>
+        <%= image_tag 'adventure.png', class: "footer-icons" %>
+        <p class="footer-title">Adventure</p>
       <% end %>
     </div>
     <div class="chill footer-links">
       <%= link_to category_path(Category.find_by(title: 'chill')) do %>
-      <%= image_tag 'chill.png', class: "footer-icons" %>
+        <%= image_tag 'chill.png', class: "footer-icons" %>
+        <p class="footer-title">Chill</p>
       <% end %>
     </div>
 </div>
