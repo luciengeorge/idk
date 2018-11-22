@@ -23,13 +23,15 @@
             </div>
             <div class="card-info" id="card_info_<%= activity.id %>">
               <p><%= activity.title.upcase %></p>
-              <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
-                <%= link_to wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" do %>
-                  <i class="fas fa-heart" style="color: #ED4956;"></i>
-                <% end %>
-              <% else %>
-                <%= link_to activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" do %>
-                  <i class="far fa-heart"></i>
+              <% if user_signed_in? %>
+                <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
+                  <%= link_to wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" do %>
+                    <i class="fas fa-heart" style="color: #ED4956;"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
