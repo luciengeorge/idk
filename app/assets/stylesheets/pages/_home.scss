@@ -133,6 +133,19 @@ a{
   text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;
 }
 
+#wheel div.sec .fas .fa-cocktail{
+  margin-top: -100px;
+  color: rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 10000000;
+  display: block;
+  text-align: center;
+  font-size:36px;
+  margin-left:-15px;
+
+  text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;
+}
+
 #spin{
   width:68px;
   height:68px;
@@ -231,6 +244,9 @@ opacity:0.1;
 
 }
 
+.wrapper-for-homepage-wheel {
+  top: 18vh;
+}
 
 
 /*ANIMATION*/
@@ -261,4 +277,33 @@ opacity:0.1;
 .spin {
   -webkit-animation: hh 0.1s; /* Chrome, Safari, Opera */
     animation: hh 0.1s;
+}
+
+.emoji-icons {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  left: -23px;
+  top: -97px;
+}
+
+.bulb-icon-green {
+  height: 60px;
+}
+
+.food-icon {
+  top: -110px;
+}
+
+.bulb-icon-black {
+  height: 60px;
+  left: -23px;
+  top: -115px;
+}
+
+.drink-icon {
+  height: 60px;
+  width: 50px;
+  top: -106px;
+  left: -24px;
 }
