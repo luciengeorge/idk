@@ -20,12 +20,12 @@
         <div class="card">
           <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
           </div>
-          <div class="card-info">
+          <div class="card-info" id="card_<%= activity.id %>">
             <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
             <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
-              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: 'delete' %></p>
+              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" %></p>
             <% else %>
-              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: 'post' %></p>
+              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" %></p>
             <% end %>
           </div>
         </div>

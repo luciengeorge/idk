@@ -35,6 +35,13 @@ a{
   transform: rotate(0deg);
 }
 
+.wheel-icons {
+  position: absolute;
+  z-index: 1000000000;
+  width: 50px;
+  height: 50px;
+}
+
 #wheel:before{
   content:'';
   position:absolute;
