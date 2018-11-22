@@ -3,32 +3,40 @@
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag(category_path(@category), :method => "get", id: "search-form", class: "form-inline") do %>
-        <%= select_tag "number_of_people", options_for_select([ "", "alone", "couple", "small group", "large group" ], params[:number_of_people]), class: "form-control index-search" %>
-        <%= select_tag "who_are_you_with", options_for_select([ "", "parents", "friends", "mistress", "partner", "co worker", "someone from out of town", "grandparents", "the boys", "the girls", "boss" ], params[:who_are_you_with]), class: "form-control index-search" %>
-        <%= select_tag "location", options_for_select([ "", "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kengsington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search" %>
-        <%= select_tag "vibe", options_for_select([ "", "romantic", "sexy", "chill",  "quiet", "swanky", "loud", "trendy", "posh", "discreet",  "with a view" ], params[:vibe]), class: "form-control index-search" %>
+        <%= select_tag "number_of_people", options_for_select([ "alone", "couple", "small group", "large group" ], params[:number_of_people]), class: "form-control index-search", prompt: "number of people" %>
+        <%= select_tag "who_are_you_with", options_for_select([ "parents", "friends", "mistress", "partner", "co worker", "someone from out of town", "grandparents", "the boys", "the girls", "boss" ], params[:who_are_you_with]), class: "form-control index-search", prompt: "who are you with" %>
+        <%= select_tag "location", options_for_select([ "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kengsington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search", prompt: "location" %>
+        <%= select_tag "vibe", options_for_select([ "romantic", "sexy", "chill",  "quiet", "swanky", "loud", "trendy", "posh", "discreet",  "with a view" ], params[:vibe]), class: "form-control index-search", prompt: "vibe" %>
         <%= submit_tag "FILTER", :name => nil, class: "btn btn-danger" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 10px;">
   <div class="row">
     <% @activities.each do |activity| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
+        <%= link_to activity_path(activity), id:"cardlink_#{activity.id}" do %>
+          <div class="card" id="card_<%= activity.id %>">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
+            </div>
+            <div class="card-info" id="card_info_<%= activity.id %>">
+              <p><%= activity.title.upcase %></p>
+              <% if user_signed_in? %>
+                <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
+                  <%= link_to wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" do %>
+                    <i class="fas fa-heart" style="color: #ED4956;"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-          <div class="card-info" id="card_<%= activity.id %>">
-            <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
-            <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
-              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" %></p>
-            <% else %>
-              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" %></p>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>

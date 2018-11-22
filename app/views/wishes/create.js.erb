@@ -1,5 +1,10 @@
-document.getElementById("activity_<%= @activity.id %>").remove();
-var card = document.getElementById("card_<%= @activity.id %>");
-var link = "<p><a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/wishes/<%= @wish.id %>'>Remove from Wishlist</a></p>"
+var card = document.getElementById("card_info_<%= @activity.id %>");
+var show = document.getElementById("right_link_div_<%= @activity.id %>")
+var link = "<a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/wishes/<%= @wish.id %>'><i class='fas fa-heart' style='color: #ED4956; font-size: 25px;'></i></a>"
 
-card.insertAdjacentHTML('beforeend', link);
+if(card) {
+  card.insertAdjacentHTML('beforeend', link);
+} else {
+  show.insertAdjacentHTML('beforeend', link);
+}
+document.getElementById("activity_<%= @activity.id %>").remove();
