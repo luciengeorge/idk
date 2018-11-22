@@ -17,18 +17,24 @@
   <div class="row">
     <% @activities.each do |activity| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
+        <%= link_to activity_path(activity) do %>
+          <div class="card">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
+            </div>
+            <div class="card-info" id="card_<%= activity.id %>">
+              <p><%= activity.title.upcase %></p>
+              <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
+                <%= link_to wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" do %>
+                  <i class="fas fa-heart" style="color: #ED4956;"></i>
+                <% end %>
+              <% else %>
+                <%= link_to activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-          <div class="card-info" id="card_<%= activity.id %>">
-            <p><%= link_to activity.title.upcase, activity_path(activity) %></p>
-            <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
-              <p><%= link_to "Remove from Wishlist", wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" %></p>
-            <% else %>
-              <p><%= link_to "Add to Wishlist", activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" %></p>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -1,5 +1,5 @@
 document.getElementById("activity_<%= @activity.id %>").remove();
 var card = document.getElementById("card_<%= @activity.id %>");
-var link = "<p><a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/wishes/<%= @wish.id %>'>Remove from Wishlist</a></p>"
+var link = "<p><a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/wishes/<%= @wish.id %>'><i class='fas fa-heart' style='color: #ED4956;'></i></a></p>"
 
 card.insertAdjacentHTML('beforeend', link);
