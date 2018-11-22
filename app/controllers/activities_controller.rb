@@ -3,5 +3,10 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @event = Event.new
+    @markers =
+      [{
+        lng: @activity.longitude,
+        lat: @activity.latitude
+      }]
   end
 end
