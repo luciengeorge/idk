@@ -8,17 +8,19 @@
   color: rgba(0,0,0,0.3);
 }
 .footer-links {
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+  background-color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 25vw;
-  box-shadow: 0px 0px 1px rgba(0,0,0,0.1)
 }
 .footer-links a {
   color: black;
   text-decoration: none;
   font-size: 24px;
-  width: 40%;
+  width: 55%;
+  text-align: center;
 }
 .footer-links a:hover {
   opacity: 1;
@@ -35,6 +37,10 @@
   height: 73px;
 }
 
+.drinks-height {
+  width: 50% !important;
+}
+
 .adventure {
   height: 73px;
 }
@@ -44,9 +50,19 @@
 }
 
 .footer-icons {
-  width: 100%;
+  width: 80%;
+  height: 30px;
 }
 
-.drinks-height {
-  height: 80%;
+
+.footer-links p {
+  font-size: 10px;
+  font-weight: bold;
+  color: grey;
+
+}
+
+.footer-title {
+  width: auto;
+  margin: 0;
 }
