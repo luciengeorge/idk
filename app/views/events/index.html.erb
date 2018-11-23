@@ -1,1 +1,9 @@
-<h1>Events Index</h1>
+<div class="wrapper">
+  <div class="container">
+    <h2>Your Events</h2>
+    <% @events.each do |event| %>
+      <p><%= event.title %> on <strong><%= event.date.strftime('%A, %b %d') %></strong></p>
+      <hr>
+    <% end %>
+  </div>
+</div>
