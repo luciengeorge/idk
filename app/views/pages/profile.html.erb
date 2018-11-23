@@ -5,8 +5,9 @@
     <% else %>
       <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% end %>
-    <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></h1>
+    <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
     <p>AGE: <%= current_user.age %></p>
-    <%= link_to 'EDIT PROFILE', edit_user_registration_path %>
+    <button id="edit-profile-button"><%= link_to 'EDIT PROFILE', edit_user_registration_path %></button>
   </div>
 </div>
+
