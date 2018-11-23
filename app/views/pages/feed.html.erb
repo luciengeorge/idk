@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="container">
-    <h1>FEED PAGE</h1>
     <% @events.each do |event| %>
       <div class="feed-card">
         <div class="feed-card-left">
-          <%= cl_image_tag(event.activity.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-          <p><%= "#{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize} is going to #{event.activity.title}" %></p>
+          <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
+          <p id="time-feed"><%= "#{((Time.now - event.created_at) / 60).floor}m" %></p>
         </div>
         <div class="feed-card-right"></div>
       </div>
