@@ -20,7 +20,7 @@
 
 <!-- CARDS -->
 
-<div class="container no-gutters" style="margin-top: 90px;">
+<div class="container no-gutters" style="margin-top: 25px;">
   <h2 class="text-center"><%= @category.title %></h2>
   <br>
   <div class="row">
@@ -28,18 +28,18 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <%= link_to activity_path(activity), id:"cardlink_#{activity.id}" do %>
           <div class="card" id="card_<%= activity.id %>">
-            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path activity.photo %>');">
             </div>
             <div class="card-info" id="card_info_<%= activity.id %>">
               <p><%= activity.title.upcase %></p>
               <% if user_signed_in? %>
                 <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
                   <%= link_to wish_path(Wish.where(user: current_user, activity: activity).first.id), method: :delete, remote: true, id: "activity_#{activity.id}" do %>
-                    <i class="fas fa-heart" style="color: #ED4956;"></i>
+                    <i class="fas fa-heart" style="color: #ED4956; font-size: 25px;"></i>
                   <% end %>
                 <% else %>
                   <%= link_to activity_wishes_path(activity), method: :post, remote: true, id: "activity_#{activity.id}" do %>
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart" style="font-size: 25px;"></i>
                   <% end %>
                 <% end %>
               <% end %>
