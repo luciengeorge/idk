@@ -7,7 +7,7 @@
             <%= form_tag(category_path(@category), :method => "get", id: "search-form", class: "form-inline text-center") do %>
               <%= select_tag "number_of_people", options_for_select([ "alone", "couple", "small group", "large group" ], params[:number_of_people]), class: "form-control index-search", prompt: "number of people" %>
               <%= select_tag "who_are_you_with", options_for_select([ "parents", "friends", "mistress", "partner", "co worker", "someone from out of town", "grandparents", "the boys", "the girls", "boss" ], params[:who_are_you_with]), class: "form-control index-search", prompt: "who are you with" %>
-              <%= select_tag "location", options_for_select([ "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kengsington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search", prompt: "location" %>
+              <%= select_tag "location", options_for_select([ "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kensington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search", prompt: "location" %>
               <%= select_tag "vibe", options_for_select([ "romantic", "sexy", "chill",  "quiet", "swanky", "loud", "trendy", "posh", "discreet",  "with a view" ], params[:vibe]), class: "form-control index-search", prompt: "vibe" %>
               <%= submit_tag "UPDATE", :name => nil, class: "btn btn-danger search-button" %>
             <% end %>
