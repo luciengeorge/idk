@@ -1,17 +1,15 @@
 <div class="wrapper">
-  <div class="event-show-page">
-    <div class="event-image">
-      <%= cl_image_tag @activity.photo , crop: :fit %>
-    </div>
-    <div class="container">
-      <h5>You are going to <%= @event.title %>, on <strong><%= @event.date.strftime('%A, %b %d') %></strong> <em>(<%= @event.guests %> going)</em></h5>
-      <hr>
-      <p>description: <%= @event.description %></p>
-      <hr>
-      <%= link_to activity_path(@activity) do %>
-        <p><i class="fas fa-info"></i> More Info</p>
-      <% end %>
-    </div>
+  <div class="event-image">
+    <%= cl_image_tag @activity.photo, class: 'event-photo' %>
+  </div>
+  <div class="container">
+    <h5>You are going to <%= @event.title %>, on <strong><%= @event.date.strftime('%A, %b %d') %></strong><br><em>(<%= @event.guests %> going)</em></h5>
+    <hr>
+    <p>description: <%= @event.description %></p>
+    <hr>
+    <%= link_to activity_path(@activity) do %>
+      <p><i class="fas fa-info"></i> More Info</p>
+    <% end %>
   </div>
 </div>
 

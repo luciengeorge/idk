@@ -1,11 +1,9 @@
-.event-show-page {
-  height: 100vh;
-  width: 100vw;
+.event-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto 10px auto;
 }
 
-.event-image {
-  min-height: 30%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 10px auto;
+.event-photo {
+  width: 100%;
 }
