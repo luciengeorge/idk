@@ -7,7 +7,7 @@ $body-font: "Open Sans", "Helvetica", "sans-serif";
 
 @font-face {
   font-family: "Futura";
-  src: url('public/fonts/Futura.ttc') format('truetype');
+  src: asset-url('fonts/Futura.ttc') format('truetype');
 }
 
 // $my-font: "Futura";
