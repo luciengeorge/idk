@@ -3,11 +3,11 @@
 
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Futura", "Helvetica", "sans-serif";
+// $headers-font: "Futura", "Helvetica", "sans-serif";
 
 @font-face {
   font-family: "Futura";
-  src: asset-url('fonts/Futura.ttc') format('truetype');
+  src: url('public/fonts/Futura.ttc') format('truetype');
 }
 
 // $my-font: "Futura";
