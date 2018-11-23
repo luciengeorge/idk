@@ -1,0 +1,36 @@
+.wish-card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin: 5px auto;
+}
+.wish-card-description {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  width: 95%;
+}
+
+.wish-card-description h2 {
+  font-size: 17px;
+}
+
+.wish-card-sub-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.wish-card-sub-description p {
+  font-size: 14px;
+}
+
+.heart-for-wish {
+  position: absolute;
+  right: 23px;
+  top: 7px;
+  font-size: 23px;
+}
