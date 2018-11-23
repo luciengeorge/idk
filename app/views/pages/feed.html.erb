@@ -3,8 +3,8 @@
     <% @events.each do |event| %>
       <div class="feed-card">
         <div class="feed-card-left">
-          <% if current_user.photo? %>
-            <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% if event.users.first.photo? %>
+            <%= cl_image_tag(event.users.first.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
           <% else %>
             <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
           <% end %>
