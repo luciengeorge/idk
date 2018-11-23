@@ -20,7 +20,7 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <div class="card-links">
         <div class="left-link-div">
-          <%= link_to "#{category_path(@activity.category)}/#card_#{@activity.id}" do %>
+          <%= link_to :back do %>
             <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
           <% end %>
         </div>
