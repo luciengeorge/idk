@@ -7,7 +7,7 @@
           <h2><%= wish.activity.title.upcase %></h2>
           <div class="wish-card-sub-description">
             <p><%= wish.activity.price %></p>
-            <p><%= Geocoder.search([wish.activity.latitude, wish.activity.longitude]).first.suburb %></p>
+            <p><%= Geocoder.search([wish.activity.latitude, wish.activity.longitude]).first&.suburb %></p>
           </div>
         </div>
         <div class="heart-for-wish">
