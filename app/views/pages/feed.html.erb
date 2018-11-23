@@ -3,9 +3,20 @@
     <% @events.each do |event| %>
       <div class="feed-card">
         <div class="feed-card-left">
-          <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% if current_user.photo? %>
+            <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% else %>
+            <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% end %>
           <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
-          <p id="time-feed"><%= "#{((Time.now - event.created_at) / 60).floor}m" %></p>
+          <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
+          <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
+            <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
+            <% if (((Time.now - event.created_at) / 3600).floor) > 24 %>
+              <% time = "#{((Time.now - event.created_at) / (3600 * 24).floor)}d" %>
+            <% end %>
+          <% end %>
+          <p id="time-feed"><%= time %></p>
         </div>
         <div class="feed-card-right"></div>
       </div>
