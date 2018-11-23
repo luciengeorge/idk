@@ -693,3 +693,43 @@ cork_and_bottle_tags = [couple, small_group, boss, co_worker, partner, family, s
 cork_and_bottle_tags.each do |tag|
   ActivityTag.create(activity: cork_and_bottle, tag: tag)
 end
+
+
+# tags for south ken - food
+#–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+the_hour_glass_tags = [couple, small_group, large_group, parents, the_girls, someone_from_out_of_town, family, grandparents, partner, boss, south_kensington, trendy, posh, quiet, celebrate, lunch, dinner, talk_business]
+the_hour_glass_tags.each do |tag|
+  ActivityTag.create(activity: the_hour_glass, tag: tag)
+end
+
+dozo_tags = [couple, alone, small_group, friends, someone_from_out_of_town, partner, co_worker, south_kensington, chill, sushi, lunch, dinner, celebrate, im_game_for_anything]
+dozo_tags.each do |tag|
+  ActivityTag.create(activity: dozo, tag: tag)
+end
+
+ours_tags = [couple, small_group, large_group, friends, co_worker, boss, grandparents, the_girls, the_boys, friends, partner, parents, south_kensington, sexy, romantic, celebrate, talk_business, im_game_for_anything, dinner]
+ours_tags.each do |tag|
+  ActivityTag.create(activity: ours, tag: tag)
+end
+
+tombo_tags = [small_group, alone, the_boys, co_worker, friends, south_kensington, chill, quiet, trendy, healthy, lunch, dinner, street_food, sushi]
+tombo_tags.each do |tag|
+  ActivityTag.create(activity: tombo, tag: tag)
+end
+
+yashin_ocean_house_tags = [small_group, large_group, couple, boss, the_girls, someone_from_out_of_town, the_boys, partner, mistress, grandparents, parents, south_kensington, sexy, trendy, swanky, posh, im_game_for_anything, celebrate, treat_myself, talk_business, sushi, dinner, lunch]
+yashin_ocean_house_tags.each do |tag|
+  ActivityTag.create(activity: yashin_ocean_house, tag: tag)
+end
+
+goat_chelsea_tags = [couple, small_group, large_group, parents, partner, grandparents, friends, family, south_kensington, chill, lunch, posh, trendy, vegetarian, pizza]
+goat_chelsea_tags.each do |tag|
+  ActivityTag.create(activity: plum_valley, tag: tag)
+end
+
+toms_kitchen_tags = [couple, small_group, large_group, boss, co_worker, partner, friends, parents, someone_from_out_of_town, south_kensington, trendy, talk_business, lunch, snacks, street_food, vegan, vegetarian, dinner, pizza]
+toms_kitchen_tags.each do |tag|
+  ActivityTag.create(activity: toms_kitchen, tag: tag)
+end
+
+
