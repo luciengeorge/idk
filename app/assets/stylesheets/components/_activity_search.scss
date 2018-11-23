@@ -17,7 +17,7 @@
   padding-top: 10px;
   border: 1px solid $viridian-green;
   border-top: transparent;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 5px 5px;
   background-color: white;
   overflow: hidden;
 }
@@ -26,11 +26,12 @@
 
 label[for="toggle"] {
   font-size: 15px;
-  color: $rose-red;
+  font-weight: lighter !important;
+  color: $eerie-black;
   bottom: 0;
   cursor: pointer;
   z-index: 10000;
-  margin-top: 5px;
+  margin-top: 9px;
 }
 
 #toggle {
@@ -52,9 +53,8 @@ aside {
   right: 0;
   z-index: 10000;
   transition: 0.6s all;
-
 }
 
 #toggle:checked + aside {
-  top: 61px;
+  top: 59px;
 }
