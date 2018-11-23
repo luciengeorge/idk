@@ -25,12 +25,12 @@ class WishesController < ApplicationController
     @activity = @wish.activity
     if @wish.delete
       respond_to do |format|
-        format.html { redirect_to activity_path(@activity) }
+        format.html { redirect_to wishes_path }
         format.js
       end
     else
       respond_to do |format|
-        format.html { render 'categories/show' }
+        format.html { render 'wishes/index' }
         format.js
       end
     end
