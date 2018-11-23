@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
-
   before_action :find_event, only: [:show, :update, :edit, :destroy]
 
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   def new

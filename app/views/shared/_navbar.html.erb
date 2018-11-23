@@ -53,33 +53,7 @@
       <% end %>
       <%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "FEED", feed_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
-<!--       <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <i class="fas fa-bars dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "MY EVENTS", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
@@ -98,20 +72,47 @@
           <% end %>
           <% unread_messages = unread_messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
           <% if unread_messages.zero? %>
-            <li><%= link_to "INBOX", conversations_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <li>
+              <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                <i class="fas fa-inbox"></i> INBOX
+              <% end %>
+            </li>
           <% else %>
-            <li><%= link_to "INBOX (#{unread_messages})", conversations_path, class: "navbar-wagon-item navbar-wagon-link unread" %></li>
+            <li>
+              <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-link unread" do %>
+                <i class="fas fa-inbox"></i> INBOX (<%= unread_messages %>)
+              <% end %>
+            </li>
           <% end %>
-          <li><%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-          <li><%= link_to "FEED", feed_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li>
-            <%= link_to profile_path do %>
-              <%= t(".profile", default: "PROFILE") %>
+            <%= link_to wishes_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="fas fa-heart"></i> WISHLIST
+            <% end %>
+          </li>
+          <li>
+            <%= link_to feed_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="fas fa-chart-line"></i> FEED
+            <% end %>
+          </li>
+          <li>
+            <%= link_to events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="far fa-calendar-alt"></i> MY EVENTS
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.photo? %>
+              <%= link_to profile_path do %>
+                <%= cl_image_tag current_user.photo, class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
+              <% end %>
+            <% else %>
+              <%= link_to profile_path do %>
+                <%= image_tag 'default-avatar.png', class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
+              <% end %>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <%= t(".sign_out", default: "LOG OUT") %>
+              <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "LOG OUT") %>
             <% end %>
           </li>
         </ul>
@@ -142,6 +143,10 @@
           </ul>
         </div>
       </div>
+    </div>
+  <% else %>
+    <div class="hidden-sm hidden-xs">
+      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     </div>
   <% end %>
 </div>
