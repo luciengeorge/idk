@@ -19,10 +19,10 @@ puts 'Database cleaned!'
 # -------------------------------------------------------------------------------------
 puts 'Creating users...'
 
-User.create!(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456', photo: "https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg")
-User.create!(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456', photo: "https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg")
-User.create!(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456', photo: "https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg")
-User.create!(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456', photo: "https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg")
+User.create!(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg')
+User.create!(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg')
+User.create!(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg')
+User.create!(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg')
 
 puts 'Users created!'
 
