@@ -19,10 +19,18 @@ puts 'Database cleaned!'
 # -------------------------------------------------------------------------------------
 puts 'Creating users...'
 
-User.create!(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg')
-User.create!(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg')
-User.create!(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg')
-User.create!(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456', photo: 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg')
+lucien = User.new(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
+lucien.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg'
+lucien.save!
+gaby = User.new(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
+gaby.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg'
+gaby.save!
+izzy = User.new(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
+izzy.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg'
+izzy.save!
+ife = User.new(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
+ife.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg'
+ife.save!
 
 puts 'Users created!'
 
@@ -143,6 +151,7 @@ royal_opera_house = Activity.create!(category: chill, title: 'Royal Opera House'
 prince_charles_cinema = Activity.create!(category: chill, title: 'Prince Charles Cinema', location: '7 Leicester Pl, London, WC2H 7BY', phone: '020 7494 3654', hours: '', description: 'Probably the most fun place to watch a film with a super eclectic mix of films to watch', instagram: 'princecharlescinema', price: '£', age: 0, photo: 'https://images.savoysystems.co.uk/PCH/4358085.jpg', date: '')
 foyles_cafe = Activity.create!(category: chill, title: 'Foyles Cafe', location: '107 Charing Cross Rd, London, WC2H 0EB', phone: '020 7437 5660', hours: '', description: '5 different floors a fantastic to meet a client for a coffee', instagram: '', price: '£', age: 0, photo: 'https://leafi.co.uk/sites/default/files/styles/slideshowbreakpoints_theme_fusion_starter_wide_1x/public/Foyles_picture_web.jpg?itok=r5ptyv7E', date: '')
 
+puts 'soho activities created!'
 
 # food - chinatown
 #________________________________________________________________________________________________________________________________________
@@ -162,6 +171,7 @@ ku_klub = Activity.create!(category: drink, title: 'Ku Klub', location: '30 Lisl
 the_lyric = Activity.create!(category: drink, title: 'The Lyric', location: '37 Great Windmill St, W1D 7LU', phone: '020 7434 0604', hours: '', description: 'The reliable little pub with Victorian features and a huge range of beers', instagram: '', price: '£', age: 18, photo: 'https://media.timeout.com/images/102924204/630/472/image.jpg', date: '')
 cork_and_bottle = Activity.create!(category: drink, title: 'Cork & Bottle', location: '44 Cranbourn St, London, WC2H 7AN', phone: '020 7734 7807', hours: '', description: 'An intimate little cellar is full of cosy nooks and wooden tables', instagram: 'corkandbottlewinebar', price: '££', age: 18, photo: 'http://cdn.ltstatic.com/2007/September/QX892348_942long.jpg', date: '')
 
+puts 'chinatown activities created!'
 
 # food - south-ken
 #--------------------------------------------------------------------------------------------------------------------------
@@ -174,7 +184,7 @@ goat_chelsea = Activity.create!(category: food, title: 'GOAT Chelsea', location:
 toms_kitchen = Activity.create!(category: food, title: 'Toms Kitchen', location: '27 Cale Street, London, SW3 3QP', phone: '020 7349 0202', hours: '', description: 'Toms kitchen is a cross between a high end gastropub and a french rustic bistro. It is airy and bright with high ceilings', instagram: 'tomskitchen', price: '£', age: 0, photo: 'https://img.static-bookatable.com/toms-kitchen-chelsea-london-15.jpg?id=b8abd426-f846-407b-be21-074f86fdb833.jpg&404=bat2/404-restaurant.jpg&width=600&height=400&scale=both&mode=crop', date: '')
 
 
-
+puts 'south kensington activities created!'
 
 #activities tags
 # -------------------------------------------------------------------------------------
@@ -489,8 +499,6 @@ rough_trade_east_tags.each do |tag|
   ActivityTag.create(activity: rough_trade_east, tag: tag)
 end
 
-puts 'Tags added!'
-
 
 # tags for soho food
 #______________________________________________________________________________________________________________________________-
@@ -732,4 +740,4 @@ toms_kitchen_tags.each do |tag|
   ActivityTag.create(activity: toms_kitchen, tag: tag)
 end
 
-
+puts 'Tags added!'
