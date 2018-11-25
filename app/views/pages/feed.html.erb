@@ -13,7 +13,7 @@
           <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
             <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
             <% if (((Time.now - event.created_at) / 3600).floor) > 24 %>
-              <% time = "#{((Time.now - event.created_at) / (3600 * 24).floor)}d" %>
+              <% time = "#{((Time.now - event.created_at) / (3600 * 24)).floor}d" %>
             <% end %>
           <% end %>
           <p id="time-feed"><%= time %></p>
