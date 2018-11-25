@@ -33,6 +33,6 @@ class PagesController < ApplicationController
     users.each do |user|
       @events << user.events
     end
-    @events = @events.flatten.sort_by(&:date).reverse
+    @events = @events.flatten.sort_by(&:created_at).reverse
   end
 end
