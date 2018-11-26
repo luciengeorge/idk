@@ -3,7 +3,6 @@ class ConversationsController < ApplicationController
   before_action :conversations_and_users, only: %i[index show]
   before_action :find_conversation, only: :show
   def index
-    @conversation = Conversation.new
   end
 
   def show
@@ -26,8 +25,7 @@ class ConversationsController < ApplicationController
   private
 
   def conversations_and_users
-    @conversations = Conversation.all
-    @users = User.all
+    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
   end
 
   def find_conversation
