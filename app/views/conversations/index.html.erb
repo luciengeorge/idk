@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
-    <h2 class="inbox-title text-center">INBOX</h2>
-    <ul class="list-group">
+    <h2 class="inbox-title text-center">inbox.</h2>
+    <ul class="list-group inbox-list">
       <% @conversations.each do |conversation| %>
         <% unread_messages = conversation.messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
@@ -14,15 +14,5 @@
         <% end %>
       <% end %>
     </ul>
-    <h3 class="text-center">All Users</h3>
-        <ul class="list-group">
-          <% @users.each do |user| %>
-            <% if user.id != current_user.id %>
-              <li class="list-group-item">
-                <%= link_to "Send message to #{user.first_name.capitalize} #{user.last_name.capitalize}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
   </div>
 </div>
