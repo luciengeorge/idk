@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :wishes, dependent: :destroy
   has_many :activities, through: :wishes
   has_many :events, through: :hostings
+  has_many :followers, dependent: :destroy
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true

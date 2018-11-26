@@ -5,9 +5,36 @@
     <% else %>
       <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% end %>
-    <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
-    <p>AGE: <%= current_user.age %></p>
+    <br>
     <button id="edit-profile-button"><%= link_to 'EDIT PROFILE', edit_user_registration_path %></button>
+    <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
+    <div class="followers-followings-hostings">
+      <div class="hostings">
+        <p>Hostings</p>
+        <p><%= current_user.events.count %></p>
+      </div>
+      <%= link_to followers_path(current_user.id) do %>
+        <div class="followers">
+          <p>Followers</p>
+          <p><%= current_user.followers.count %></p>
+        </div>
+      <% end %>
+      <%= link_to following_path(current_user.id) do %>
+        <div class="followings">
+          <p>Following</p>
+          <p><%= Follower.where(follower_id: current_user.id).count %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @events.each do |event| %>
+        <div class="col-xs-4">
+          <%= link_to event_path(event) do %>
+            <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

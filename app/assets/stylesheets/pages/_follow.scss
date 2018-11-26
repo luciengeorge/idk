@@ -1,0 +1,46 @@
+.following {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.following-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  p {
+    margin: 0 10px;
+    font-size: 15px;
+  }
+}
+
+.unfollow-button {
+  font-size: 14px;
+}
+
+.unfollow-link {
+  flex-grow: 1;
+  text-align: right;
+}
+
+#unfollow {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.2);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+#follow {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.2);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
