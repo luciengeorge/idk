@@ -31,3 +31,21 @@ a{
 .profile-events {
   margin: 5px;
 }
+
+#contact_user {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.2);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.interaction {
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  margin: 10px;
+}
