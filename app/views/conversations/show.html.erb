@@ -1,7 +1,9 @@
 <div class="wrapper">
   <div class="container">
     <div class="header-inbox">
-      <%= link_to "BACK TO INBOX", conversations_path, class:"back-to-conversations" %>
+      <%= link_to :back, class: 'back-to-conversations' do %>
+            <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
+          <% end %>
       <div class="user-info-inbox">
         <div class="user-info-inbox-name">
           <h2 class="inbox-title text-center user-inbox">
@@ -18,7 +20,7 @@
               <% end %>
             <% end %>
           </h2>
-          <div class="recipient-name">
+          <div class="recipient-name-show">
             <p><%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %></p>
           </div>
         </div>
@@ -35,7 +37,7 @@
                   <div class="message-div" style="justify-content: flex-end;">
                     <div class="message-right">
                       <p class="message-sender text-justify">
-                        <%= message.body.upcase %>
+                        <%= message.body %>
                       </p>
                     </div>
                   </div>
@@ -45,7 +47,7 @@
                   <div class="message-div" style="justify-content:flex-start;">
                     <div class="message-left">
                       <p class="message-receiver text-justify" style="color: black;">
-                        <%= message.body.upcase %>
+                        <%= message.body %>
                       </p>
                     </div>
                   </div>
