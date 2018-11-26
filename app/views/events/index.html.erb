@@ -5,15 +5,17 @@
       <p>You haven't booked any events yet.</p>
     <% else %>
       <% @events.each do |event| %>
-        <div class="event-card">
-          <div class="event-avatar">
-            <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
+        <%= link_to event_path(event) do %>
+          <div class="event-card">
+            <div class="event-avatar">
+              <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
+            </div>
+            <div class="event-info">
+              <p><%= event.title %>, on <strong><%= event.date.strftime('%A, %b %d') %></strong></p>
+            </div>
           </div>
-          <div class="event-info">
-            <p><%= event.title %>, on <strong><%= event.date.strftime('%A, %b %d') %></strong></p>
-          </div>
-        </div>
-        <hr>
+          <hr>
+        <% end %>
       <% end %>
     <% end %>
   </div>
