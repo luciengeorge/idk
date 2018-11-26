@@ -2,7 +2,7 @@
   <%= form_for [conversation, message], html: { class: "ui reply form", id: "send-message-form" }, remote: true do |f| %>
     <%= f.text_area :body, class:"form-control" %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <%= button_tag(type: 'submit', class: "btn btn-homepage-small") do %>
+    <%= button_tag(type: 'submit', class: "btn btn-homepage-small msg-button") do %>
       SEND <i class="fab fa-telegram-plane"></i>
     <% end %>
   <% end %>
