@@ -33,7 +33,7 @@
             <%= link_to event_path(event) do %>
               <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
               <br>
-              <% title = event.title.length > 9 ? "#{event.title.first(9)}..." : event.title %>
+              <% title = event.title.length > 10 ? "#{event.title.first(9)}..." : event.title %>
               <p style="margin: 0;"><%= title %></p>
             <% end %>
           </div>
