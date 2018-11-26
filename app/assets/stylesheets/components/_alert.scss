@@ -8,12 +8,18 @@
   border-radius: 0 0 5px 5px;
 }
 .alert-info {
-  background: transparent;
+  // background: transparent;
+  background: $baby-powder;
   border: 1px solid $viridian-green;
   color: $viridian-green;
+  position: absolute;
+  width: 100vw;
 }
 .alert-warning {
+  background: $baby-powder;
   background: transparent;
   border: 1px solid $rose-red;
   color: $rose-red;
+  position: absolute;
+  width: 100vw;
 }

@@ -58,7 +58,7 @@ $(document).ready(function(){
 
       setInterval(() => {
         $('form').submit()
-      }, 4000)
+      }, 5900)
 
       noY = t.offset().top;
 
