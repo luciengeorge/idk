@@ -35,4 +35,8 @@ class PagesController < ApplicationController
     end
     @events = @events.flatten.sort_by(&:created_at).reverse
   end
+
+  def profile
+    @events = current_user.events
+  end
 end
