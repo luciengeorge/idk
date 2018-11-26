@@ -24,7 +24,7 @@
   <%= javascript_pack_tag 'components/wheel' %>
 <% end %>
 
-<div class="footer">
+<div class="footer hidden-sm hidden-md hidden-lg hidden-xl">
     <div class="food footer-links">
       <%= link_to category_path(Category.find_by(title: 'food')) do %>
         <%= image_tag 'food.png', class: "footer-icons" %>
