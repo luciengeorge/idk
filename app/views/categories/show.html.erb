@@ -4,11 +4,11 @@
     <div class="row">
       <div class="col-xs-12">
           <%= form_tag(category_path(@category), :method => "get", id: "search-form", class: "form-group text-center") do %>
-            <%= select_tag "number_of_people", options_for_select([ "alone", "couple", "small group", "large group" ], params[:number_of_people]), class: "form-control index-search", prompt: "number of people" %>
-            <%= select_tag "who_are_you_with", options_for_select([ "parents", "friends", "mistress", "partner", "co worker", "someone from out of town", "grandparents", "the boys", "the girls", "boss" ], params[:who_are_you_with]), class: "form-control index-search", prompt: "who are you with" %>
-            <%= select_tag "location", options_for_select([ "covent Garden", "soho", "west end", "southbank", "city of london", "chinatown", "camden town", "islington", "hamstead", "notting hill", "south kensington", "shoreditch", "peckham", "brixton" ], params[:location]), class: "form-control index-search", prompt: "location" %>
-            <%= select_tag "vibe", options_for_select([ "romantic", "sexy", "chill",  "quiet", "swanky", "loud", "trendy", "posh", "discreet",  "with a view" ], params[:vibe]), class: "form-control index-search", prompt: "vibe" %>
-            <%= submit_tag "UPDATE", :name => nil, class: "btn btn-danger search-button" %>
+            <%= select_tag "number_of_people", options_for_select([ "Alone", "Couple", "Small Group", "Large Group" ], params[:number_of_people]), class: "form-control index-search", prompt: "Number of people" %>
+            <%= select_tag "who_are_you_with", options_for_select([ "Parents", "Friends", "Mistress", "Partner", "Co Worker", "Someone from out of town", "Grandparents", "The Boys", "The Girls", "Boss" ], params[:who_are_you_with]), class: "form-control index-search", prompt: "Who are you with" %>
+            <%= select_tag "location", options_for_select([ "Covent Garden", "Soho", "West End", "Southbank", "City of London", "Chinatown", "Camden Town", "Islington", "Hamstead", "Notting Hill", "South Kensington", "Shoreditch", "Peckham", "Brixton" ], params[:location]), class: "form-control index-search", prompt: "Location" %>
+            <%= select_tag "vibe", options_for_select([ "Romantic", "Sexy", "Chill",  "Quiet", "Swanky", "Loud", "Trendy", "Posh", "Discreet",  "With a view" ], params[:vibe]), class: "form-control index-search", prompt: "Vibe" %>
+            <%= submit_tag "UPDATE", :name => nil, class: "search-button" %>
           <% end %>
         </div>
       </div>
@@ -19,7 +19,7 @@
 <!-- CARDS -->
 
 <div class="container no-gutters" style="margin-top: 25px;">
-  <h2 class="text-center"><%= @category.title %></h2>
+  <h2 class="text-center"><%= @category.title %>.</h2>
   <br>
   <div class="row">
     <% @activities.each do |activity| %>
