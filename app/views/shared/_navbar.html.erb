@@ -6,29 +6,29 @@
     <% end %>
     <div class='weather-icon'>
       <% if @today.downcase.include? "broken clouds" %>
-        <p><i class="fas fa-cloud"></i></p>
+        <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "rain" %>
-        <p><i class="fas fa-tint"></i></p>
+        <p><i class="fas fa-tint"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "scattered clouds" %>
-        <p><i class="fas fa-cloud"></i></p>
+        <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "few clouds" %>
-        <p><i class="fas fa-cloud-sun"></i></p>
+        <p><i class="fas fa-cloud-sun"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "thunderstorm" %>
-        <p><i class="fas fa-bolt"></i></p>
+        <p><i class="fas fa-bolt"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "clear sky" %>
-        <p><i class="fas fa-sun"></i></p>
+        <p><i class="fas fa-sun"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "hot" %>
-        <p><i class="fas fa-temperature-high"></i></p>
+        <p><i class="fas fa-temperature-high"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "foggy" %>
-        <p><i class="fas fa-smog"></i></p>
+        <p><i class="fas fa-smog"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "snow" %>
-        <p><i class="fas fa-snowflake"></i></p>
+        <p><i class="fas fa-snowflake"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "shower rain" %>
-        <p><i class="fas fa-cloud-rain"></i></p>
+        <p><i class="fas fa-cloud-rain"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "windy" %>
-        <p><i class="fas fa-wind"></i></p>
+        <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
       <% else %>
-        <p><i class="fas fa-wind"></i></p>
+        <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
       <% end %>
     </div>
   </div>
