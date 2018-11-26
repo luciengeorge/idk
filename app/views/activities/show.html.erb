@@ -54,7 +54,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
-              <h2 class="modal-title" id="exampleModalLongTitle">Create Your event</h2>
+              <h2 class="modal-title" id="exampleModalLongTitle">Create your event</h2>
             </div>
             <%= form_for [@activity, @event] do |f| %>
             <div class="modal-body">
@@ -68,7 +68,7 @@
               </div>
               <div class="form-group">
                 <%= f.label :date, 'Event Date' %>
-                <%= f.datetime_select :date, class:"form-control input" %>
+                <%= f.text_field :date, class: "datepicker" %>
               </div>
               <div class="form-group">
                 <%= f.label :guests, 'GUESTS' %>
@@ -76,7 +76,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <%= f.submit 'BOOK!', class:"btn btn-default btn-homepage" %>
+              <%= f.submit 'CREATE EVENT', class:"idk-button" %>
             </div>
           <% end %>
         </div>
@@ -84,5 +84,3 @@
     </div>
   </div>
 </div>
-
-
