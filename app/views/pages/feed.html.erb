@@ -9,6 +9,8 @@
             <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
           <% end %>
           <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
+        </div>
+        <div class="feed-card-right">
           <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
           <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
             <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
@@ -18,7 +20,6 @@
           <% end %>
           <p id="time-feed"><%= time %></p>
         </div>
-        <div class="feed-card-right"></div>
       </div>
       <hr>
     <% end %>
