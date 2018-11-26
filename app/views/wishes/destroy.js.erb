@@ -4,7 +4,10 @@ var link = "<a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollo
 
 if(card) {
   card.insertAdjacentHTML('beforeend', link);
-} else {
+  document.getElementById("activity_<%= @activity.id %>").remove();
+} else if (show) {
   show.insertAdjacentHTML('beforeend', link);
+  document.getElementById("activity_<%= @activity.id %>").remove();
+} else {
+  document.getElementById("wish_card_<%= @wish.id %>").remove();
 }
-document.getElementById("activity_<%= @activity.id %>").remove();
