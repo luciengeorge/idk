@@ -1,7 +1,6 @@
 <div class="row">
   <% @wish.each do |wish| %>
     <div class="col-xs-12">
-      <%= link_to wish_path(Wish.where(user: current_user, activity: wish.activity).first.id), method: :delete do %>
       <div class="wish-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= wish.activity.photo %>');">
         <div class="wish-card-description">
           <h2><%= wish.activity.title.upcase %></h2>
@@ -10,11 +9,12 @@
             <p><%= Geocoder.search([wish.activity.latitude, wish.activity.longitude]).first&.suburb %></p>
           </div>
         </div>
-        <div class="heart-for-wish">
-          <i class="fas fa-heart" style="color: #ED4956;"></i>
-        </div>
+        <%= link_to wish_path(Wish.where(user: current_user, activity: wish.activity).first.id), method: :delete do %>
+          <div class="heart-for-wish">
+            <i class="fas fa-heart" style="color: #ED4956;"></i>
+          </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   <% end %>
 </div>
