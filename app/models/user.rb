@@ -15,4 +15,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
+  include PgSearch
+  pg_search_scope :search_by_firstname_and_lastname,
+                  against: [:first_name, :last_name],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
