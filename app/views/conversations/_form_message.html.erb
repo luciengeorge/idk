@@ -1,4 +1,4 @@
-<div class="form-div">
+<div class="form-div" style="margin: auto;">
   <%= form_for [conversation, message], html: { class: "ui reply form", id: "send-message-form" }, remote: true do |f| %>
     <%= f.text_area :body, class:"form-control" %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>

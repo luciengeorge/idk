@@ -1,16 +1,16 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
-const mapElement = document.getElementById('map');
+var mapElement = document.getElementById('map');
 
 if (mapElement) { // only build a map if there's a div#map to inject into
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  const map = new mapboxgl.Map({
+  var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
 
-  const markers = JSON.parse(mapElement.dataset.markers);
+  var markers = JSON.parse(mapElement.dataset.markers);
 
   markers.forEach((marker) => {
     new mapboxgl.Marker()
@@ -24,7 +24,7 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     map.setZoom(14);
     map.setCenter([markers[0].lng, markers[0].lat]);
   } else {
-    const bounds = new mapboxgl.LngLatBounds();
+    var bounds = new mapboxgl.LngLatBounds();
     markers.forEach((marker) => {
       bounds.extend([marker.lng, marker.lat]);
     });

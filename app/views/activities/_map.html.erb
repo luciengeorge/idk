@@ -1,0 +1,46 @@
+  <div
+    id="map"
+    style="width: 100%;
+    height: 30vh;
+    margin: 10px 0;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="card-links">
+    <div class="left-link-div">
+      <%= link_to :back do %>
+        <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <div class="right-link-div" id="right_link_div_<%= @activity.id %>">
+        <button type="button" class="btn btn-default btn-homepage" data-toggle="modal" data-target="#exampleModalCenter" style="border: none; padding: 0; margin: 0;">
+          <i class="far fa-calendar-alt" style="font-size: 25px;"></i>
+        </button>
+        <%= link_to "http://www.instagram.com/#{@activity.instagram}", target:"_blank" do %>
+          <i class="fab fa-instagram" style="font-size: 25px;"></i>
+        <% end %>
+        <% unless Wish.where(user: current_user, activity: @activity).count.zero? %>
+          <%= link_to wish_path(Wish.where(user: current_user, activity: @activity).first.id), method: :delete, remote: true, id: "activity_#{@activity.id}" do %>
+            <i class="fas fa-heart" style="color: #ED4956; font-size: 25px;"></i>
+          <% end %>
+        <% else %>
+          <%= link_to activity_wishes_path(@activity), method: :post, remote: true, id: "activity_#{@activity.id}" do %>
+            <i class="far fa-heart" style="font-size: 25px;"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="right-link-div">
+        <%= link_to new_user_session_path do %>
+          <i class="far fa-calendar-alt" style="font-size: 25px;"></i>
+        <% end %>
+        <%= link_to "http://www.instagram.com/#{@activity.instagram}", target:"_blank" do %>
+          <i class="fab fa-instagram" style="font-size: 25px;"></i>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <i class="far fa-heart" style="font-size: 25px;"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
