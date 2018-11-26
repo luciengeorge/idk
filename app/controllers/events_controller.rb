@@ -16,6 +16,15 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.activity = Activity.find(params[:activity_id])
+    if @event.title.empty?
+      @event.title = @event.activity.title
+    end
+    if @event.description.empty?
+      @event.description = @event.activity.description
+    end
+    if @event.date.nil?
+      @event.date = Time.now
+    end
     hosting = Hosting.new(user: current_user, event: @event)
     if @event.save && hosting.save
       redirect_to event_path(@event)
