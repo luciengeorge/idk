@@ -3,3 +3,4 @@ import 'bootstrap';
 // import './components/wheel';
 // import './components/geolocation';
 import './components/map';
+import "../plugins/flatpickr"
