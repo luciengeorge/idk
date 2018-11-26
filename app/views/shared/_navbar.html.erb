@@ -1,31 +1,31 @@
 <div class="navbar-wagon">
   <div class="navbar-l">
     <div class='weather-icon'>
-        <% if @today.downcase.include? "broken clouds" %>
-          <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "rain" %>
-          <p><i class="fas fa-tint"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "scattered clouds" %>
-          <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "few clouds" %>
-          <p><i class="fas fa-cloud-sun"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "thunderstorm" %>
-          <p><i class="fas fa-bolt"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "clear sky" %>
-          <p><i class="fas fa-sun"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "hot" %>
-          <p><i class="fas fa-temperature-high"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "foggy" %>
-          <p><i class="fas fa-smog"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "snow" %>
-          <p><i class="fas fa-snowflake"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "shower rain" %>
-          <p><i class="fas fa-cloud-rain"></i> <%= @temperature %>˚C</p>
-        <% elsif @today.downcase.include? "windy" %>
-          <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
-        <% else %>
-          <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
-        <% end %>
+      <% if @today.downcase.include? "broken clouds" %>
+        <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "rain" %>
+        <p><i class="fas fa-tint"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "scattered clouds" %>
+        <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "few clouds" %>
+        <p><i class="fas fa-cloud-sun"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "thunderstorm" %>
+        <p><i class="fas fa-bolt"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "clear sky" %>
+        <p><i class="fas fa-sun"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "hot" %>
+        <p><i class="fas fa-temperature-high"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "foggy" %>
+        <p><i class="fas fa-smog"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "snow" %>
+        <p><i class="fas fa-snowflake"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "shower rain" %>
+        <p><i class="fas fa-cloud-rain"></i> <%= @temperature %>˚C</p>
+      <% elsif @today.downcase.include? "windy" %>
+        <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
+      <% else %>
+        <p><i class="fas fa-wind"></i> <%= @temperature %>˚C</p>
+      <% end %>
     </div>
   </div>
       <!-- Logo -->
@@ -60,6 +60,36 @@
         <%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "FEED", feed_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "MY EVENTS", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <div class="dropdown">
+          <i class="fas fa-bars dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                <i class="fas fa-search"></i> SEARCH
+              <% end %>
+            </li>
+            <li>
+              <% if current_user.photo? %>
+                <%= link_to profile_path do %>
+                  <%= cl_image_tag current_user.photo, class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
+                <% end %>
+              <% else %>
+                <%= link_to profile_path do %>
+                  <%= image_tag 'default-avatar.png', class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "LOG OUT") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="login-link-navbar" style="flex-grow: 1">
+          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </div>
       <% end %>
     </div>
 
@@ -104,35 +134,6 @@
                 <i class="fas fa-chart-line"></i> FEED
               <% end %>
             </li>
-          <% end %>
-          <li>
-            <%= link_to wishes_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-              <i class="fas fa-heart"></i> WISHLIST
-            <% end %>
-          </li>
-          <li>
-            <%= link_to feed_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-              <i class="fas fa-chart-line"></i> FEED
-            <% end %>
-          </li>
-          <li>
-            <%= link_to events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-              <i class="far fa-calendar-alt"></i> MY EVENTS
-            <% end %>
-          </li>
-          <li>
-            <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-              <i class="fas fa-search"></i> SEARCH
-            <% end %>
-          </li>
-          <li>
-            <% if current_user.photo? %>
-              <%= link_to profile_path do %>
-                <%= cl_image_tag current_user.photo, class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
-              <% end %>
-            <% else %>
-              <%= link_to profile_path do %>
-                <%= image_tag 'default-avatar.png', class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
             <li>
               <%= link_to events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
                 <i class="far fa-calendar-alt"></i> MY EVENTS
@@ -165,40 +166,6 @@
         <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
     </div>
-
-
-    <% if user_signed_in? %>
-      <!-- right div dissapearing on mobile -->
-      <div class="hidden-sm hidden-xs">
-        <div class="navbar-wagon-item">
-          <div class="dropdown">
-            <i class="fas fa-bars dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-              <li>
-                <% if current_user.photo? %>
-                  <%= link_to profile_path do %>
-                    <%= cl_image_tag current_user.photo, class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
-                  <% end %>
-                <% else %>
-                  <%= link_to profile_path do %>
-                    <%= image_tag 'default-avatar.png', class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
-                  <% end %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "LOG OUT") %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div class="hidden-sm hidden-xs">
-        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
-    <% end %>
   </div>
 </div>
 
