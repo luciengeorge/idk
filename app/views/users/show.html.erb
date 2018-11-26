@@ -21,13 +21,13 @@
       <%= link_to followers_path(@user.id) do %>
         <div class="followers">
           <p>Followers</p>
-          <p><%= @user.followers.count %></p>
+          <p id="follower_count"><%= @user.followers.count %></p>
         </div>
       <% end %>
       <%= link_to following_path(@user.id) do %>
         <div class="followings">
           <p>Following</p>
-          <p><%= Follower.where(follower_id: @user.id).count %></p>
+          <p id="following_count"><%= Follower.where(follower_id: @user.id).count %></p>
         </div>
       <% end %>
     </div>
