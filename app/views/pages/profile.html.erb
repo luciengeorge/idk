@@ -13,13 +13,13 @@
         <p>Hostings</p>
         <p><%= current_user.events.count %></p>
       </div>
-      <%= link_to followers_path do %>
+      <%= link_to followers_path(current_user.id) do %>
         <div class="followers">
           <p>Followers</p>
           <p><%= current_user.followers.count %></p>
         </div>
       <% end %>
-      <%= link_to followers_path do %>
+      <%= link_to following_path(current_user.id) do %>
         <div class="followings">
           <p>Following</p>
           <p><%= Follower.where(follower_id: current_user.id).count %></p>

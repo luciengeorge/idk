@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :followers, only: [:create]
   end
-  resources :followers, only: [:destroy, :index]
+  resources :followers, only: [:destroy]
+  get '/followers/:user_id', to: 'followers#followers', as: 'followers'
+  get '/following/:user_id', to: 'followers#following', as: 'following'
   resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
   resources :events, except: [:new, :create]

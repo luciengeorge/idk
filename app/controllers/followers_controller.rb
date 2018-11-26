@@ -1,7 +1,20 @@
 class FollowersController < ApplicationController
-  def index
-    @followers = Follower.where(user: current_user)
-    @followings = Follower.where(follower_id: current_user)
+  def followers
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @followers = Follower.where(user: current_user)
+    else
+      @followers = Follower.where(user: @user.id)
+    end
+  end
+
+  def following
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @following = Follower.where(follower_id: current_user)
+    else
+      @following = Follower.where(follower_id: @user.id)
+    end
   end
 
   def create

@@ -5,24 +5,26 @@
     <% else %>
       <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% end %>
-    <h1 class="text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
-    <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
-      <%= link_to 'FOLLOW', user_followers_path(@user), method: :post, remote: true, id:"follow" %>
-    <% else %>
-      <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete, remote: true, id:"unfollow" %>
-    <% end %>
+    <h1 class="text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong></h1>
+    <div class="follow-unfollow" id="follow-unfollow">
+      <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
+        <%= link_to 'FOLLOW', user_followers_path(@user), method: :post, remote: true, id:"follow" %>
+      <% else %>
+        <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete, remote: true, id:"unfollow" %>
+      <% end %>
+    </div>
     <div class="followers-followings-hostings">
       <div class="hostings">
         <p>Hostings</p>
         <p><%= @user.events.count %></p>
       </div>
-      <%= link_to followers_path do %>
+      <%= link_to followers_path(@user.id) do %>
         <div class="followers">
           <p>Followers</p>
           <p><%= @user.followers.count %></p>
         </div>
       <% end %>
-      <%= link_to followers_path do %>
+      <%= link_to following_path(@user.id) do %>
         <div class="followings">
           <p>Following</p>
           <p><%= Follower.where(follower_id: @user.id).count %></p>

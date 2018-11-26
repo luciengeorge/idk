@@ -1,4 +1,10 @@
-document.getElementById("unfollow").remove();
-var div = document.getElementById('profile-info');
-var button = "<a id='follow' data-remote='true' rel='nofollow' data-method='post' href='/users/<%= @user.id %>/followers'>FOLLOW</a>";
-div.insertAdjacentHTML('beforeend', button);
+var div = document.getElementById('follow-unfollow');
+var unfollow = document.getElementById('unfollow_<%= @user.id %>');
+console.log('unfollow');
+if(div) {
+  document.getElementById("unfollow").remove();
+  var button = "<a id='follow' data-remote='true' rel='nofollow' data-method='post' href='/users/<%= @user.id %>/followers'>FOLLOW</a>";
+  div.insertAdjacentHTML('beforeend', button);
+} else if(unfollow) {
+  unfollow.remove();
+}
