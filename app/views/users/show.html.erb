@@ -36,6 +36,8 @@
         <div class="col-xs-4">
           <%= link_to event_path(event) do %>
             <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
+            <br>
+            <%= event.title %>
           <% end %>
         </div>
       <% end %>
