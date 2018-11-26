@@ -43,4 +43,8 @@ class PagesController < ApplicationController
   def profile
     @events = current_user.events
   end
+
+  def search
+    @users = User.all.reject { |user| user.id == current_user.id }
+  end
 end

@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="users-search">
+      <% @users.each do |user| %>
+        <div class="col-xs-4">
+          <%= link_to user_path(user) do %>
+            <div class="user-info">
+              <% if user.photo? %>
+                <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% else %>
+                <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% end %>
+              <p style="font-size: 13px;"><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
