@@ -1,5 +1,7 @@
 class FollowersController < ApplicationController
   def index
+    @followers = Follower.where(user: current_user)
+    @followings = Follower.where(follower_id: current_user)
   end
 
   def create

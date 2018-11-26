@@ -7,7 +7,6 @@
     <% end %>
     <h1 class="text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
     <p>AGE: <%= @user.age %></p>
-    <button id="edit-profile-button"><%= link_to 'EDIT PROFILE', edit_user_registration_path %></button>
     <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
       <%= link_to 'FOLLOW', user_followers_path(@user), method: :post %>
     <% else %>
