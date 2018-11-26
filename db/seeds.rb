@@ -110,7 +110,7 @@ puts 'shoreditch activities created!'
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # food - soho
-al_dente = Activity.create!(category: food, title: 'Al Dente', location: '51 Goodge Street, London W1T 1TG', phone: '+44 20 7323 2209', hours: '', description: 'A take-away pasta shop where you can indulde in delicious handmade pasta', instagram: 'al_dente_london', price: '£', age: 0, photo: 'https://cdn.vox-cdn.com/thumbor/BzHzPqAU0aQCe7fpT-sMYTzfHXI=/0x0:1245x830/920x613/filters:focal(524x316:722x514):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/60392585/AL_DENTE_Kitchen.0.jpg', date: '')
+al_dente = Activity.create!(category: food, title: 'Al Dente', location: '51 Goodge Street, London W1T 1TG', phone: '+44 20 7323 2209', hours: '', description: 'A take-away pasta shop where you can indulde in delicious handmade pasta', instagram: 'al_dente_london', price: '£', age: 0, photo: 'https://static.wixstatic.com/media/c7cdb0_5da749e1159d4dbc91916ca274d1c3ec.jpg/v1/fill/w_639,h_851,al_c,q_90,usm_0.66_1.00_0.01/c7cdb0_5da749e1159d4dbc91916ca274d1c3ec.webp', date: '')
 greek_street = Activity.create!(category: food, title: '10 Greek Street', location: '10 Greek Street, London W1D 4Dh', phone: '020 7734 4677', hours: '', description: 'Sit up at the open kitchen and a couple of small plates of delicious Mediterranean Food', instagram: '10greekstreet', price: '££', age: 0, photo: 'https://www.10greekstreet.com/site/wp-content/uploads/2016/07/Queen-scallops-chorizo.jpg', date: '')
 boa_soho = Activity.create!(category: food, title: 'BAO', location: '53 Lexington St, Soho, London W1F 9AS', phone: '020 7734 4677', hours: '', description: 'Expect a bit of a queue, but Bao is worth it. Their bao are delicious and well worth the wait', instagram: 'bao_london', price: '£', age: 0, photo: 'https://media.timeout.com/images/102421329/630/472/image.jpg', date: '')
 good_friend = Activity.create!(category: food, title: 'Good Friend', location: '14 Little Newport St, London WC2H 7JJ', phone: '020 7734 2088', hours: '', description: 'The best fried chicken reminiscent of night markets in Taiwan, we recommend the plum seasoning', instagram: 'bao_london', price: '£', age: 0, photo: 'https://static1.squarespace.com/static/5563f7cee4b0658666ce012e/t/577513cb44024398b4b6296a/1467290618970/?format=500w', date: '')
@@ -185,6 +185,106 @@ toms_kitchen = Activity.create!(category: food, title: 'Toms Kitchen', location:
 
 
 puts 'south kensington activities created!'
+
+
+#drinks - south-ken
+#_____________________________________________________________________________________________________________________
+anglesea_arms = Activity.create!(category: drink, title: 'Anglesea Arms', location: '15 Selwood Terrace, London, SW7 3QG', phone: '020 7373 7960', hours: '', description: 'If tradition is what you are looking for, then the Anglesea Arms is where you should go', instagram: '', price: '££', age: 18, photo: 'https://cdn.londonandpartners.com/asset/anglesea-arms-56eafdcf7f94abc7a5784e07a66c4e21.jpg', date: '')
+vini_italiani = Activity.create!(category: drink, title: 'Vini Italiani', location: '72 Old Brompton Road, London, SW7 3LQ', phone: '020 7225 2283', hours: '', description: 'Wine shop by day, lively bar by night. Come by for electro-swing and atmospheric lighting', instagram: '', price: '£££', age: 18, photo: 'https://media.timeout.com/images/103855621/630/472/image.jpg', date: '')
+the_tommy_tucker = Activity.create!(category: drink, title: 'The Tommy Tuckers', location: '22 Waterford Road, Fulham, SW6 2DR', phone: '020 7736 1023', hours: '', description: 'A pub with a bit of character about it and the renound Tommy tucker pale ale', instagram: '', price: '£', age: 18, photo: 'https://img.static-bookatable.com/the-tommy-tucker-fulham-london-4.jpg?id=ffce8f380dae1faff119859fc80f0588.jpg&404=bat2/404-restaurant.jpg&width=600&height=400&scale=both&mode=crop', date: '')
+the_troubadour = Activity.create!(category: drink, title: 'The Troubadour', location: '263-265 Old Brompton Road, Earls Court, Sw5', phone: '020 7341 6333', hours: '', description: 'Come for a drink in the evening and spend your time listening to live music', instagram: '', price: '££', age: 18, photo: 'https://assets.rbl.ms/17401303/980x.png', date: '')
+the_butchers_hook = Activity.create!(category: drink, title: 'The Butchers Hook', location: '477 Fulham Road, London, SW6 1HL', phone: '020 7385 4654', hours: '', description: 'The Butchers Hook prides itself on its homely feel and their market-fresh pub fare', instagram: '', price: '££', age: 18, photo: 'https://www.butchershookandcleaver.co.uk/-/media/sites/microsites/b/butchers-hook-and-cleaver-_-p015/images/homepage/carousel/c1.jpg', date: '')
+the_admiral_codrington = Activity.create!(category: drink, title: 'The Admiral Condrington', location: '17 Mossop St, London, SW3 2LY', phone: '020 7581 0005', hours: '', description: 'Lively yet cosy pub serving and extensive wine list, premium spirits and lagers', instagram: '', price: '£££', age: 18, photo: 'http://cdn.ltstatic.com/2014/July/KG532863_942long.jpg', date: '')
+the_hereford_arms = Activity.create!(category: drink, title: 'The Hereford Arms', location: '127 Gloucester Road, London SW7 4TE', phone: '020 7370 4988', hours: '', description: 'Whether you are after a quick pint or a meal of seasonal British grub - this could be the place you are after', instagram: '', price: '£', age: 18, photo: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/96/4c/a3/the-hereford-arms.jpg', date: '')
+the_queens_arms = Activity.create!(category: drink, title: 'The Queens Arms', location: '30 Queens Gate Mews', phone: '020 7823 9293', hours: '', description: 'You will find this cosy pub at the end of a delightful cobbled mews where you can enjoy delicious food and beer.', instagram: '', price: '££', age: 18, photo: 'https://media-cdn.tripadvisor.com/media/photo-s/04/a7/5a/9a/the-queen-s-arms.jpg', date: '')
+
+puts 'south kensington drinks created'
+
+#adventure south-ken
+#___________________________________________________________________________________________________________________________
+
+japan_house = Activity.create!(category: adventure, title: 'Japan House', location: '101 Kensington High St, London, W8 5SA', phone: '', hours: '', description: 'The idea is to create a space teeming with activity with an exhibition glasser, theatre and a high-end dining experience', instagram: '', price: '£££', age: 0, photo: 'https://thespaces.com/wp-content/uploads/2018/06/Japan-House-London_Sou-Fujimoto-Futures-of-the-Future-exhibition-Lee-Mawdsley-ft-1-1024x663.jpg', date: '')
+victoria_and_albert = Activity.create!(category: adventure, title: 'Victoria and Albert', location: 'Cromwell Road, London, SW7 2RL', phone: '', hours: '', description: 'One of the largest museums in the world dedicated to decorative art and design with over 145 galleries', instagram: '', price: '£', age: 0, photo: 'https://www.parkgrandkensington.co.uk/blog/wp-content/uploads/2017/04/shutterstock_382162630.jpg', date: '')
+leighton_house_museum = Activity.create!(category: adventure, title: 'Leighton House Museum', location: '12 Holland Park Rd, London, W14 8LZ', phone: '', hours: '', description: 'Lord Frederic Leighton built this house as a giant display case for all the treasured he accumulated', instagram: '', price: '£', age: 0, photo: 'https://media.timeout.com/images/103073046/630/472/image.jpg', date: '')
+design_museum = Activity.create!(category: adventure, title: 'Design Museum', location: '224 Kengington High Street, W8 6AG', phone: '', hours: '', description: 'The worlds leading museum for contemporary design featuring two exhibition spaces', instagram: '', price: 'free', age: 0, photo: 'https://www.artfund.org/assets/what-to-see/museums-and-galleries/d-g/design-museum/design-museum.jpg', date: '')
+market_hall_fulham = Activity.create!(category: adventure, title: 'Market Hall Fulham', location: '472 Fulham Rd, London, SW6 1BY', phone: '', hours: '', description: 'You will find a bar behind the original ticket office booths of the old Fulham Broadway station and all sorts of big foodie names', instagram: '', price: '££', age: 0, photo: 'https://www.hot-dinners.com/images/stories/blog/2018/markethall/market.jpg', date: '')
+
+
+puts 'south ken adventure created'
+
+#chill - south ken
+#________________________________________________________________________________________________________________________
+
+chelsea_physic_garden = Activity.create!(category: chill, title: 'Chelsea Physic Garden', location: '66 Royal Hospital Road, London, SW3 4HS', phone: '020 7352 5646', hours: '', description: 'The Second oldest botanical garden in England, this place is full of plenty of goodness and rate and wonderful plants', instagram: '', price: '£', age: 0, photo: 'http://www.gardenandgreen.co.uk/communities/7/004/006/216/257//images/4560477317.jpg', date: '')
+serpentine_lido = Activity.create!(category: chill, title: 'Serpendine Lido', location: '150 Bayswater Road, London, W2 4RU', phone: '020 7706 3422', hours: '', description: '100m of open water swimming that is pretty popular with serious swimmers who arent into the whole chlorine thing', instagram: '', price: 'free', age: 0, photo: 'https://www.royalparks.org.uk/parks/hyde-park/things-to-see-and-do/sports-and-leisure/serpentine-lido/_gallery/Serpentine-Lido-Swimmers.jpg/w_768.jpg', date: '')
+
+puts 'south ken chill created'
+
+
+
+#food -peckham
+#_______________________________________________________________________________________________________________________________
+persepolis = Activity.create!(category: food, title: 'Persepolis', location: '30 Peckham high St, London, SE15 5DT', phone: '020 7639 8007', hours: '', description: 'This cafe-cum-deli is like a psychedelic shouk, an Peckham OG thats long been serving the community', instagram: '', price: '£', age: 0, photo: 'https://foratasteofpersia.co.uk/wp-content/uploads/2013/03/DSCF4264.jpg', date: '')
+taco_queen = Activity.create!(category: food, title: 'Taco Queen', location: '191 Rye Ln, London, SE15 4TP', phone: '020 7639 8007', hours: '', description: 'Thier tacos may not be traditional but they are delicious, expect bring and tangy flavours', instagram: 'tacoqueenldn', price: '£', age: 0, photo: 'https://video-images.vice.com/articles/5ad8a0d0a397c90008d157a9/lede/1524146387398-IMG_4847.jpeg', date: '')
+jb_soulfood = Activity.create!(category: food, title: 'JBs Soulfood', location: '27a Peckham Highstreet, London, SE15 5EB', phone: '07980 940001', hours: '', description: 'Serving warm carribean vibes, fans will travel far and wide to get a taste of their punchy flavours', instagram: 'jbs_soulfood', price: '£', age: 0, photo: 'https://media.superpages.com/media/photos/27/21/49/84/72/images/micrositeimage_photo1.jpg', date: '')
+the_begging_bowl = Activity.create!(category: food, title: 'The Begging Bowl', location: '168 Bellenden Road, London, SE15 4BW', phone: '020 7635 2627', hours: '', description: 'The constantly changing menu is brimming with seasonal dishes that are meant to be shared - perfect for groups', instagram: '', price: '££', age: 0, photo: 'https://385y0b1mqr4b126xs21flg4w-wpengine.netdna-ssl.com/wp-content/uploads/sites/17/2016/10/Begging1.jpg', date: '')
+forza_win = Activity.create!(category: food, title: 'Forza Win', location: '133 Copeland Road', phone: '020 7732 9012', hours: '', description: 'The most delicious Italian food will be found in a restored old grain store in Copeland park', instagram: '', price: '£', age: 0, photo: 'https://www.forzawin.com/files/peckham/Forza_Space_022.jpg', date: '')
+
+
+
+
+
+#drinks -peckham
+#_______________________________________________________________________________________________________________________________
+rosies = Activity.create!(category: drink, title: 'Rosies', location: '28 Peckham Rye, London SE15 4JS', phone: '', hours: '', description: 'An indie cafe set up by the famous Rosie Lovell. This homely and inviting spot is perfect for breakfast', instagram: '', price: '£', age: 18, photo: 'https://thecitylane.com/wp-content/uploads/2016/09/IMG_0363.jpg', date: '')
+the_gowlett = Activity.create!(category: drink, title: 'The Gowlett', location: '62 Gowlett Road, London, SE15 4HY', phone: '020 7635 7048', hours: '', description: 'The legend of the Gowlett Arms speaks of a snug haunt frequented by Londoners of the South East', instagram: '', price: '£', age: 18, photo: 'http://london-se.siteleaf.net/assets/the-gowlett-00.jpg', date: '')
+bar_story = Activity.create!(category: drink, title: 'Bar Story', location: '213 Blenheim Grove, London, SE15 4QL', phone: '020 7635 6643', hours: '', description: 'The cool kids of SE15 congregate here in this cockail bar for vibezy evenings fuelled by their killer cocktails', instagram: '', price: '££', age: 18, photo: 'https://i.pinimg.com/originals/92/f1/75/92f1757c02f5300a29886c0ecdf02300.jpg', date: '')
+
+
+
+#chill - peckham
+#________________________________________________________________________________________________________________________
+south_london_gallery = Activity.create!(category: chill, title: 'South London Gallery', location: '65-67 Peckahm Road, London, SE5 8UH', phone: '', hours: '', description: 'A place that has since been bringing forward thinking art south of the river for well over a century', instagram: '', price: 'free', age: 0, photo: 'https://www.southlondongallery.org/wp-content/uploads/2017/12/SLG-TPIH-17-023.jpg', date: '')
+rye_wax = Activity.create!(category: chill, title: 'Rye Wax', location: '133 Rye Lane, London, SE15 4ST ', phone: '07980 940001', hours: '', description: 'Rye Wax has been rumbling with experimental electronic sounds since 2015. This record shop is well worth a look', instagram: '', price: '£', age: 0, photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOerAw0YpXeIkyxBrcl9ebY4WqjUOINI9ZxOdI7ZBmYcLlxoIW', date: '')
+
+
+
+
+puts 'peckam activities created'
+
+#food - brixton
+#___________________________________________________________________________________________________________________________________
+fish_wings_and_tings = Activity.create!(category: food, title: 'Fish, Wings & Tings', location: 'Brixton Village, 99 Coldharbour SW9 8P', phone: '07411 642264', hours: '', description: 'What youll find here is lots of rum and some serious Trini fare - jerk and catfish fritters for example', instagram: '', price: '£', age: 0, photo: 'https://media-cdn.tripadvisor.com/media/photo-s/09/4f/c0/83/fish-wings-and-tings.jpg', date: '')
+seven_at_brixton = Activity.create!(category: food, title: 'Seven at Brixton', location: 'Unit 7, Market row, SW9 8LB', phone: '020 7998 3309', hours: '', description: 'We are huge fans of their ever-changing cocktail menu and their amazing tapas!!', instagram: '', price: '££', age: 0, photo: 'https://static1.squarespace.com/static/542c1ac4e4b041933885ff50/t/54300ecbe4b006a416766652/1526484638562/nh_BAC_BrixtonBats_097+copy.jpg?format=2500w', date: '')
+okan = Activity.create!(category: food, title: 'Okan', location: 'Unit 39 Brixton Village, Coldharbour lane, SW9', phone: '020 7326 1180', hours: '', description: 'This adorable little restaurant looks like it was plucked straight out of the streets of Osaka - with all dishes having a very homely feel', instagram: '', price: '£', age: 0, photo: 'https://littleladyeats.files.wordpress.com/2014/03/img_1371.jpg', date: '')
+naughty_piglets = Activity.create!(category: food, title: 'Naughty Piglets', location: '28 Brixton Water Lane, London, SW2 1PE', phone: '', hours: '', description: 'Here youll find modern european small plates and an epic wine list. The menu is seasonal and constantly evolving', instagram: '', price: '££', age: 0, photo: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/04/24/00/5820994.jpg?w968h681', date: '')
+salon = Activity.create!(category: food, title: 'Salon', location: '18 Market Row, London, SW9 8LD', phone: '020 7501 9152', hours: '', description: 'The vibe is British cuisine influenced by global flavours and has been named one of the top 40 restaurants by the Observer', instagram: '', price: '££', age: 0, photo: 'https://eatinbrixton.files.wordpress.com/2014/06/salon10.jpg', date: '')
+
+
+
+#drink - brixton
+#___________________________________________________________________________________________________________________________________
+duke_of_edinburgh = Activity.create!(category: drink, title: 'Duke of Edinburgh', location: '204 Ferndale Road, London, SW9 8AG', phone: '020 7326 0301', hours: '', description: 'This unassuming pub with a huge beer garden is a Brixton gem containing food pop ups and iconic rhino street art', instagram: '', price: '££', age: 18, photo: 'https://img1.10bestmedia.com/Images/Photos/306035/p-DukeOfEdinburgh1_54_990x660.jpg', date: '')
+
+
+
+
+#adventure - brixton
+#___________________________________________________________________________________________________________________________________
+
+hootananny = Activity.create!(category: adventure, title: 'Hootananny', location: '95 Effra Rd, London, SW2 1DF', phone: '020 7737 7273', hours: '', description: 'A real live music pup, expect events here most days of the week, from reggae to afrobeat nights', instagram: '', price: '£', age: 0, photo: 'https://ents24.imgix.net/image/000/295/386/eae084077c75191589ca133ad29a38a6df853f66.jpg?w=358&h=268&auto=format&fit=crop&crop=entropy', date: '')
+whirled_cinema = Activity.create!(category: adventure, title: 'Whirled Cinema', location: '259 Hardess Street, SE24 0HN', phone: '020 7737 6153', hours: '', description: 'This 60 seater cinema with comfy leather sofas a bar serving cocktails and pizza', instagram: '', price: '£', age: 0, photo: 'http://cdn.ltstatic.com/2014/June/FF543772_942long.jpg', date: '')
+
+
+
+# chill - brixton
+#___________________________________________________________________________________________________________________________________
+
+federation_coffee = Activity.create!(category: chill, title: 'Federation Coffee', location: 'Unit 46, Brixton Village, Coldharbour Lane, SW9 8PS', phone: '', hours: '', description: 'Federation serves up some of the best coffee we have ever had. The morning pit stop should end here for you to indulge in a ham and cheese croissant', instagram: '', price: '££', age: 0, photo: 'https://www.wearebrixtonvillage.co.uk/wp-content/uploads/2017/02/federation_exterior.jpg', date: '')
+cafe_cairo = Activity.create!(category: chill, title: 'Cafe Cairo', location: '88 Landor Road< stockwell, SW9 9PE', phone: '', hours: '', description: 'A cosy den of dim lighting, snug seating and wayward musicains. Aladdin, eat your heart out', instagram: '', price: '££', age: 0, photo: 'https://d3vdw1xqmo272m.cloudfront.net/listing/4731/107345.jpg', date: '')
+
+
+
 
 #activities tags
 # -------------------------------------------------------------------------------------
@@ -740,4 +840,223 @@ toms_kitchen_tags.each do |tag|
   ActivityTag.create(activity: toms_kitchen, tag: tag)
 end
 
+
+
+#tags for south-ken drinks
+#_________________________________________________________________________________________________________________________
+
+
+anglesea_arms_tags = [alone, couple, small_group, large_group, parents, the_girls, the_boys, someone_from_out_of_town, family, grandparents, partner, boss, south_kensington, trendy, posh, quiet, pub, celebrate, lunch, dinner, talk_business]
+anglesea_arms_tags.each do |tag|
+  ActivityTag.create(activity: anglesea_arms, tag: tag)
+end
+
+vini_italiani_tags = [couple, small_group, friends, someone_from_out_of_town, partner, co_worker, boss, south_kensington, chill, lunch, dinner, celebrate, talk_business, best_deals]
+vini_italiani_tags.each do |tag|
+  ActivityTag.create(activity: vini_italiani, tag: tag)
+end
+
+the_tommy_tucker_tags = [couple, small_group, large_group, friends, co_worker, boss, grandparents, the_girls, the_boys, friends, partner, parents, south_kensington, trendy, chill, swanky, celebrate, talk_business, im_game_for_anything, dinner, pub]
+the_tommy_tucker_tags.each do |tag|
+  ActivityTag.create(activity: the_tommy_tucker, tag: tag)
+end
+
+the_troubadour_tags = [small_group, large_group, the_boys, the_girls, friends, someone_from_out_of_town, south_kensington, sexy, trendy, rave, see_a_performance, pub, street_food, late_night, break_a_sweat]
+the_troubadour_tags.each do |tag|
+  ActivityTag.create(activity: the_troubadour, tag: tag)
+end
+
+the_butchers_hook_tags = [small_group, large_group, couple, the_boys, the_girls, someone_from_out_of_town, parents, south_kensington, sexy, trendy, swanky, pub, im_game_for_anything, celebrate, treat_myself, talk_business, lunch]
+the_butchers_hook_tags.each do |tag|
+  ActivityTag.create(activity: the_butchers_hook, tag: tag)
+end
+
+the_admiral_codrington_tags = [couple, small_group, large_group, parents, partner, grandparents, friends, family, boss, co_worker, south_kensington, chill, lunch, posh, trendy, swanky, vegetarian, brunch, pub]
+the_admiral_codrington_tags.each do |tag|
+  ActivityTag.create(activity: the_admiral_codrington, tag: tag)
+end
+
+the_hereford_arms_tags = [couple, small_group, large_group, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, south_kensington, trendy, talk_business, lunch, snacks, street_food, vegan, vegetarian, dinner, pub]
+the_hereford_arms_tags.each do |tag|
+  ActivityTag.create(activity: the_hereford_arms, tag: tag)
+end
+
+the_queens_arms_tags = [couple, small_group, large_group, alone, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, south_kensington, trendy, talk_business, lunch, snacks, pub, dinner, im_game_for_anything]
+the_queens_arms_tags.each do |tag|
+  ActivityTag.create(activity: the_queens_arms, tag: tag)
+end
+
+# tags for south ken adventure
+#______________________________________________________________________________________________________________
+
+
+japan_house_tags = [small_group, large_group, alone, couple, friends, someone_from_out_of_town, parents, grandparents, mistress, partner, south_kensington, trendy, discreet, cultural_trip, gallery]
+japan_house_tags.each do |tag|
+  ActivityTag.create(activity: japan_house, tag: tag)
+end
+
+victoria_and_albert_tags = [small_group, large_group, couple, alone, the_boys, the_girls, mistress, partner, grandparents, family, parents, south_kensington, cultural_trip, gallery, indoors, detox]
+victoria_and_albert_tags.each do |tag|
+  ActivityTag.create(activity: victoria_and_albert, tag: tag)
+end
+
+leighton_house_museum_tags = [couple, small_group, parents, partner, grandparents, south_kensington, chill, posh, gallery, cultural_trip]
+leighton_house_museum_tags.each do |tag|
+  ActivityTag.create(activity: leighton_house_museum, tag: tag)
+end
+
+design_museum_tags = [couple, small_group, alone, partner, friends, parents, grandparents, someone_from_out_of_town, south_kensington, trendy, cultural_trip, gallery, indoors]
+design_museum_tags.each do |tag|
+  ActivityTag.create(activity: design_museum, tag: tag)
+end
+
+market_hall_fulham = [couple, small_group, large_group, alone, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, partner, mistress, south_kensington, trendy, discreet, talk_business, lunch, snacks, pub, dinner, im_game_for_anything, brunch, treat_myself]
+market_hall_fulham.each do |tag|
+  ActivityTag.create(activity: the_queens_arms, tag: tag)
+end
+
+
+# tags for south ken chill
+#_____________________________________________________________________________________________________________________
+
+chelsea_physic_garden_tags = [couple, small_group, alone, partner, friends, parents, grandparents, someone_from_out_of_town, south_kensington, discreet, with_a_view, cultural_trip, gallery, outdoors, get_dirty]
+chelsea_physic_garden_tags.each do |tag|
+  ActivityTag.create(activity: chelsea_physic_garden, tag: tag)
+end
+
+serpentine_lido_tags = [couple, small_group, large_group, alone, partner, friends, the_boys, family, south_kensington, outdoors, get_dirty, break_a_sweat]
+serpentine_lido_tags.each do |tag|
+  ActivityTag.create(activity: serpentine_lido, tag: tag)
+end
+
+# tags for peckham food
+#_______________________________________________________________________________________________________________________
+
+persepolis_tags = [small_group, large_group, alone, friends, the_boys, peckham, trendy, lunch, dinner, street_food]
+persepolis_tags.each do |tag|
+  ActivityTag.create(activity: persepolis, tag: tag)
+end
+
+taco_queen_tags = [small_group, large_group,  the_boys, the_girls, friends, peckham, lunch, dinner, street_food, late_night, treat_myself]
+taco_queen_tags.each do |tag|
+  ActivityTag.create(activity: taco_queen, tag: tag)
+end
+
+jb_soulfood_tags = [small_group, partner, friends, the_boys, the_girls, grandparents, peckham, chill, sexy, street_food, cultural_trip, lunch, snacks, dinner]
+jb_soulfood_tags.each do |tag|
+  ActivityTag.create(activity: jb_soulfood, tag: tag)
+end
+
+the_begging_bowl_tags = [couple, small_group, alone, large_group, partner, friends, parents, grandparents, someone_from_out_of_town, peckham, trendy, healthy, sushi, lunch, dinner, snacks]
+the_begging_bowl_tags.each do |tag|
+  ActivityTag.create(activity: the_begging_bowl, tag: tag)
+end
+
+forza_win_tags = [couple, small_group, large_group, alone, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, partner, mistress, peckham, trendy, discreet, talk_business, lunch, pizza, snacks, dinner, im_game_for_anything, brunch, treat_myself]
+forza_win_tags.each do |tag|
+  ActivityTag.create(activity: forza_win, tag: tag)
+end
+
+
+# tags for peckham drinks
+#____________________________________________________________________________________________________________________________
+
+
+rosies_tags = [small_group, partner, friends, the_boys, the_girls, grandparents, peckham, chill, sexy, street_food, brunch, snacks, coffee]
+rosies_tags.each do |tag|
+  ActivityTag.create(activity: rosies, tag: tag)
+end
+
+the_gowlett_tags = [couple, small_group, large_group, partner, friends, parents, the_girls, the_boys, peckham, trendy, chill, pub, lunch, dinner, snacks, indoors]
+the_gowlett_tags.each do |tag|
+  ActivityTag.create(activity: the_gowlett, tag: tag)
+end
+
+bar_story_tags = [couple, small_group, large_group, the_girls, the_boys, partner, friends, someone_from_out_of_town, partner, peckham, trendy, sexy, live_music, celebrate, lunch, pizza, pop_up, im_game_for_anything, dance, treat_myself]
+bar_story_tags.each do |tag|
+  ActivityTag.create(activity: bar_story, tag: tag)
+end
+
+# tags for peckham chill
+#_______________________________________________________________________________________________________________________
+
+rye_wax_tags = [couple, small_group, partner, friends, the_girls, the_boys, peckham, trendy, chill, indoors, cultural_trip]
+rye_wax_tags.each do |tag|
+  ActivityTag.create(activity: rye_wax, tag: tag)
+end
+
+south_london_gallery_tags = [couple, small_group, large_group, the_girls, the_boys, partner, friends, someone_from_out_of_town, grandparents, parents, peckham, trendy, chill, quiet, cultural_trip, gallery, indoors]
+south_london_gallery_tags.each do |tag|
+  ActivityTag.create(activity: south_london_gallery, tag: tag)
+end
+
+
+#tags for brixton food
+#__________________________________________________________________________________________________________________--
+
+fish_wings_and_tings_tags = [small_group, large_group, friends, the_boys, brixton, trendy, lunch, dinner, street_food]
+fish_wings_and_tings_tags.each do |tag|
+  ActivityTag.create(activity: fish_wings_and_tings, tag: tag)
+end
+
+seven_at_brixton_tags = [small_group, large_group, couple, the_boys, the_girls, friends, brixton, lunch, dinner, street_food, late_night, treat_myself, celebrate, dance, im_game_for_anything]
+seven_at_brixton_tags.each do |tag|
+  ActivityTag.create(activity: seven_at_brixton, tag: tag)
+end
+
+okan_tags = [small_group, large_group, partner, friends, the_boys, the_girls, grandparents, parents, brixton, chill, sexy, street_food, lunch, snacks, dinner, sushi, vegetarian]
+okan_tags.each do |tag|
+  ActivityTag.create(activity: okan, tag: tag)
+end
+
+naughty_piglets_tags = [couple, small_group, large_group, partner, friends, parents, grandparents, someone_from_out_of_town, boss, brixton, trendy, healthy, lunch, dinner, snacks, brunch]
+naughty_piglets_tags.each do |tag|
+  ActivityTag.create(activity: naughty_piglets, tag: tag)
+end
+
+salon_tags = [couple, small_group, large_group, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, mistress, brixton, trendy, discreet, sexy, romantic, talk_business, celebrate, lunch, dinner, im_game_for_anything, brunch, treat_myself]
+salon_tags.each do |tag|
+  ActivityTag.create(activity: salon, tag: tag)
+end
+
+
+# drinks - brixton
+#____________________________________________________________________________________________________________________________
+duke_of_edinburgh_tags = [couple, small_group, large_group, the_boys, the_girls, partner, friends, someone_from_out_of_town, brixton, trendy, chill, sexy, dance, live_music, celebrate, im_game_for_anything, treat_myself, outdoors, rave]
+duke_of_edinburgh_tags.each do |tag|
+  ActivityTag.create(activity: duke_of_edinburgh, tag: tag)
+end
+
+
+# adventure - brixton
+#_________________________________________________________________________________________________________________________
+
+hootananny_tags = [small_group, large_group, partner, friends, the_boys, the_girls, someone_from_out_of_town, brixton, trendy, dance, live_music, celebrate, im_game_for_anything]
+hootananny_tags.each do |tag|
+  ActivityTag.create(activity: hootananny, tag: tag)
+end
+
+whirled_cinema_tags = [couple, small_group, partner, friends, parents, grandparents, someone_from_out_of_town, mistress, brixton, trendy, discreet, sexy, romantic]
+whirled_cinema_tags.each do |tag|
+  ActivityTag.create(activity: whirled_cinema, tag: tag)
+end
+
+
+# adventure - chill
+#_________________________________________________________________________________________________________________________
+
+federation_coffee_tags = [small_group, large_group, partner, alone, couple, friends, parents, grandparents, brixton, coffee, chill, quiet, brunch]
+federation_coffee_tags.each do |tag|
+  ActivityTag.create(activity: federation_coffee, tag: tag)
+end
+
+cafe_cairo_tags = [couple, small_group, large_group, partner, friends, the_girls, mistress, someone_from_out_of_town, brixton, trendy, discreet, sexy, romantic, chill, live_music]
+cafe_cairo_tags.each do |tag|
+  ActivityTag.create(activity: cafe_cairo, tag: tag)
+end
+
+
+
 puts 'Tags added!'
+
+
