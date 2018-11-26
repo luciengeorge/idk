@@ -33,6 +33,10 @@
 // //   margin: 100px auto auto auto;
 // // }
 
+.modal-body {
+  height: 330px;
+}
+
 .modal-footer {
   background-color: $viridian-green;
   width: 100%;
@@ -45,4 +49,7 @@
 .idk-button {
   color: white;
   font-weight: bold;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
