@@ -28,7 +28,11 @@ class PagesController < ApplicationController
   end
 
   def feed
-    users = User.all
+    following = Follower.where(follower_id: current_user.id)
+    users = []
+    following.each do |follow|
+      users << User.find(follow.user_id)
+    end
     @events = []
     users.each do |user|
       @events << user.events
