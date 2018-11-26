@@ -1,8 +1,13 @@
+#search-form {
+  margin-bottom: 0;
+}
+
+
 .index-search {
-  margin: 10px auto;
+  margin: 10px;
   width: 70vw;
   border-radius: 10px;
-  color: $silver-sand;
+  color: $eerie-black;
 }
 
 .search-button {
@@ -32,6 +37,7 @@ label[for="toggle"] {
   cursor: pointer;
   z-index: 10000;
   margin-top: 9px;
+  width: 100%;
 }
 
 #toggle {
@@ -40,10 +46,6 @@ label[for="toggle"] {
 
 .sliding-panel {
   display: flex;
-}
-
-.help-text {
-  width: 320px;
 }
 
 aside {
