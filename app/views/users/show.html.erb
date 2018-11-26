@@ -6,12 +6,17 @@
       <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% end %>
     <h1 class="text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong></h1>
-    <div class="follow-unfollow" id="follow-unfollow">
-      <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
-        <%= link_to 'FOLLOW', user_followers_path(@user), method: :post, remote: true, id:"follow" %>
-      <% else %>
-        <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete, remote: true, id:"unfollow" %>
-      <% end %>
+    <div class="interaction">
+      <div class="follow-unfollow" id="follow-unfollow">
+        <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
+          <%= link_to 'FOLLOW', user_followers_path(@user), method: :post, remote: true, id:"follow" %>
+        <% else %>
+          <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete, remote: true, id:"unfollow" %>
+        <% end %>
+      </div>
+      <div class="contact">
+        <%= link_to 'CONTACT', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, id:'contact_user' %>
+      </div>
     </div>
     <div class="followers-followings-hostings">
       <div class="hostings">
@@ -37,7 +42,8 @@
           <%= link_to event_path(event) do %>
             <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
             <br>
-            <p style="margin: 0;"><%= "#{event.title.first(9)}..." %></p>
+            <% title = event.title.length > 9 ? "#{event.title.first(9)}..." : event.title %>
+            <p style="margin: 0;"><%= title %></p>
           <% end %>
         </div>
       <% end %>
