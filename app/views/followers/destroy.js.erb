@@ -1,0 +1,4 @@
+document.getElementById("unfollow").remove();
+var div = document.getElementById('profile-info');
+var button = "<a id='follow' data-remote='true' rel='nofollow' data-method='post' href='/users/<%= @user.id %>/followers'>FOLLOW</a>";
+div.insertAdjacentHTML('beforeend', button);

@@ -6,10 +6,17 @@ class FollowersController < ApplicationController
 
   def create
     @follower = Follower.new(user_id: params[:user_id], follower_id: current_user.id)
+    @user = User.find(@follower.user.id)
     if @follower.save!
-      redirect_to user_path(@follower.user_id)
+      respond_to do |format|
+        format.html { redirect_to user_path(@follower.user_id) }
+        format.js
+      end
     else
-      render 'users/show'
+      respond_to do |format|
+        format.html { render 'users/show' }
+        format.js
+      end
     end
   end
 
@@ -17,6 +24,9 @@ class FollowersController < ApplicationController
     @follower = Follower.find(params[:id])
     @user = @follower.user
     @follower.delete
-    redirect_to user_path(@user)
+    respond_to do |format|
+      format.html { redirect_to user_path(@user) }
+      format.js
+    end
   end
 end

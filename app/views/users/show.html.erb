@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="container text-center">
+  <div class="container text-center" id="profile-info">
     <% if @user.photo? %>
       <%= cl_image_tag(@user.photo, width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
     <% else %>
@@ -8,9 +8,9 @@
     <h1 class="text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
     <p>AGE: <%= @user.age %></p>
     <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
-      <%= link_to 'FOLLOW', user_followers_path(@user), method: :post %>
+      <%= link_to 'FOLLOW', user_followers_path(@user), method: :post, remote: true, id:"follow" %>
     <% else %>
-      <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete %>
+      <%= link_to 'UNFOLLOW', follower_path(Follower.find_by(user_id: @user, follower_id: current_user.id)), method: :delete, remote: true, id:"unfollow" %>
     <% end %>
   </div>
 </div>
