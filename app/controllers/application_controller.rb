@@ -36,5 +36,6 @@ class ApplicationController < ActionController::Base
     forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@location[0]}&lon=#{@location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
     days_array = forecast['list']
     @today = days_array[0]['weather'][0]['description']
+    @temperature = (days_array[0]['main']['temp'] - 273.15).round
   end
 end

@@ -3,7 +3,7 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: white !important;
   position: relative;
   margin: 0 auto 10px auto;
 }
@@ -12,10 +12,14 @@
   bottom: 0px;
   left: 10px;
   width: 95%;
+  color: white;
 }
 
 .wish-card-description h2 {
   font-size: 17px;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .wish-card-sub-description {
