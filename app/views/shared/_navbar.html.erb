@@ -104,6 +104,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+              <i class="fas fa-search"></i> SEARCH
+            <% end %>
+          </li>
+          <li>
             <% if current_user.photo? %>
               <%= link_to profile_path do %>
                 <%= cl_image_tag current_user.photo, class:'avatar-sm' %> <%= t(".profile", default: "PROFILE") %>
@@ -134,6 +139,11 @@
         <div class="dropdown">
           <i class="fas fa-bars dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+                <i class="fas fa-search"></i> SEARCH
+              <% end %>
+            </li>
             <li>
               <% if current_user.photo? %>
                 <%= link_to profile_path do %>
