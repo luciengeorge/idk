@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
   get '/feed', to: 'pages#feed'
+  resources :users, only: [:show] do
+    resources :followers, only: [:create, :index]
+  end
+  resources :followers, only: [:destroy]
   resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
   resources :events, except: [:new, :create]
