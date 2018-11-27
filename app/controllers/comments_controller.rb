@@ -11,9 +11,15 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.event = @event
     if @comment.save!
-      redirect_to event_comments_path(@event)
+      respond_to do |format|
+        format.html { redirect_to event_comments_path(@event) }
+        format.js
+      end
     else
-      render 'index'
+      respond_to do |format|
+        format.html { render 'index' }
+        format.js
+      end
     end
   end
 
@@ -21,7 +27,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @event = @comment.event
     @comment.destroy
-    redirect_to event_comments_path(@event)
+    respond_to do |format|
+      format.html { redirect_to event_comments_path(@event) }
+      format.js
+    end
   end
 
   private

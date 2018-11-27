@@ -1,4 +1,4 @@
-<%= simple_form_for [@event, @comment], html: {id:'comments-form'} do |f| %>
+<%= simple_form_for [@event, @comment], html: {id:'comments-form'}, remote: true do |f| %>
   <%= f.input :content %>
   <%= f.submit 'Comment' %>
 <% end %>
