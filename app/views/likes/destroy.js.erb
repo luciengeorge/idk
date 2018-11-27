@@ -1,0 +1,6 @@
+var div = document.querySelector('.feed-card-bottom');
+document.getElementById("event_dislike_<%= @event.id %>").remove();
+var link = "<a id='event_like_<%= @event.id %>' data-remote='true' rel='nofollow' data-method='post' href='events/<%= @event.id %>/likes'><i class='far fa-thumbs-up' style='margin: 0 5px; font-size: 20px;'></i></a>";
+if(div) {
+  div.insertAdjacentHTML('afterbegin', link);
+}

@@ -6,7 +6,7 @@ if(div) {
   div.insertAdjacentHTML('beforeend', button);
   var followerCount = document.getElementById('follower_count');
   var count = parseInt(followerCount.innerHTML, 10);
-  count = count - 1;
+  count = parseInt("<%= @user.followers.count %>", 10);
   followerCount.innerHTML = count;
 } else if(unfollow) {
   unfollow.remove();

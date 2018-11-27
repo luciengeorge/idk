@@ -29,7 +29,7 @@
           <div class="feed-card-bottom">
             <% if Like.find_by(user: current_user, event: event) %>
               <%= link_to like_path(Like.find_by(user: current_user, event: event)), method: :delete, remote: true, id:"event_dislike_#{event.id}" do %>
-                <i class="fas fa-thumbs-up" style="margin: 0 5px; font-size: 20px;"></i>
+                <i class="fas fa-thumbs-up" style="margin: 0 5px; font-size: 20px; color: #FFCB02;"></i>
               <% end %>
             <% else %>
               <%= link_to event_likes_path(event), method: :post, remote: true, id:"event_like_#{event.id}" do %>

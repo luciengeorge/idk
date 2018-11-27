@@ -4,5 +4,5 @@ var button = "<a id='unfollow' data-remote='true' rel='nofollow' data-method='de
 div.insertAdjacentHTML('beforeend', button);
 var followerCount = document.getElementById('follower_count');
 var count = parseInt(followerCount.innerHTML, 10);
-count = count + 1;
+count = parseInt("<%= @user.followers.count %>", 10);
 followerCount.innerHTML = count;
