@@ -9,23 +9,21 @@
 #   queue_as :default
 
 #   def perform(*args)
-
-# # browser = Watir::Browser.new
-#     url = "https://www.lonelyplanet.com/england/london/restaurants/a/poi-eat/358914"
+#     url = "https://www.opentable.co.uk/s/?covers=2&dateTime=2018-11-27%2019%3A00&latitude=51.53&longitude=-0.08&metroId=72&term=london&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0"
 
 #     page = Nokogiri::HTML(open(url))
-#     base = "https://www.lonelyplanet.com"
-#     page.search(".ListItem-title").each do |e|
-#       p link = base + e.search("a").first["href"]
-#       s_page = Nokogiri::HTML(open(link))
-#       restaurant = s_page.search("h1").text
-#       address = s_page.search(".styles__infoItem___72gXC").first.text
-#       postcode_p1 = s_page.search(".styles__infoItem___72gXC")[1].text
-#       postcode_p2 = s_page.search(".styles__infoItem___72gXC")[2].text
-#       p restaurant
-#       p address
-#       p postcode_p1
-#       p postcode_p2
+
+#     page.search(".result img").each do |e|
+#       p e["data-src"]
+
+#       # p link = base + e.search("a").first["href"]
+#       # s_page = Nokogiri::HTML(open(link))
+#       # restaurant = s_page.search("h1").text
+#       # address = s_page.search(".street-address").text.strip
+#       # postcode = s_page.search(".locality").text
+#       # p restaurant
+#       # p address
+#       # p postcode
 #     end
 #     # Activity.create!(
 #     #   title: restaurant,
