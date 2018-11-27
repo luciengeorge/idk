@@ -32,7 +32,8 @@ class ApplicationController < ActionController::Base
   end
 
   def home
-    # @ip = request.location&.ip
+    raise
+    # @tion&.ip
     # @user_location = Geocoder.search(@ip).first&.data['loc']
     # @location = Geocoder.search('london').first&.coordinates
     # if @user_location

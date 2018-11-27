@@ -16,6 +16,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
+    @event = @like.event
     if @like.delete
       respond_to do |format|
         format.html { redirect_to events_path }
