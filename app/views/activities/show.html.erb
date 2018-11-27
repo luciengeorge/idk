@@ -15,6 +15,9 @@
         <p>address: <%= @activity.location %></p>
         <p>phone: <%= @activity.phone.empty? ? 'Phone number not available' : @activity.phone %></p>
         <p>price: <strong><%= @activity.price %></strong></p>
+        <% if @direction && @distance %>
+          <p><%= @direction.round(1) %>km away</p>
+        <% end %>
       </div>
       <div class="map-links-mobile">
         <%= render 'map' %>
