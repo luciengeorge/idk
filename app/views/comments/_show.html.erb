@@ -1,15 +1,17 @@
-<div class="comment-card">
+<div class="comment-card" id="comment_card_<%= comment.id %>">
   <div class="comment-card-top">
     <div class="comment-info">
-      <% if comment.user.photo? %>
-        <%= cl_image_tag(comment.user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-      <% else %>
-        <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+      <%= link_to user_path(comment.user) do %>
+        <% if comment.user.photo? %>
+          <%= cl_image_tag(comment.user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+        <% else %>
+          <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+        <% end %>
       <% end %>
       <p><%= comment.content %></p>
     </div>
     <div class="comment-delete">
-      <%= link_to comment_path(comment), method: :delete do %>
+      <%= link_to comment_path(comment), method: :delete, remote: true do %>
         <i class="fas fa-trash-alt" style="color: #C4C4C4;"></i>
       <% end %>
     </div>
@@ -28,4 +30,4 @@
     <p id="time-feed" style="font-size: 13px; margin: 0;"><%= time %></p>
   </div>
 </div>
-<hr style="margin: 0;">
+<hr id="hr_<%= comment.id %>" style="margin: 0;">
