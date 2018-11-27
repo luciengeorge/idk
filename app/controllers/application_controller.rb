@@ -33,18 +33,11 @@ class ApplicationController < ActionController::Base
 
   def home
     @ip = request.remote_ip
-    @user_location = Geocoder.search(@ip).first.data['loc']
-    @location = Geocoder.search('london').first&.coordinates
-    if @user_location
-      @user_location = @user_location.split(',')
-      @user_location.map! do |location|
-        location.to_f
-      end
-      puts "=========================USERLOCATION: #{@user_location}============================="
-      forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@user_location[0]}&lon=#{@user_location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
-    elsif @location
-      puts "=========================LOCATION: #{@location}======================================"
-      forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@location[0]}&lon=#{@location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
+    @user_location = JSON.parse(open("http://iplocate.io/api/lookup/#{@ip}").read)
+    @coordinates = [@user_location['latitude'], @user_location['longitude']]
+    if @coordinates[0] && @coordinates[1]
+      puts "=========================USERLOCATION: #{@coordinates}============================="
+      forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@coordinates[0]}&lon=#{@coordinates[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
     else
       forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=51.5074&lon=0.1278&APPID=#{ ENV['WEATHER_KEY'] }").read)
     end
