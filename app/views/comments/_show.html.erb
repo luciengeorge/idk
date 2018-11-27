@@ -1,0 +1,31 @@
+<div class="comment-card">
+  <div class="comment-card-top">
+    <div class="comment-info">
+      <% if comment.user.photo? %>
+        <%= cl_image_tag(comment.user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+      <% else %>
+        <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+      <% end %>
+      <p><%= comment.content %></p>
+    </div>
+    <div class="comment-delete">
+      <%= link_to comment_path(comment), method: :delete do %>
+        <i class="fas fa-trash-alt" style="color: #C4C4C4;"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="comment-card-bottom">
+    <% time = "#{((Time.now - comment.created_at) / 60).floor}m" %>
+    <% if (((Time.now - comment.created_at) / 60).floor) > 60 %>
+      <% time = "#{(((Time.now - comment.created_at) / 3600).floor)}h" %>
+      <% if (((Time.now - comment.created_at) / 3600).floor) > 24 %>
+        <% time = "#{((Time.now - comment.created_at) / (3600 * 24)).floor}d" %>
+        <% if ((Time.now - comment.created_at) / (3600 * 24)).floor > 7 %>
+          <% time = "#{((Time.now - comment.created_at) / (3600 * 24 * 7)).floor}w" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p id="time-feed" style="font-size: 13px; margin: 0;"><%= time %></p>
+  </div>
+</div>
+<hr style="margin: 0;">

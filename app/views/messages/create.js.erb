@@ -12,7 +12,7 @@ refreshForm = ((innerHtml) => {
 
 addMessage = ((messageHtml) => {
   messageList = document.getElementById('message-list');
-  messageList.insertAdjacentHTML('beforeend', messageHtml)
+  messageList.insertAdjacentHTML('beforeend', messageHtml);
 });
 
 <% if @message.errors.any? %>

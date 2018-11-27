@@ -1,0 +1,25 @@
+updateScroll = (() => {
+  comments = document.getElementById('comments');
+  comments.scrollTop = comments.scrollHeight;
+});
+
+updateScroll();
+
+refreshForm = ((innerHtml) => {
+  sendMessageForm = document.getElementById('comments-form');
+  sendMessageForm.innerHtml = innerHtml;
+});
+
+addComment = ((commentHtml) => {
+  commentList = document.getElementById('comments');
+  commentList.insertAdjacentHTML('beforeend', commentHtml);
+});
+
+<% if @comment.errors.any? %>
+  refreshForm('<%= j render "comments_form" %>');
+<% else %>
+  addComment('<%= j render "show", comment: comment %>');
+  updateScroll();
+  commentBody = document.getElementById('comment_content');
+  commentBody.value = "";
+<% end %>
