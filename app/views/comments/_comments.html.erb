@@ -1,0 +1,5 @@
+<div class="comments" id="comments">
+  <% @comments.each do |comment| %>
+    <%= render 'show', comment: comment %>
+  <% end %>
+</div>
