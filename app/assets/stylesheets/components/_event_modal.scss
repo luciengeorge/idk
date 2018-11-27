@@ -33,17 +33,19 @@
 // //   margin: 100px auto auto auto;
 // // }
 
-.modal-body {
-  height: 330px;
+.modal-title {
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.modal-content {
+  border-radius: 15px;
 }
 
 .modal-footer {
   background-color: $viridian-green;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   border: none;
+  border-radius: 0 0 10px 10px;
 }
 
 .idk-button {
@@ -52,4 +54,8 @@
   border: none;
   background: transparent;
   box-shadow: none;
+}
+
+.guests-input {
+  margin: 0;
 }
