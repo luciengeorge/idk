@@ -29,7 +29,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
-              <h2 class="modal-title" id="exampleModalLongTitle">Create your event</h2>
+              <h2 class="modal-title" id="exampleModalLongTitle">create your event<strong class="logo-period-profile">.</strong></h2>
             </div>
             <%= form_for [@activity, @event] do |f| %>
             <div class="modal-body">
@@ -45,8 +45,8 @@
                 <%= f.label :date, 'Event Date' %>
                 <%= f.text_field :date, class: "datepicker" %>
               </div>
-              <div class="form-group">
-                <%= f.label :guests, 'GUESTS' %>
+              <div class="form-group guests-input">
+                <%= f.label :guests, 'Guests' %>
                 <%= f.select :guests, (1..20), class:"form-control input" %>
               </div>
             </div>
