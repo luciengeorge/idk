@@ -13,10 +13,12 @@
               <% else %>
                 <% recipient = User.find(@conversation.sender_id) %>
               <% end %>
-              <% if recipient.photo? %>
-                <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
-              <% else %>
-                <%= image_tag('default-avatar.png', class: "avatar-large") %>
+              <%= link_to user_path(recipient) do %>
+                <% if recipient.photo? %>
+                  <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
+                <% else %>
+                  <%= image_tag('default-avatar.png', class: "avatar-large") %>
+                <% end %>
               <% end %>
             <% end %>
           </h2>

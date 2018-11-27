@@ -1,20 +1,28 @@
 .message-sender {
   background-color: $usc-gold;
-  padding: 6px 20px;
-  border-radius: 16px;
-  margin: 0 0 0 auto;
   color: white !important;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  // border: 2px solid $usc-gold;
+  // background-color: white;
+  // color: white;
+  padding: 6px 20px;
+  border-radius: 10px;
+  margin: 0 0 0 auto;
+  // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  // text-shadow: 0 0 10px rgba(0,0,0,0.2);
   font-size: 16px;
 }
 
 .message-receiver {
   background-color: $viridian-green;
-  padding: 6px 20px;
-  border-radius: 16px;
-  margin: 0 auto 0 0;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   color: white !important;
+  // border: 2px solid $viridian-green;
+  // background-color: white;
+  // color: white !important;
+  padding: 6px 20px;
+  border-radius: 10px;
+  margin: 0 auto 0 0;
+  // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  // text-shadow: 0 0 10px rgba(0,0,0,0.2);
   font-size: 16px;
 }
 
@@ -69,7 +77,7 @@
   @media only screen and (min-width: 600px) {
     width: 70%;
   }
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   min-height: 60vh;
   max-height: 60vh;
   overflow: scroll;
@@ -79,6 +87,7 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .message-div {
@@ -92,6 +101,25 @@
   border-radius: 10px;
 }
 
+.form {
+  display: flex;
+}
+
+#message_body {
+  flex-grow: 1;
+  border: none;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0 0 0 10px;
+  padding: 5px;
+}
+
 .msg-button {
-  margin: 10px auto;
+  height: 64px !important;
+  border-radius: 0 0px 10px 0;
+  background-color: $silver-sand;
+  color: white;
+}
+
+#send-message-form {
+
 }
