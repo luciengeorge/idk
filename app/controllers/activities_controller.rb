@@ -11,7 +11,6 @@ class ActivitiesController < ApplicationController
     if @coordinates.all?
       @distance = @activity.distance_from(@coordinates, units: :kms)
       @direction = @activity.heading_to(@coordinates)
-      raise
     end
   end
 end
