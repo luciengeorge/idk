@@ -39,7 +39,7 @@
             <div class="card-info" id="card_info_<%= activity.id %>">
               <p><%= activity.title.upcase %></p>
               <% if @distance && @direction %>
-                <p><%= @distance %>kms away</p>
+                <p><%= @distance.round(1) %>km away</p>
               <% end %>
               <% if user_signed_in? %>
                 <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
