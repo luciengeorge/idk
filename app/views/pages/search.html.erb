@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="search-user-form text-center">
     <%= form_tag(search_path, method: :get, class:'form-inline') do %>
-      <%= text_field_tag(:name, "", placeholder: "search for user...", class:"form-control form-text") %>
+      <%= text_field_tag(:name, "", placeholder: "search for users...", class:"form-control form-text") %>
       <%= submit_tag "SEARCH", name: nil, class:"btn-homepage-smal" %>
     <% end %>
   </div>
