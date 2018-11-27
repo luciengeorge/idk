@@ -15,10 +15,8 @@
         <p>address: <%= @activity.location %></p>
         <p>phone: <%= @activity.phone.empty? ? 'Phone number not available' : @activity.phone %></p>
         <p>price: <strong><%= @activity.price %></strong></p>
-        <div class="map-links-laptop hidden-xs">
-          <%= render 'map' %>
       </div>
-      <div class="map-links-laptop hidden-sm hidden-md hidden-lg hidden-xl">
+      <div class="map-links-mobile">
         <%= render 'map' %>
       </div>
     </div>
