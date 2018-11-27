@@ -8,9 +8,5 @@ class ActivitiesController < ApplicationController
         lng: @activity.longitude,
         lat: @activity.latitude
       }]
-    if @coordinates.all?
-      @distance = @activity.distance_from(@coordinates, units: :kms)
-      @direction = @activity.heading_to(@coordinates)
-    end
   end
 end
