@@ -1,4 +1,7 @@
 <div class="wrapper">
+  <%= link_to :back do %>
+    <i class="fas fa-long-arrow-alt-left" style="font-size: 25px; margin: 3px;"></i>
+  <% end %>
   <div class="container text-center">
     <% if current_user.photo? %>
       <%= cl_image_tag(current_user.photo, width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
