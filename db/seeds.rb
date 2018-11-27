@@ -1,6 +1,12 @@
-#cleaning database seed
-# -------------------------------------------------------------------------------------
-puts 'Cleaning Database...'
+# require 'open-uri'
+# require 'json'
+# require 'date'
+# require 'nokogiri'
+# # require 'rest-client'
+# # require 'awesome_print'
+# # require 'watir'
+
+puts 'Creating categories...'
 
 Hosting.destroy_all
 Event.destroy_all
@@ -11,7 +17,113 @@ Message.destroy_all
 Conversation.destroy_all
 Tag.destroy_all
 Category.destroy_all
-User.destroy_all
+
+food = Category.create!(title: 'food')
+drink = Category.create!(title: 'drink')
+adventure = Category.create!(title: 'adventure')
+chill = Category.create!(title: 'chill')
+
+puts 'Categories created!'
+
+## food scraping
+# #_____________________________________________________________________________________________________________________________
+
+# url = "https://www.opentable.co.uk/s/?areaid=geohash%3Agcpvhc&covers=2&currentview=list&datetime=2018-11-27+19%3A00&latitude=51.511413&longitude=-0.135915&metroid=72&size=100&sort=Popularity&cuisineids%5B%5D=48e9d049-40cf-4cb9-98d9-8c47d0d58986&cuisineids%5B%5D=0735c10c-6ab6-46f6-87aa-8fe54397744d&cuisineids%5B%5D=de65517b-b89c-4af9-b138-8a53b49b1de7&cuisineids%5B%5D=3e5cdb19-550f-47fb-8afd-e68c24460f31&cuisineids%5B%5D=101660ad-8f93-45f8-aeba-69ee3ea76c2e"
+
+# page = Nokogiri::HTML(open(url))
+
+# images = []
+# links = []
+
+# page.search(".result").each do |e|
+#   e.search(".rest-row-name").each do |f|
+#     links << "https://www.opentable.co.uk" + f["href"]
+#   end
+# end
+
+# links.each do |e|
+#   begin
+#     p "###################################################################"
+#     page = Nokogiri::HTML(open(e))
+#     title = page.search("h1").text
+#     tag = page.search(".oc-reviews-eda4e1f7").first.text
+#     cuisine = page.at("//span[@itemprop = 'servesCuisine']").children.text
+#     location = page.at("//div[@itemprop = 'address']").children.text
+#     description = page.at("//div[@itemprop = 'description']").children.text
+#     price = page.at("//span[@itemprop = 'priceRange']").children.text
+#     image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
+#     p image
+
+
+#     act = Activity.create!(
+#       category: Category.find_by(title: 'food'),
+#       title: title,
+#       description: description,
+#       location: location,
+#       phone: '',
+#       price: price,
+#       photo: image
+#       )
+#     p act
+#   rescue StandardError => e
+#     p e.message
+#   end
+# end
+
+
+
+
+
+
+# ## Drink scraping
+# #________________________________________________________________________
+# url = "https://www.opentable.co.uk/s/?areaid=geohash%3Agcpvhc&covers=2&currentview=list&datetime=2018-11-27+19%3A00&latitude=51.511413&longitude=-0.135915&metroid=72&size=100&sort=Popularity&cuisineids%5B%5D=9b925f03-fbea-46c6-b75e-01f7ccf8e50c&cuisineids%5B%5D=c718224e-a5a3-4c46-9102-74d4cdd7c36b&cuisineids%5B%5D=f09f8e08-e736-4c40-905a-ff2296e786b9&cuisineids%5B%5D=e0c16bdd-c1ff-403c-969d-5c446e50f84e&cuisineids%5B%5D=aba0f9b4-13c4-40db-81fc-0ac9cc3fc2bb"
+
+# page = Nokogiri::HTML(open(url))
+
+# images = []
+# links = []
+
+# page.search(".result").each do |e|
+#   e.search(".rest-row-name").each do |f|
+#     links << "https://www.opentable.co.uk" + f["href"]
+#   end
+# end
+
+# links.each do |e|
+#   begin
+#     p "###################################################################"
+#     page = Nokogiri::HTML(open(e))
+#     title = page.search("h1").text
+#     tag = page.search(".oc-reviews-eda4e1f7").first.text
+#     cuisine = page.at("//span[@itemprop = 'servesCuisine']").children.text
+#     location = page.at("//div[@itemprop = 'address']").children.text
+#     description = page.at("//div[@itemprop = 'description']").children.text
+#     price = page.at("//span[@itemprop = 'priceRange']").children.text
+#     image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
+#     p image
+
+
+#     act = Activity.create!(
+#       category: Category.find_by(title: 'drink'),
+#       title: title,
+#       description: description,
+#       location: location,
+#       phone: '',
+#       price: price,
+#       photo: image
+#       )
+#     p act
+#   rescue StandardError => e
+#     p e.message
+#   end
+# end
+
+
+#-------------------------------------------------------------------------------------
+puts 'Cleaning Database...'
+
+# User.destroy_all
 
 puts 'Database cleaned!'
 
@@ -37,19 +149,11 @@ puts 'Users created!'
 
 #categories seed
 # -------------------------------------------------------------------------------------
-puts 'Creating categories...'
-
-# category = Category.create!(title: 'food')
-food = Category.create!(title: 'food')
-drink = Category.create!(title: 'drink')
-adventure = Category.create!(title: 'adventure')
-chill = Category.create!(title: 'chill')
-
-puts 'Categories created!'
 
 #activities seed
 # -------------------------------------------------------------------------------------
 puts 'Creating activities...'
+
 
 
 # food - shoreditch
@@ -67,7 +171,6 @@ abondance = Activity.create!(category: food, title: 'Abondance', location: '10A 
 boundary_rooftop = Activity.create!(category: food, title: 'Boundary Rooftop', location: '2-4 Boundary St, London E2 7DD', phone: '020 7729 1051', hours: '', description: 'Because when it is nice outside, why not enjoy a rooftop meal? Mediterranean food & panoramic views of London, whats better?', instagram: 'boundaryldn', price: '£££', age: 0, photo: 'https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/united-kingdom/Hotels%20-%20England/london/boundary-london-rooftop-p.jpg', date: '')
 brilliant_corners = Activity.create!(category: food, title: 'Brilliant Corners', location: '470 Kingsland Rd, London E8 4AE', phone: '020 7812 9511', hours: '', description: 'Low lit cocktail bar & Japanese small plates featuring DJ sessions and live music', instagram: 'brilliant_cnrs', price: '££', age: 0, photo: 'http://brilliantcornerslondon.co.uk/wp-content/uploads/2016/01/moons.jpg', date: '')
 bach = Activity.create!(category: food, title: 'Bach Hoxton', location: '98 Hoxton St, London N1 6SG', phone: '020 7683 1591', hours: '', description: 'Perfect place to get a nice, healthy, and conscious bite with the ability to let your creativity and workflow going', instagram: 'wearethebach', price: '£', age: 0, photo: 'https://static1.squarespace.com/static/56ddb9f960b5e9cd549d4744/579c9e3dc534a564c73232db/579ca68e2e69cf815410952e/1483454515316/IMG_2505.JPG?format=2500w', date: '')
-
 
 #drinks shoreditch
 dinerama_drinks = Activity.create!(category: drink, title: 'Dinerama', location: '19 Great Eastern St, London EC2A 3EJ', phone: '020 3931 1270', hours: '', description: 'Global street food & drink market housing different environments', instagram: 'streetfeastldn', price: '£', age: 0, photo: 'https://www.streetfeast.com/wp-content/uploads/2017/01/C44iF5ZVYAEAqxH-1.jpg', date: '')
@@ -101,7 +204,7 @@ rich_mix = Activity.create!(category: chill, title: 'Rich Mix', location: '35-47
 electric_cinema = Activity.create!(category: chill, title: 'Electric Cinema', location: '3Aubin & Wills Store, 64-66 Redchurch St, London E2 7DP', phone: '020 3350 3490', hours: '', description: 'Luxury single screen cinema, with a full bar and velvet seats. We would say its quiet romantic', instagram: 'electriccinemashoreditch', price: '££', age: 0, photo: 'https://www.electriccinema.co.uk/wp-content/uploads/2018/07/electric-shoreditch-interior.jpg', date: '')
 columbia_road_flower_market = Activity.create!(category: chill, title: 'Columbia Road Flower Market', location: 'Columbia Rd, London E2 7RG', phone: '', hours: '', description: 'Opened every sunday, this Flower Market is the perfect place to fill your house with beautiful and not too expensive flowers', instagram: '', price: 'Free', age: 0, photo: 'https://cdn.londonandpartners.com/asset/8f85fee3fb4f2f8fe5344884fe9305ee.jpg', date: '')
 turning_earth_ceramics_studio = Activity.create!(category: chill, title: 'Turning Earth Ceramics Studio Hoxton', location: 'Railway Arches, 361-362 Whiston Rd, London E2 8BW', phone: '020 7729 4819', hours: '', description: 'Turning Earth is a community ceramics studio that offers memberships and free workshops', instagram: 'turning.earth', price: '£', age: 0, photo: 'https://static1.squarespace.com/static/55c9e277e4b0e3531a25d061/t/5a3a5d9e0d9297e83b90dce0/1513774575724/Turning+Earth+Hoxton?format=1000w', date: '')
-myo_borough = Activity.create!(category: chill, title: 'M.Y.O Borough', location: '82 Redcross Way, London SE1 1HA', phone: '07780 661787', hours: '', description: 'Get your creative juices flowing, build or make crafts while BYOB ', instagram: 'myolondon', price: '£', age: 0, photo: 'https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1920,f_auto,q_auto/v1/1143869/IMG_20180731_100136375_LL_2_uwm0nn.jpg', date: '')
+# myo_borough = Activity.create!(category: chill, title: 'M.Y.O Borough', location: '82 Redcross Way, London SE1 1HA', phone: '07780 661787', hours: '', description: 'Get your creative juices flowing, build or make crafts while BYOB ', instagram: 'myolondon', price: '£', age: 0, photo: 'https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1920,f_auto,q_auto/v1/1143869/IMG_20180731_100136375_LL_2_uwm0nn.jpg', date: '')
 rough_trade_east = Activity.create!(category: chill, title: 'Rough Trade East', location: 'Old Truman Brewery 91, Brick Ln, London E1 6QL', phone: '020 7392 7788', hours: '', description: 'One of a kind records & cds store that showcases a live mic & gigs', instagram: 'roughtradeeast', price: '£', age: 0, photo: 'https://www.roughtrade.com/assets/stores/rough-trade-east-2-e7a6d4a5d86e348cec661e5f8812eeb9668e4e6b81d9daa608f177dab016548b.jpg', date: '')
 
 
@@ -589,10 +692,10 @@ turning_earth_ceramics_studio_tags.each do |tag|
   ActivityTag.create(activity: turning_earth_ceramics_studio, tag: tag)
 end
 
-myo_borough_tags = [couple, small_group, large_group, friends, partner, co_worker, family, shoreditch, loud, chill, indoors]
-myo_borough_tags.each do |tag|
-  ActivityTag.create(activity: myo_borough, tag: tag)
-end
+# myo_borough_tags = [couple, small_group, large_group, friends, partner, co_worker, family, shoreditch, loud, chill, indoors]
+# myo_borough_tags.each do |tag|
+#   ActivityTag.create(activity: myo_borough, tag: tag)
+# end
 
 rough_trade_east_tags = [couple, small_group, large_group, friends, partner, co_worker, shoreditch, loud, chill, indoors, outdoors, live_music, dance]
 rough_trade_east_tags.each do |tag|
