@@ -9,7 +9,7 @@
 }
 .alert-info {
   // background: transparent;
-  background: $baby-powder;
+  background: white;
   border: 1px solid $viridian-green;
   color: $viridian-green;
   position: absolute;
@@ -17,7 +17,7 @@
   z-index: 100000;
 }
 .alert-warning {
-  background: $baby-powder;
+  background: white;
   background: transparent;
   border: 1px solid $rose-red;
   color: $rose-red;

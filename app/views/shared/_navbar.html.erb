@@ -163,9 +163,13 @@
           </ul>
         </div>
       <% else %>
-        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% unless params[:controller] == "devise/sessions" && params[:action] == "new"%>
+          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
+
 
