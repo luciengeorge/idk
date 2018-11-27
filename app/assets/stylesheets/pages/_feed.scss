@@ -1,4 +1,4 @@
-.feed-card {
+.feed-card-top {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -33,4 +33,10 @@ hr {
     margin: 0;
     font-size: 13px;
   }
+}
+
+.feed-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
