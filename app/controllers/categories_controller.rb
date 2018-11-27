@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @activities = Activity.where(category: @category)
+    if @coordinates.all?
+      @activities = Activity.by_distance(origin: @coordinates).where(category: @category)
+    else
+      @activities = Activity.where(category: @category)
+    end
     # @activities = Activity.joins(:tags).where(category: @category).where("tags.name ILIKE ?", params[:vibe])
     search_filter
   end
