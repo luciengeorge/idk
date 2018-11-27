@@ -7,3 +7,9 @@
 .event-photo {
   width: 100%;
 }
+
+.event-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
