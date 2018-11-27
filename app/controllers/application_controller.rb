@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   def home
     @ip = request.location.ip
     @user_location = Geocoder.search(@ip).first&.data['loc']
-    @location = Geocoder.search('london').first.coordinates
+    @location = Geocoder.search('london').first&.coordinates
     if @user_location
       @user_location = @user_location.split(',')
       @user_location.map! do |location|
@@ -42,9 +42,11 @@ class ApplicationController < ActionController::Base
       end
       puts "=========================USERLOCATION: #{@user_location}============================="
       forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@user_location[0]}&lon=#{@user_location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
-    else
+    elsif @location
       puts "=========================LOCATION: #{@location}======================================"
       forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=#{@location[0]}&lon=#{@location[1]}&APPID=#{ ENV['WEATHER_KEY'] }").read)
+    else
+      forecast = JSON.parse(open("http://api.openweathermap.org/data/2.5/forecast?lat=51.5074&lon=0.1278&APPID=#{ ENV['WEATHER_KEY'] }").read)
     end
     days_array = forecast['list']
     @today = days_array[0]['weather'][0]['description']

@@ -45,7 +45,9 @@ class PagesController < ApplicationController
   end
 
   def search
-    if params[:name]
+    if params[:name]&.empty?
+      @users = User.all.reject { |user| user.id == current_user.id }
+    elsif params[:name]
       @users = User.search_by_firstname_and_lastname(params[:name])
     else
       @users = User.all.reject { |user| user.id == current_user.id }
