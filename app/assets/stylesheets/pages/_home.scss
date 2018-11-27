@@ -11,7 +11,7 @@
 }
 
 .wheel-container {
-  height: calc(100vh - 133px);
+  height: calc(100vh - 380px);
   width: 100vw;
   display: flex;
   justify-content: space-around;
@@ -294,4 +294,20 @@ opacity:0.1;
   width: 50px;
   top: -106px;
   left: -24px;
+}
+
+/* typed js */
+
+#banner-typed-text {
+  font-family: Futura;
+  color: black;
+  font-size: 20px;
+}
+
+.typed-js-text {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
