@@ -1,7 +1,8 @@
 class LikesController < ApplicationController
   def create
-    like = Like.new(user: current_user, event: Event.find(params[:event_id].to_i))
-    if like.save!
+    @event = Event.find(params[:event_id].to_i)
+    @like = Like.new(user: current_user, event: @event)
+    if @like.save!
       respond_to do |format|
         format.html { redirect_to events_path }
         format.js
@@ -16,6 +17,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
+    @event = @like.event
     if @like.delete
       respond_to do |format|
         format.html { redirect_to events_path }

@@ -1,0 +1,24 @@
+.comment-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  p {
+    margin: 0 10px;
+  }
+}
+
+.comment-card {
+  padding: 5px;
+}
+
+.comments {
+  height: 70vh;
+  width: 100%;
+  overflow: scroll;
+}

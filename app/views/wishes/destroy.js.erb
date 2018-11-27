@@ -1,6 +1,6 @@
 var card = document.getElementById("card_info_<%= @activity.id %>");
-var show = document.getElementById("right_link_div_<%= @activity.id %>")
-var link = "<a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='post' href='/activities/<%= @activity.id %>/wishes'><i class='far fa-heart' style='font-size: 25px;'></i></a>"
+var show = document.getElementById("right_link_div_<%= @activity.id %>");
+var link = "<a id='activity_<%= @activity.id %>' data-remote='true' rel='nofollow' data-method='post' href='/activities/<%= @activity.id %>/wishes'><i class='far fa-heart' style='font-size: 25px;'></i></a>";
 
 if(card) {
   card.insertAdjacentHTML('beforeend', link);
