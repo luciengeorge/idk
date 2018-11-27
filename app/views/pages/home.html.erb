@@ -20,9 +20,6 @@
     </div>
 </div>
 
-<%= content_for(:after_js) do %>
-  <%= javascript_pack_tag 'components/wheel' %>
-<% end %>
 
 <div class="footer hidden-sm hidden-md hidden-lg hidden-xl">
     <div class="food footer-links">
@@ -52,3 +49,6 @@
 </div>
 
 <!-- add additional grey footer -->
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/wheel' %>
+<% end %>

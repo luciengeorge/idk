@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   get '/search', to: 'pages#search', as: 'search'
   resources :wishes, except: [:new, :create]
   resources :categories, only: [:index, :show]
-  resources :events, except: [:new, :create]
+  resources :events, except: [:new, :create] do
+    resources :comments, only: [:index, :create]
+    resources :likes, only: [:create]
+  end
+  resources :comments, only: [:destroy]
+  resources :likes, only: [:destroy]
   resources :activities, only: [:show] do
     resources :events, only: [:new, :create]
     resources :wishes, only: [:new, :create]
