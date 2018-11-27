@@ -11,28 +11,28 @@ Message.destroy_all
 Conversation.destroy_all
 Tag.destroy_all
 Category.destroy_all
-# User.destroy_all
+User.destroy_all
 
 puts 'Database cleaned!'
 
 #user seed
 # -------------------------------------------------------------------------------------
-# puts 'Creating users...'
+puts 'Creating users...'
 
-# lucien = User.new(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
-# lucien.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg'
-# lucien.save!
-# gaby = User.new(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
-# gaby.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg'
-# gaby.save!
-# izzy = User.new(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
-# izzy.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg'
-# izzy.save!
-# ife = User.new(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
-# ife.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg'
-# ife.save!
+lucien = User.new(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
+lucien.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg'
+lucien.save!
+gaby = User.new(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
+gaby.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg'
+gaby.save!
+izzy = User.new(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
+izzy.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg'
+izzy.save!
+ife = User.new(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
+ife.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg'
+ife.save!
 
-# puts 'Users created!'
+puts 'Users created!'
 
 
 #categories seed
