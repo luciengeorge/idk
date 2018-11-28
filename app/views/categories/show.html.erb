@@ -20,13 +20,9 @@
 
 <div class="container no-gutters" style="margin-top: 25px;">
   <% if @category.title == "adventure" %>
-    <h2 class="category-title text-center">play<strong class="play-show-dot">.</strong></h2>
-  <% elsif @category.title == "chill" %>
-    <h2 class="category-title text-center"><%= @category.title %><strong class="chill-show-dot">.</strong></h2>
-  <% elsif @category.title == "drink" %>
-    <h2 class="category-title text-center"><%= @category.title %><strong class="drink-show-dot">.</strong></h2>
-    <% else @category.title == "food" %>
-    <h2 class="category-title text-center"><%= @category.title %><strong class="food-show-dot">.</strong></h2>
+    <h2 class="category-title text-center">play<strong class="category-show-dot">.</strong></h2>
+  <% else %>
+    <h2 class="category-title text-center"><%= @category.title %><strong class="category-show-dot">.</strong></h2>
     <% end %>
   <br>
   <div class="row">
