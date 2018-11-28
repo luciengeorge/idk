@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
     else
       @activities = Activity.where(category: @category)
     end
+    if (@today.downcase.include? "rain") || (@today.downcase.include? "thunderstorm") || (@today.downcase.include? "snow") || (@today.downcase.include? "shower rain")
+      @activities = @activities.reject { |activity| activity.tags.include?(Tag.find_by(name: "outdoors")) }
+    end
     # @activities = Activity.joins(:tags).where(category: @category).where("tags.name ILIKE ?", params[:vibe])
     search_filter
   end
