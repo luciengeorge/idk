@@ -1,6 +1,6 @@
 <div class="wrapper">
   <%= link_to :back do %>
-    <i class="fas fa-long-arrow-alt-left" style="font-size: 25px; margin: 3px;"></i>
+    <i class="fas fa-long-arrow-alt-left" style="font-size: 25px; margin: 5px 10px;"></i>
   <% end %>
   <div class="container text-center">
     <% if current_user.photo? %>
@@ -10,7 +10,7 @@
     <% end %>
     <br>
     <button id="edit-profile-button"><%= link_to 'EDIT PROFILE', edit_user_registration_path %></button>
-    <h1 class="text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
+    <h1 class="page-title text-center"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
     <div class="followers-followings-hostings">
       <div class="hostings">
         <p>Hostings</p>

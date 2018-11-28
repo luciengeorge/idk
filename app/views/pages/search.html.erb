@@ -1,9 +1,13 @@
 <div class="wrapper">
-  <div class="search-user-form text-center">
-    <%= form_tag(search_path, method: :get, class:'form-inline') do %>
-      <%= text_field_tag(:name, "", placeholder: "search for users...", class:"form-control form-text") %>
-      <%= submit_tag "SEARCH", name: nil, class:"btn-homepage-smal" %>
-    <% end %>
+  <div class="wrap">
+    <div class="search">
+      <%= form_tag(search_path, method: :get ) do %>
+        <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+        <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="row">
     <div class="users-search">
