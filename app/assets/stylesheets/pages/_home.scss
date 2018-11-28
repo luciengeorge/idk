@@ -65,7 +65,7 @@
   -moz-transform: rotate(60deg);
   -o-transform: rotate(60deg);
   -ms-transform: rotate(60deg);
-  border-color: #E0D3DE transparent;
+  border-color: $silver-sand transparent;
 }
 #wheel div.sec:nth-child(2){
   transform: rotate(120deg);
@@ -73,7 +73,7 @@
   -moz-transform: rotate(120deg);
   -o-transform: rotate(120deg);
   -ms-transform: rotate(120deg);
-  border-color: $viridian-green transparent;
+  border-color: $eerie-black transparent;
 }
 #wheel div.sec:nth-child(3){
   transform: rotate(180deg);
@@ -106,7 +106,7 @@
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
-  border-color: $silver-sand transparent;
+  border-color: $viridian-green transparent;
 }
 
 
@@ -190,7 +190,7 @@
 #inner-spin{
   width:54px;
   height:54px;
-  border: 3px solid $eerie-black;
+  border: 2px solid $eerie-black;
   position:absolute;
   top:50%;
   left:50%;

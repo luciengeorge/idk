@@ -16,7 +16,7 @@
         <p>phone: <%= @activity.phone.empty? ? 'Phone number not available' : @activity.phone %></p>
         <p>price: <strong><%= @activity.price %></strong></p>
         <% if @direction && @distance %>
-          <p style="font-size:12px; color: #C4C4C4;"><strong><i class="fas fa-long-arrow-alt-up" style="transform: rotate(<%= @direction %>deg); margin: 0 10px; font-size:16px; color: black;"></i></strong> <%= @distance.round(1) %>km</p>
+          <p style="font-size:12px; color: #C4C4C4;"><strong><i class="fas fa-map-pin" style="margin: 0 10px; font-size:16px;"></i></strong> <%= @distance.round(1) %>km</p>
         <% end %>
       </div>
       <div class="map-links-mobile">

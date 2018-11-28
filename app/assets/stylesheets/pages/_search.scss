@@ -27,14 +27,10 @@
 .searchTerm {
   width: 80vw;
   float: left;
-  border: 3px solid $rose-red;
+  border: 3px solid $silver-sand;
   padding: 10px;
   height: 40px;
   border-radius: 10px 0 0 10px;
-  color: $eerie-black;
-}
-
-.searchTerm:focus{
   color: $eerie-black;
 }
 
@@ -43,8 +39,8 @@
   // right: -50px;
   width: 40px;
   height: 40px;
-  border: 1px solid $rose-red;
-  background: $rose-red;
+  border: 1px solid $silver-sand;
+  background: $silver-sand;
   text-align: center;
   color: white;
   border-radius: 0 10px 10px 0;
