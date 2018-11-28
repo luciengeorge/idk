@@ -1,47 +1,52 @@
 <div class="wrapper">
   <div class="container">
-    <% @events.each do |event| %>
-      <%= link_to user_path(event.users.first) do %>
-        <div class="feed-card">
-          <div class="feed-card-top">
-            <div class="feed-card-left">
-              <% if event.users.first.photo? %>
-                <%= cl_image_tag(event.users.first.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-              <% else %>
-                <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-              <% end %>
-              <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
-            </div>
-            <div class="feed-card-right">
-              <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
-              <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
-                <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
-                <% if (((Time.now - event.created_at) / 3600).floor) > 24 %>
-                  <% time = "#{((Time.now - event.created_at) / (3600 * 24)).floor}d" %>
-                  <% if ((Time.now - event.created_at) / (3600 * 24)).floor > 7 %>
-                    <% time = "#{((Time.now - event.created_at) / (3600 * 24 * 7)).floor}w" %>
+    <% if @events.count.zero? %>
+      <h2 class="page-title">feed<strong class="play-show-dot">.</strong></h2>
+      <p>You have boring friends.</p>
+    <% else %>
+      <% @events.each do |event| %>
+        <%= link_to user_path(event.users.first) do %>
+          <div class="feed-card">
+            <div class="feed-card-top">
+              <div class="feed-card-left">
+                <% if event.users.first.photo? %>
+                  <%= cl_image_tag(event.users.first.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                <% else %>
+                  <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                <% end %>
+                <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
+              </div>
+              <div class="feed-card-right">
+                <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
+                <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
+                  <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
+                  <% if (((Time.now - event.created_at) / 3600).floor) > 24 %>
+                    <% time = "#{((Time.now - event.created_at) / (3600 * 24)).floor}d" %>
+                    <% if ((Time.now - event.created_at) / (3600 * 24)).floor > 7 %>
+                      <% time = "#{((Time.now - event.created_at) / (3600 * 24 * 7)).floor}w" %>
+                    <% end %>
                   <% end %>
                 <% end %>
+                <p id="time-feed"><%= time %></p>
+              </div>
+            </div>
+            <div class="feed-card-bottom">
+              <% if Like.find_by(user: current_user, event: event) %>
+                <%= link_to like_path(Like.find_by(user: current_user, event: event)), method: :delete, remote: true, id:"event_dislike_#{event.id}" do %>
+                  <i class="fas fa-thumbs-up" style="margin: 0 5px; font-size: 20px; color: #FFCB02;"></i>
+                <% end %>
+              <% else %>
+                <%= link_to event_likes_path(event), method: :post, remote: true, id:"event_like_#{event.id}" do %>
+                  <i class="far fa-thumbs-up" style="margin: 0 5px; font-size: 20px;"></i>
+                <% end %>
               <% end %>
-              <p id="time-feed"><%= time %></p>
+              <%= link_to event_comments_path(event) do %>
+                <i class="far fa-comment-alt" style="margin: 0 5px; font-size: 20px;"></i>
+              <% end %>
             </div>
           </div>
-          <div class="feed-card-bottom">
-            <% if Like.find_by(user: current_user, event: event) %>
-              <%= link_to like_path(Like.find_by(user: current_user, event: event)), method: :delete, remote: true, id:"event_dislike_#{event.id}" do %>
-                <i class="fas fa-thumbs-up" style="margin: 0 5px; font-size: 20px; color: #FFCB02;"></i>
-              <% end %>
-            <% else %>
-              <%= link_to event_likes_path(event), method: :post, remote: true, id:"event_like_#{event.id}" do %>
-                <i class="far fa-thumbs-up" style="margin: 0 5px; font-size: 20px;"></i>
-              <% end %>
-            <% end %>
-            <%= link_to event_comments_path(event) do %>
-              <i class="far fa-comment-alt" style="margin: 0 5px; font-size: 20px;"></i>
-            <% end %>
-          </div>
-        </div>
-        <hr>
+          <hr>
+        <% end %>
       <% end %>
     <% end %>
   </div>
