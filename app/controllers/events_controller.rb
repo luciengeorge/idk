@@ -3,6 +3,12 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events
+    @hostings = Hosting.where(user: current_user.id)
+    @all_events = []
+    @hostings.each do |hosting|
+      @all_events << Event.find(hosting.event_id)
+    end
+    @all_events = @all_events + @events
   end
 
   def new
@@ -11,11 +17,39 @@ class EventsController < ApplicationController
 
   def show
     @activity = @event.activity
+    @hosting = Hosting.new
+    if params[:name]
+      followers = current_user.followers
+      followers_array = []
+      followers.each do |follower|
+        followers_array << User.find(follower.follower_id)
+      end
+      search_results = User.search_by_firstname_and_lastname(params[:name])
+      followers_array = followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
+      @followers_array = followers_array & search_results
+    else
+      followers = current_user.followers
+      @followers_array = []
+      followers.each do |follower|
+        @followers_array << User.find(follower.follower_id)
+      end
+      @followers_array = @followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
+    end
+    guests = Hosting.where(event: @event)
+    @event_guests = []
+    guests.each do |guest|
+      @event_guests << User.find(guest.user.id)
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @event = Event.new(event_params)
     @event.activity = Activity.find(params[:activity_id])
+    @event.user = current_user
     if @event.title.empty?
       @event.title = @event.activity.title
     end
@@ -25,8 +59,7 @@ class EventsController < ApplicationController
     if @event.date.nil?
       @event.date = Time.now
     end
-    hosting = Hosting.new(user: current_user, event: @event)
-    if @event.save && hosting.save
+    if @event.save!
       redirect_to event_path(@event)
     else
       render "events/new"

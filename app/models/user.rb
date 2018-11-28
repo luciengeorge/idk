@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :conversations, through: :messages
   has_many :wishes, dependent: :destroy
   has_many :activities, through: :wishes
-  has_many :events, through: :hostings
+  has_many :events
   has_many :followers, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy

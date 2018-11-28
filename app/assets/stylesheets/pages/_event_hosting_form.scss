@@ -1,0 +1,18 @@
+.user_choices{
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  margin: 20px 0;
+  flex-wrap: nowrap;
+}
+
+.user-info{
+  margin: 0 10px;
+  .active{
+    border: 3px solid $rose-red;
+  }
+}
+
+.user-choice{
+  flex: 0 1 auto;
+}
