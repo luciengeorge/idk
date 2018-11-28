@@ -4,7 +4,7 @@
       <%= form_tag(search_path, method: :get ) do %>
         <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
         <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search search-icon"></i>
         <% end %>
       <% end %>
     </div>
