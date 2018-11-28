@@ -20,19 +20,29 @@ class EventsController < ApplicationController
     @hosting = Hosting.new
     if params[:name]
       followers = current_user.followers
+      following = Follower.where(follower_id: current_user.id)
       followers_array = []
       followers.each do |follower|
         followers_array << User.find(follower.follower_id)
       end
+      following.each do |user|
+        followers_array << User.find(user.user_id)
+      end
+      followers_array = followers_array.uniq
       search_results = User.search_by_firstname_and_lastname(params[:name])
       followers_array = followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
       @followers_array = followers_array & search_results
     else
       followers = current_user.followers
+      following = Follower.where(follower_id: current_user.id)
       @followers_array = []
       followers.each do |follower|
         @followers_array << User.find(follower.follower_id)
       end
+      following.each do |user|
+        @followers_array << User.find(user.user_id)
+      end
+      @followers_array = @followers_array.uniq
       @followers_array = @followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
     end
     guests = Hosting.where(event: @event)
