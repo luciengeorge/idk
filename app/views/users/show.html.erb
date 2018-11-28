@@ -4,9 +4,9 @@
   <% end %>
   <div class="container text-center" id="profile-info">
     <% if @user.photo? %>
-      <%= cl_image_tag(@user.photo, width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
+      <%= cl_image_tag(@user.photo, width: 150, height: 150, crop: :fill, class:"avatar-xl") %>
     <% else %>
-      <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-xl") %>
+      <%= image_tag('default-avatar.png', width: 150, height: 150, crop: :fill, class:"avatar-xl") %>
     <% end %>
     <h1 class="page-title text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong></h1>
     <div class="interaction">
