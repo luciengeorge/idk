@@ -39,7 +39,7 @@
             <div class="card-info" id="card_info_<%= activity.id %>">
               <p><%= activity.title.upcase %></p>
               <% if @distance && @direction %>
-                <p style="font-size:12px; color: #C4C4C4;"><strong><i class="fas fa-long-arrow-alt-up" style="transform: rotate(<%= @direction %>deg); margin: 0 10px; font-size:16px; color: black;"></i></strong> <%= @distance.round(1) %>km</p>
+                <p style="font-size:12px; color: #C4C4C4;"><strong><i class="fas fa-map-pin" style="margin: 0 10px; font-size:16px; color: black;"></i></strong> <%= @distance.round(1) %>km</p>
               <% end %>
               <% if user_signed_in? %>
                 <% unless Wish.where(user: current_user, activity: activity).count.zero? %>
