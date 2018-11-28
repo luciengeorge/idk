@@ -1,6 +1,29 @@
 <div class="wrapper">
   <div class="container">
     <h2 class="page-title">inbox<strong class="play-show-dot">.</strong></h2>
+    <%= form_tag(conversations_path, method: :get ) do %>
+      <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+      <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
+        <i class="fas fa-search search-icon"></i>
+      <% end %>
+    <% end %>
+    <% unless @users.count.zero? %>
+      <div class="users">
+        <% @users.each do |user| %>
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
+            <div class="user-info">
+              <% if user.photo? %>
+                <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% else %>
+                <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% end %>
+              <p style="font-size: 13px;"><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
     <% if @conversations.count.zero? %>
       <p>No conversations yet.</p>
     <% else %>
