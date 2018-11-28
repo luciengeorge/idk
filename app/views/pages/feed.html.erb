@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
+    <h2 class="page-title">feed<strong class="play-show-dot">.</strong></h2>
     <% if @events.count.zero? %>
-      <h2 class="page-title">feed<strong class="play-show-dot">.</strong></h2>
       <p>You have boring friends.</p>
     <% else %>
       <% @events.each do |event| %>
