@@ -11,6 +11,9 @@
               <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
             </div>
             <div class="event-info">
+              <% unless current_user.id == event.user.id %>
+                <p><%= "#{event.user.first_name.capitalize} #{event.user.last_name} invited you to the event at" %></p>
+              <% end %>
               <p><%= event.title %>, on <strong><%= event.date.strftime('%A, %b %d') %></strong></p>
             </div>
           </div>
