@@ -5,12 +5,12 @@
   <div class="container">
     <h5>You are going to <%= @event.title %>, on <strong><%= @event.date.strftime('%A, %b %d') %></strong><br><em>(<%= @event.guests %> going)</em></h5>
     <hr>
-    <p>description: <%= @event.description %></p>
+    <p><%= @event.description %></p>
     <hr>
     <div class="event-links">
       <div class="more-info">
         <%= link_to activity_path(@activity) do %>
-          <p style="margin: 0;"><i class="fas fa-info"></i> More Info</p>
+          <p style="margin: 0; margin-left: 15px; "><i class="fas fa-info"></i> More Info</p>
         <% end %>
       </div>
       <div class="delete-event">
@@ -19,10 +19,62 @@
         <% end %>
       </div>
     </div>
+    <% if current_user.id == @event.user.id %>
+      <div class="invite_users" data-toggle="modal" data-target="#inviteModel" type="button" >
+        <button style="margin: 0 !important; font-size: 15px; padding: 0; border: none; background: none;" ><i class="fas fa-users"></i> Invite users</button>
+      </div>
+    <% end %>
+    <div class="guests">
+      <% @event_guests.each do |guest| %>
+        <%= link_to user_path(guest), class:"guest" do %>
+          <% if guest.photo? %>
+            <%= cl_image_tag(guest.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% else %>
+            <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
     <%= link_to :back do %>
       <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
     <% end %>
   </div>
 </div>
-
-
+  <div class="container">
+    <div class="modal fade" id="inviteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="margin-top: 60px;">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h2 class="modal-title" id="exampleModalLongTitle">Invite your friends<strong class="logo-period-profile">.</strong></h2>
+          </div>
+          <div class="search">
+            <%= form_tag(event_path(@event), method: :get, remote: true) do %>
+              <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+              <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <%= simple_form_for [@event, @hosting] do |h| %>
+            <fieldset class="form-group">
+              <input type="hidden" name="hosting[user_id][]" value="">
+              <div class="user_choices">
+                <% @followers_array.each do |user| %>
+                  <%= render 'user_info', user: user %>
+                <% end %>
+              </div>
+            </fieldset>
+            <div class="submit-div">
+              <%= h.submit "Invite friends", class:"invite-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/user_choice' %>
+<% end %>

@@ -13,3 +13,38 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.guests {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.guest {
+  margin: 0 10px;
+  flex: 0 0 auto;
+}
+.invite-btn {
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  background: none;
+  margin: 20px;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 7px;
+  color: rgba(0,0,0,0.6);
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 1);
+    color: rgba(0,0,0,1);
+  }
+}
+
+.submit-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

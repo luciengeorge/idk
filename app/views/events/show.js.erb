@@ -1,0 +1,20 @@
+users = document.querySelector(".user_choices");
+users.innerHTML = "";
+<% @followers_array.each do |follower| %>
+  followerAvatar = "<%= j render 'user_info', user: follower %>";
+  users.insertAdjacentHTML('beforeend', followerAvatar);
+<% end %>
+
+// $(document).ready(function(){
+//   $(".user_choice").click(function(){
+//     $(this).find('.avatar-large').toggleClass("active");
+//   });
+// });
+
+userChoices = document.querySelectorAll('.user_choice')
+userChoices.forEach((choice) => {
+  choice.addEventListener('click', () => {
+    id = choice.dataset.userId
+    document.getElementById(`user_avatar_${id}`).classList.toggle('active')
+  })
+})

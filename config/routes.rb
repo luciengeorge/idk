@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :events, except: [:new, :create] do
     resources :comments, only: [:index, :create]
     resources :likes, only: [:create]
+    resources :hostings, only: [:create, :new]
   end
   resources :comments, only: [:destroy]
   resources :likes, only: [:destroy]
