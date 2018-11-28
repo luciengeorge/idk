@@ -11,3 +11,17 @@
 .inbox-list {
   margin: 10px auto;
 }
+
+.users {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.user-info {
+  margin: 0 10px;
+  flex: 0 0 auto;
+}

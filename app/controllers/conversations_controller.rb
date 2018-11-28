@@ -3,6 +3,13 @@ class ConversationsController < ApplicationController
   before_action :conversations_and_users, only: %i[index show]
   before_action :find_conversation, only: :show
   def index
+    if params[:name]&.empty?
+      @users = User.all.reject { |user| user.id == current_user.id }
+    elsif params[:name]
+      @users = User.search_by_firstname_and_lastname(params[:name])
+    else
+      @users = []
+    end
   end
 
   def show
