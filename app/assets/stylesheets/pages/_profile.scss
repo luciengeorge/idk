@@ -1,5 +1,19 @@
+.profile-wrapper {
+  height: calc(100vh - 60px);
+}
+
 .logo-period-profile {
   color: $rose-red;
+}
+
+.profile-container {
+  height: calc(100vh - 95px);
+}
+
+.name-profile {
+  font-size: 30px;
+  margin: 40px auto;
+  letter-spacing: 2px;
 }
 
 #edit-profile-button {
@@ -30,7 +44,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: $silver-sand
+  margin-top: 20px;
 }
 
 .profile-events {
@@ -52,5 +66,5 @@ a{
   display: flex;
   align-items:center;
   justify-content: space-around;
-  margin: 10px;
+  margin: 20px;
 }
