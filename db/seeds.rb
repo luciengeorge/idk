@@ -6,7 +6,7 @@
 # # require 'awesome_print'
 # # require 'watir'
 
-puts 'Creating categories...'
+puts 'Cleaning Database...'
 
 Hosting.destroy_all
 Event.destroy_all
@@ -17,6 +17,11 @@ Message.destroy_all
 Conversation.destroy_all
 Tag.destroy_all
 Category.destroy_all
+User.destroy_all
+
+puts 'Database cleaned!'
+
+puts 'Creating categories...'
 
 food = Category.create!(title: 'food')
 drink = Category.create!(title: 'drink')
@@ -121,11 +126,6 @@ puts 'Categories created!'
 
 
 #-------------------------------------------------------------------------------------
-puts 'Cleaning Database...'
-
-# User.destroy_all
-
-puts 'Database cleaned!'
 
 #user seed
 # -------------------------------------------------------------------------------------
