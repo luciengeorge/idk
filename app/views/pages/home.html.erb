@@ -5,10 +5,10 @@
     <div id="wheel">
       <div id="inner-wheel">
         <div class="sec"><span><%= image_tag 'chill.png', class: "emoji-icons chill-icon" %></span></div> <!-- chill -->
-        <div class="sec"><span><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-green" %></span></div> <!-- IDK -->
+        <div class="sec"><span><%= image_tag 'light_bulb_question_mark.png', class: "emoji-icons bulb-icon-green" %></span></div> <!-- IDK -->
         <div class="sec"><span><%= image_tag 'adventure.png', class: "emoji-icons adv-icon" %></span></div> <!-- adventure -->
         <div class="sec"><span><%= image_tag 'drink.png', class: "emoji-icons drink-icon" %></span></div> <!-- drink -->
-        <div class="sec"><%= image_tag 'bulb_idk.png', class: "emoji-icons bulb-icon-black" %></span></div> <!-- IDK -->
+        <div class="sec"><%= image_tag 'light_bulb_question_mark.png', class: "emoji-icons bulb-icon-black" %></span></div> <!-- IDK -->
         <div class="sec"><span><%= image_tag 'food.png', class: "emoji-icons food-icon" %></span></div> <!-- chill -->
       </div>
       <div id="spin">
@@ -27,26 +27,22 @@
 <div class="footer hidden-sm hidden-md hidden-lg hidden-xl">
     <div class="food footer-links">
       <%= link_to category_path(Category.find_by(title: 'food')) do %>
-        <%= image_tag 'food.png', class: "footer-icons" %>
-        <p class="footer-title">Food</p>
+        <p class="footer-title footer-title-food text-center">food.</p>
       <% end %>
     </div>
     <div class="drinks footer-links">
       <%= link_to category_path(Category.find_by(title: 'drink')) do %>
-        <%= image_tag 'drink.png', class: "footer-icons drinks-height" %>
-        <p class="footer-title">Drink</p>
+        <p class="footer-title footer-title-drink text-center">drink.</p>
       <% end %>
     </div>
     <div class="adventure footer-links">
       <%= link_to category_path(Category.find_by(title: 'adventure')) do %>
-        <%= image_tag 'adventure.png', class: "footer-icons" %>
-        <p class="footer-title">Play</p>
+        <p class="footer-title footer-title-play text-center">play.</p>
       <% end %>
     </div>
     <div class="chill footer-links">
       <%= link_to category_path(Category.find_by(title: 'chill')) do %>
-        <%= image_tag 'chill.png', class: "footer-icons" %>
-        <p class="footer-title">Chill</p>
+        <p class="footer-title footer-title-chill text-center">chill.</p>
       <% end %>
     </div>
 </div>

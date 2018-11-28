@@ -5,8 +5,8 @@
   bottom: 0;
   align-items: center;
   justify-content: space-between;
-  color: rgba(0,0,0,0.3);
 }
+
 .footer-links {
   box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
   background-color: white;
@@ -16,6 +16,7 @@
   width: 25vw;
 }
 .footer-links a {
+  margin: 10px;
   color: black;
   text-decoration: none;
   font-size: 24px;
@@ -54,15 +55,36 @@
   height: 30px;
 }
 
-
 .footer-links p {
-  font-size: 10px;
   font-weight: bold;
-  color: grey;
-
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .footer-title {
+  font-size: 18px;
+}
+
+.footer-title-food {
   width: auto;
-  margin: 5px 0 0 0;
+
+  color: $viridian-green;
+}
+
+.footer-title-drink {
+  width: auto;
+
+  color: $rose-red;
+}
+
+.footer-title-play {
+  width: auto;
+
+  color: $usc-gold;
+}
+
+.footer-title-chill {
+  width: auto;
+  color: $silver-sand;
 }
