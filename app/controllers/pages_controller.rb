@@ -48,7 +48,7 @@ class PagesController < ApplicationController
     if params[:name]&.empty?
       @users = User.all.reject { |user| user.id == current_user.id }
     elsif params[:name]
-      @users = User.search_by_firstname_and_lastname(params[:name])
+      @users = User.search_by_firstname_and_lastname(params[:name]).reject { |user| user.id == current_user.id }
     else
       @users = User.all.reject { |user| user.id == current_user.id }
     end
