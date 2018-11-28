@@ -36,8 +36,7 @@
 }
 
 .header-inbox {
-  display: block;
-  justify-content: center;
+  display: flex;
   text-align: center;
   align-items: center;
   @media only screen and (max-width: 600px) {
@@ -61,6 +60,8 @@
 .user-info-inbox {
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .user-info-inbox-name {
