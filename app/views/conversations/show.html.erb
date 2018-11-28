@@ -1,9 +1,11 @@
 <div class="wrapper">
   <div class="container">
     <div class="header-inbox">
-      <%= link_to :back, class: 'back-to-conversations' do %>
-            <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
-          <% end %>
+      <div class="back-arrow">
+        <%= link_to :back, class: 'back-to-conversations' do %>
+          <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
+        <% end %>
+      </div>
       <div class="user-info-inbox">
         <div class="user-info-inbox-name">
           <h2 class="inbox-title text-center user-inbox">
