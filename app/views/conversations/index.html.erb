@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="page-title">inbox<strong class="play-show-dot">.</strong></h2>
     <% if @conversations.count.zero? %>
-      <p>No conversations yet</p>
+      <p>No conversations yet.</p>
     <% else %>
       <ul class="list-group inbox-list">
         <% @conversations.each do |conversation| %>
