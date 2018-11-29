@@ -6,15 +6,16 @@ users.innerHTML = "";
 <% end %>
 
 // $(document).ready(function(){
-//   $(".user_choice").click(function(){
-//     $(this).find('.avatar-large').toggleClass("active");
+//   $(".user-info").click(function(){
+//     $(this).toggleClass("opaque");
 //   });
 // });
 
-userChoices = document.querySelectorAll('.user_choice')
+userChoices = document.querySelectorAll('.user_choice');
 userChoices.forEach((choice) => {
   choice.addEventListener('click', () => {
-    id = choice.dataset.userId
-    document.getElementById(`user_avatar_${id}`).classList.toggle('active')
-  })
-})
+    id = choice.dataset.userId;
+    document.getElementById(`user_avatar_${id}`).classList.toggle('active');
+    document.getElementById(`name_${id}`).classList.toggle('active');
+  });
+});
