@@ -5,9 +5,9 @@ class ConversationsController < ApplicationController
   before_action :find_conversation, only: :show
   def index
     if params[:name]&.empty?
-      @users = User.all.reject { |user| user.id == current_user.id }
+      @users = User.all.reject { |user| user.id == current_user.id }.sort_by { |user| user.first_name.downcase }
     elsif params[:name]
-      @users = User.search_by_firstname_and_lastname(params[:name]).reject { |user| user.id == current_user.id }
+      @users = User.search_by_firstname_and_lastname(params[:name]).reject { |user| user.id == current_user.id }.sort_by { |user| user.first_name.downcase }
     else
       @users = []
     end
