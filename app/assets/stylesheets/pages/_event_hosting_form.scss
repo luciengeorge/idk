@@ -9,8 +9,16 @@
 .user-info{
   margin: 0 10px;
   .active{
-    border: 3px solid $silver-sand;
+    opacity: 1;
   }
+}
+
+.inactive {
+  opacity: 0.4;
+}
+
+.opaque {
+  opacity: 1 !important;
 }
 
 .user-choice{
