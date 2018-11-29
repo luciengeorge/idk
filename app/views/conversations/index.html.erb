@@ -29,19 +29,21 @@
     <% if @conversations.count.zero? %>
       <p>No conversations yet.</p>
     <% else %>
-      <ul class="list-group inbox-list">
-        <% @conversations.each do |conversation| %>
-          <% unread_messages = conversation.messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
-          <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-            <% if conversation.sender_id == current_user.id %>
-              <% recipient = User.find(conversation.recipient_id) %>
-            <% else %>
-              <% recipient = User.find(conversation.sender_id) %>
+      <div class="all-conversations">
+        <ul class="list-group inbox-list">
+          <% @conversations.each do |conversation| %>
+            <% unread_messages = conversation.messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
+            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+              <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+              <% else %>
+                <% recipient = User.find(conversation.sender_id) %>
+              <% end %>
+              <%= render 'card_inbox', recipient: recipient, unread_messages: unread_messages, conversation: conversation %>
             <% end %>
-            <%= render 'card_inbox', recipient: recipient, unread_messages: unread_messages, conversation: conversation %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     <% end %>
   </div>
 </div>
