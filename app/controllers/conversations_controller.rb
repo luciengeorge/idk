@@ -1,6 +1,7 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :conversations_and_users, only: %i[index show]
+  before_action :conversations_and_users, only: %i[show]
+  before_action :filter_conversations, only: %i[index]
   before_action :find_conversation, only: :show
   def index
     if params[:name]&.empty?
@@ -32,6 +33,14 @@ class ConversationsController < ApplicationController
   private
 
   def conversations_and_users
+    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+  end
+
+  def filter_conversations
+    conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+    conversations.each do |conversation|
+      conversation.destroy if conversation.messages.count.zero?
+    end
     @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
   end
 
