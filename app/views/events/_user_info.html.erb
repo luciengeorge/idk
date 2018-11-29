@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large inactive", id: "user_avatar_#{user.id}") %>
       <% end %>
-      <p id="name_<%= user.id %>" style="font-size: 13px;"><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
+      <p id="name_<%= user.id %>" style="font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
     </div>
   </label>
 </div>
