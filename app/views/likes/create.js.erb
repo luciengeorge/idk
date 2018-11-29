@@ -1,4 +1,4 @@
-var div = document.querySelector('.feed-card-bottom');
+var div = document.getElementById('feed_bottom_<%= @event.id %>');
 document.getElementById("event_like_<%= @event.id %>").remove();
 var link = "<a id='event_dislike_<%= @event.id %>' data-remote='true' rel='nofollow' data-method='delete' href='/likes/<%= @like.id %>'><i class='fas fa-thumbs-up' style='margin: 0 5px; font-size: 20px; color: #FFCB02;'></i></a>";
 if(div) {
