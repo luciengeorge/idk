@@ -23,7 +23,7 @@
     </div>
     <% if current_user.id == @event.user.id %>
       <div class="invite_users" data-toggle="modal" data-target="#inviteModel" type="button" >
-        <button style="margin: 0 !important; font-size: 15px; padding: 0; border: none; background: none;" ><i class="fas fa-users"></i> Invite users</button>
+        <button style="margin: 0 !important; font-size: 15px; padding: 0; border: none; background: none;" ><i class="fas fa-users"></i> Invite friends</button>
       </div>
     <% end %>
     <div class="guests">
@@ -56,7 +56,7 @@
           </div>
           <div class="search">
             <%= form_tag(event_path(@event), method: :get, remote: true) do %>
-              <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+              <%= text_field_tag(:name, "", placeholder: "find friends...", class:"searchTerm") %>
               <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
                 <i class="fas fa-search"></i>
               <% end %>

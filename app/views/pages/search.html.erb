@@ -4,7 +4,7 @@
     <div class="wrap">
       <div class="search">
         <%= form_tag(search_path, method: :get, class: "search-form") do %>
-          <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+          <%= text_field_tag(:name, "", placeholder: "find friends...", class:"searchTerm") %>
           <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
             <i class="fas fa-search search-icon"></i>
           <% end %>
