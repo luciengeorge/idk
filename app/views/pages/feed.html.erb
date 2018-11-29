@@ -7,7 +7,7 @@
       <% @events.each do |event| %>
         <%= link_to user_path(event.user) do %>
           <div class="feed-card">
-            <div class="feed-card-top">
+            <div class="feed-card-top" id="feed_top_<%= event.id %>">
               <div class="feed-card-left">
                 <% if event.user.photo? %>
                   <%= cl_image_tag(event.user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
@@ -30,7 +30,7 @@
                 <p id="time-feed"><%= time %></p>
               </div>
             </div>
-            <div class="feed-card-bottom">
+            <div class="feed-card-bottom" id="feed_bottom_<%= event.id %>">
               <% if Like.find_by(user: current_user, event: event) %>
                 <%= link_to like_path(Like.find_by(user: current_user, event: event)), method: :delete, remote: true, id:"event_dislike_#{event.id}" do %>
                   <i class="fas fa-thumbs-up" style="margin: 0 5px; font-size: 20px; color: #FFCB02;"></i>
