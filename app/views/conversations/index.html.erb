@@ -2,8 +2,8 @@
   <div class="container">
     <h2 class="page-title">inbox<strong class="play-show-dot">.</strong></h2>
     <div class="inbox-search">
-      <%= form_tag(conversations_path, method: :get ) do %>
-        <%= text_field_tag(:name, "", placeholder: "search for users...", class:"searchTerm") %>
+      <%= form_tag(conversations_path, method: :get, class: "search-form" ) do %>
+        <%= text_field_tag(:name, "", placeholder: "search for buddies...", class:"searchTerm") %>
         <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
           <i class="fas fa-search search-icon"></i>
         <% end %>
