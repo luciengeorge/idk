@@ -50,23 +50,40 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 20px;
+  padding: 30px;
   position: absolute;
   top: 70px;
   left: 50px;
   z-index: 1;
-  .shared-links {
-    font-size: 10px;
-    a {
-      color: $usc-gold;
-    }
+}
+
+.shared-links {
+  font-size: 10px;
+  a {
+    color: white !important;
   }
+}
+
+.plain-sign-in-button {
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  color: $rose-red !important;
 }
 
 .plain-log-in-button {
   background-color: transparent;
   font-size: 15px;
   font-weight: bold;
-  color: $baby-powder;
+  color:  !important;
 }
 
+.sign-in {
+  width: 100%;
+  text-align: center;
+}
+
+.reset-password {
+  width: 100%;
+  text-align: center;
+}

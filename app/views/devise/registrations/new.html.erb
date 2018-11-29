@@ -25,12 +25,14 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+          <div class="sign-up">
+            <%= f.button :submit, "SIGN UP", class: "plain-sign-up-button" %>
+          </div>
         </div>
       </div>
       <% unless f.error_notification.nil? %>
-        <div class="sign-up-button" style="height: 627.5px;">
+        <div class="sign-up-button" style="height: 662.5px;">
           <div class="form-actions log-in-links">
-            <%= f.button :submit, "SIGN UP", class: "plain-log-in-button" %>
             <div class="shared-links">
               <%= render "devise/shared/links" %>
             </div>
@@ -39,7 +41,6 @@
       <% else %>
         <div class="sign-up-button">
           <div class="form-actions log-in-links">
-            <%= f.button :submit, "SIGN UP", class: "plain-log-in-button" %>
             <div class="shared-links">
               <%= render "devise/shared/links" %>
             </div>
@@ -49,3 +50,4 @@
     <% end %>
   </div>
 </div>
+
