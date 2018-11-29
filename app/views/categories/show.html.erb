@@ -18,7 +18,9 @@
             <%= select_tag "and", options_for_select([ "Dance", "Live music", "Celebrate",  "Best deals", "Talk business", "Im game for anything", "Treat myself", "Pop up", "Detox", "Indoors", "Outdoors"], params[:and]), class: "form-control index-search", prompt: "And.." %>
           <% end %>
           <div class="search-update">
-            <%= submit_tag "UPDATE", :name => nil, class: "search-button" %>
+            <div class="position-center">
+              <%= submit_tag "UPDATE", :name => nil, class: "search-button" %>
+            </div>
           </div>
         <% end %>
       </div>
