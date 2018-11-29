@@ -37,9 +37,11 @@
         <% end %>
       <% end %>
     </div>
-    <%= link_to :back do %>
-      <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
-    <% end %>
+    <div class="back-arrow">
+      <%= link_to :back, class: 'back-to-conversations' do %>
+        <%= image_tag 'left_arrow.png', class: "back-button" %>
+      <% end %>
+    </div>
   </div>
 </div>
   <div class="container">

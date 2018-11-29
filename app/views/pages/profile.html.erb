@@ -1,8 +1,9 @@
 <div class="wrapper profile-wrapper">
-  <%= link_to :back do %>
-    <!-- <i class="fas fa-angle-left" style="font-size: 25px; margin: 5px 10px; padding: 10px;"></i> -->
-    <%= image_tag 'left_arrow.png', class: "back-button" %>
-  <% end %>
+  <div class="back-arrow">
+    <%= link_to :back, class: 'back-to-conversations' do %>
+      <%= image_tag 'left_arrow.png', class: "back-button" %>
+    <% end %>
+  </div>
   <div class="container text-center profile-container">
     <% if current_user.photo? %>
       <%= cl_image_tag(current_user.photo, width: 150, height: 150, crop: :fill, class:"avatar-xl") %>
