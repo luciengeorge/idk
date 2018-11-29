@@ -50,14 +50,14 @@
 .sign-up-button {
   background-color: $viridian-green;
   width: 250px;
-  height: 560px;
+  height: 595px;
   font-size: 15px;
   box-shadow: 0px 0px 50px rgba(0,0,0,0.3);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 60px;
   position: absolute;
   top: 70px;
@@ -71,9 +71,14 @@
   }
 }
 
-.plain-log-in-button {
+.plain-sign-up-button {
   background-color: transparent;
   font-size: 15px;
   font-weight: bold;
-  color: $baby-powder;
+  color: $viridian-green !important;
+}
+
+.sign-up {
+  width: 100%;
+  text-align: center;
 }

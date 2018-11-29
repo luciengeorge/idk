@@ -81,14 +81,14 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "LOG OUT") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "SIGN OUT") %>
               <% end %>
             </li>
           </ul>
         </div>
       <% else %>
         <div class="login-link-navbar" style="flex-grow: 1">
-          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to t(".sign_in", default: "SIGN IN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </div>
       <% end %>
     </div>
@@ -157,14 +157,14 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "LOG OUT") %>
+                <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "SIGN OUT") %>
               <% end %>
             </li>
           </ul>
         </div>
       <% else %>
         <% unless params[:controller] == "devise/sessions" && params[:action] == "new"%>
-          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to t(".sign_in", default: "SIGN IN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
       <% end %>
     </div>

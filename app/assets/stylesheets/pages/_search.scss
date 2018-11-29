@@ -25,7 +25,7 @@
 }
 
 .searchTerm {
-  width: 80vw;
+  width: 75vw;
   float: left;
   border: 3px solid $silver-sand;
   padding: 10px;
@@ -35,8 +35,6 @@
 }
 
 .searchButton {
-  // position: absolute;
-  // right: -50px;
   width: 40px;
   height: 40px;
   border: 1px solid $silver-sand;
@@ -46,4 +44,5 @@
   border-radius: 0 10px 10px 0;
   cursor: pointer;
   font-size: 20px;
+  padding: 0;
 }
