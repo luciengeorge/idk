@@ -41,7 +41,7 @@ class ConversationsController < ApplicationController
     conversations.each do |conversation|
       conversation.destroy if conversation.messages.count.zero?
     end
-    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).sort_by { |conv| conv.messages.last.created_at  }.reverse
   end
 
   def find_conversation
