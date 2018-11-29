@@ -17,6 +17,11 @@
   // margin: 10px;
 }
 
+.search-form {
+  width: 100%;
+  display: flex;
+}
+
 .search {
   width: 100%;
   padding: 10px;
@@ -25,7 +30,7 @@
 }
 
 .searchTerm {
-  width: 75vw;
+  flex-grow: 1;
   float: left;
   border: 3px solid $silver-sand;
   padding: 10px;
