@@ -16,6 +16,5 @@ userChoices.forEach((choice) => {
   choice.addEventListener('click', () => {
     id = choice.dataset.userId;
     document.getElementById(`user_avatar_${id}`).classList.toggle('active');
-    document.getElementById(`name_${id}`).classList.toggle('active');
   });
 });
