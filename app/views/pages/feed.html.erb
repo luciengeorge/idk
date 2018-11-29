@@ -5,16 +5,16 @@
       <p>You have boring friends.</p>
     <% else %>
       <% @events.each do |event| %>
-        <%= link_to user_path(event.users.first) do %>
+        <%= link_to user_path(event.user) do %>
           <div class="feed-card">
             <div class="feed-card-top">
               <div class="feed-card-left">
-                <% if event.users.first.photo? %>
-                  <%= cl_image_tag(event.users.first.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                <% if event.user.photo? %>
+                  <%= cl_image_tag(event.user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
                 <% else %>
                   <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
                 <% end %>
-                <p> <strong><%=" #{event.users.first.first_name.capitalize} #{event.users.first.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
+                <p> <strong><%=" #{event.user.first_name.capitalize} #{event.user.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
               </div>
               <div class="feed-card-right">
                 <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
