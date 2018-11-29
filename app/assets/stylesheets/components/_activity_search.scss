@@ -68,3 +68,9 @@ aside {
 #toggle:checked + aside {
   top: 59px;
 }
+
+.position-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

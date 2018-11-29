@@ -8,7 +8,7 @@
   <div class="card-links">
     <div class="left-link-div">
       <%= link_to :back do %>
-        <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
+        <%= image_tag 'left_arrow.png', class: "back-button-activity-show" %>
       <% end %>
     </div>
     <% if user_signed_in? %>
