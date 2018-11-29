@@ -9,23 +9,18 @@
       <% end %>
       <div class="recipient-name">
         <div style="border-right:1px solid #000; height:50px; border-color: rgba(0, 0, 0, 0.3); width: 150px; align-items: left; display: flex;">
-          <p>
+          <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
             <strong>
               <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %>
             </strong>
           </p>
         </div>
       </div>
-      <div class="message-body">
+      <div class="message-body" style="max-width: 200px;">
         <% if conversation.messages.empty? %>
           <p>No Messages yet</p>
         <% else %>
-          <% if conversation.messages.last.body.length > 80 %>
-            <% display_message = "#{conversation.messages.last.body.first(77)}..." %>
-            <p><em><%= display_message %></em></p>
-          <% else %>
-            <p><em><%= conversation.messages.last.body %></em></p>
-          <% end %>
+          <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><em><%= conversation.messages.last.body %></em></p>
         <% end %>
       </div>
     </div>
@@ -54,24 +49,19 @@
         <%= image_tag('default-avatar.png', class: "avatar-large") %>
       <% end %>
       <div class="recipient-name">
-        <div style="height:50px; max-width: 150px; align-items: left; display: flex; font-size: 10px;">
-          <p>
+        <div style="height:50px; max-width: 100px; align-items: left; display: flex; font-size: 10px;">
+          <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
             <strong>
-              <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize} -" %>
+              <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %>
             </strong>
           </p>
         </div>
       </div>
-      <div class="message-body">
+      <div class="message-body" style="max-width: 200px;">
         <% if conversation.messages.empty? %>
           <p style="font-size: 10px;">No Messages yet</p>
         <% else %>
-          <% if conversation.messages.last.body.length > 8 %>
-            <% display_message = "#{conversation.messages.last.body.first(5)}..." %>
-            <p style="font-size: 10px;"><em><%= display_message %></em></p>
-          <% else %>
-            <p style="font-size: 10px;"><em><%= conversation.messages.last.body %></em></p>
-          <% end %>
+          <p style="font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100px;"><em><%= conversation.messages.last.body %></em></p>
         <% end %>
       </div>
     </div>
