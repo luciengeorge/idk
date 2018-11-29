@@ -5,14 +5,16 @@
   <% @followers.each do |follow| %>
     <div class="following">
       <% user = User.find(follow.follower_id) %>
-      <div class="following-info">
-        <% if user.photo? %>
-          <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-        <% else %>
-          <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
-        <% end %>
-        <p><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
-      </div>
+      <%= link_to user_path(user) do %>
+        <div class="following-info">
+          <% if user.photo? %>
+            <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% else %>
+            <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+          <% end %>
+          <p><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
+        </div>
+      <% end %>
     </div>
     <hr style="padding: 5px;">
   <% end %>
