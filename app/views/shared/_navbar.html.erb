@@ -163,8 +163,11 @@
           </ul>
         </div>
       <% else %>
-        <% unless (params[:controller] == "devise/sessions" && (params[:action] == "new" || (params[:action] == "create"))) || (params[:controller] == "registrations" && (params[:action] == "new" || (params[:action] == "create"))) || (params[:controller] == "devise/passwords" && (params[:action] == "new" || (params[:action] == "create"))) %>
+        <% unless (params[:controller] == "devise/sessions" && (params[:action] == "new" || (params[:action] == "create"))) %>
           <%= link_to t(".sign_in", default: "SIGN IN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
+        <% if ((params[:controller] == 'devise/sessions') && (params[:action] == 'new' || params[:action] == 'create')) %>
+          <%= link_to t(".sign_up", default: "SIGN UP"), new_registration_path(resource_name), class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
       <% end %>
     </div>
