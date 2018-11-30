@@ -5,7 +5,7 @@
       <p>You have boring friends.</p>
     <% else %>
       <% @events.each do |event| %>
-        <%= link_to user_path(event.user) do %>
+        <%= link_to event_path(event) do %>
           <div class="feed-card">
             <div class="feed-card-top" id="feed_top_<%= event.id %>">
               <div class="feed-card-left">
