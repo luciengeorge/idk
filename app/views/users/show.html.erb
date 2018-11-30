@@ -22,6 +22,9 @@
     </div>
     <hr>
     <h1 class="page-title name-profile text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong></h1>
+    <% if @user.email == 'lucien@gmail.com' || @user.email == 'izzy@gmail.com' || @user.email == 'gaby@gmail.com' || @user.email == 'ife@gmail.com' %>
+      <p><em>co-founder</em></p>
+    <% end %>
     <hr>
     <div class="followers-followings-hostings">
       <div class="hostings">
