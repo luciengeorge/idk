@@ -9,6 +9,8 @@ class EventsController < ApplicationController
       @all_events << Event.find(hosting.event_id)
     end
     @all_events = @all_events + @events
+    @all_events = @all_events.reject { |event| event.date < Time.now }
+    @all_events.sort_by { |event| event.date }
   end
 
   def new
