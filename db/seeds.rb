@@ -32,8 +32,7 @@ puts 'Categories created!'
 
 ## food scraping
 # #_____________________________________________________________________________________________________________________________
-
-# url = "https://www.opentable.co.uk/s/?areaid=geohash%3Agcpvhc&covers=2&currentview=list&datetime=2018-11-27+19%3A00&latitude=51.511413&longitude=-0.135915&metroid=72&size=100&sort=Popularity&cuisineids%5B%5D=48e9d049-40cf-4cb9-98d9-8c47d0d58986&cuisineids%5B%5D=0735c10c-6ab6-46f6-87aa-8fe54397744d&cuisineids%5B%5D=de65517b-b89c-4af9-b138-8a53b49b1de7&cuisineids%5B%5D=3e5cdb19-550f-47fb-8afd-e68c24460f31&cuisineids%5B%5D=101660ad-8f93-45f8-aeba-69ee3ea76c2e"
+# url = "https://www.opentable.co.uk/s/?covers=2&dateTime=2018-12-03%2019%3A00&latitude=51.511386&longitude=-0.135943&metroId=72&term=london&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0"
 
 # page = Nokogiri::HTML(open(url))
 
@@ -53,19 +52,29 @@ puts 'Categories created!'
 #     title = page.search("h1").text
 #     tag = page.search(".oc-reviews-eda4e1f7").first.text
 #     cuisine = page.at("//span[@itemprop = 'servesCuisine']").children.text
-#     location = page.at("//div[@itemprop = 'address']").children.text
+#     location = page.at("//span[@itemprop = 'streetAddress']").children.text
 #     description = page.at("//div[@itemprop = 'description']").children.text
 #     price = page.at("//span[@itemprop = 'priceRange']").children.text
-#     image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
-#     p image
+#     phone = page.at("._43a18c63._7b5ff70d").children.text.match(/(\d+) (\d+) (\d+)/)[0]
 
+#     image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
+#     # p image
+
+#     if price.include?("£25 and under")
+#       price = '£'
+#     elsif price.include?("£41 and over")
+#       price = "£££"
+#     else
+#       price = "££"
+#     end
 
 #     act = Activity.create!(
 #       category: Category.find_by(title: 'food'),
 #       title: title,
+#       cuisine: cuisine,
 #       description: description,
 #       location: location,
-#       phone: '',
+#       phone: phone,
 #       price: price,
 #       photo: image
 #       )
@@ -74,14 +83,7 @@ puts 'Categories created!'
 #     p e.message
 #   end
 # end
-
-
-
-
-
-
-# ## Drink scraping
-# #________________________________________________________________________
+# #_________________________________________________________
 # url = "https://www.opentable.co.uk/s/?areaid=geohash%3Agcpvhc&covers=2&currentview=list&datetime=2018-11-27+19%3A00&latitude=51.511413&longitude=-0.135915&metroid=72&size=100&sort=Popularity&cuisineids%5B%5D=9b925f03-fbea-46c6-b75e-01f7ccf8e50c&cuisineids%5B%5D=c718224e-a5a3-4c46-9102-74d4cdd7c36b&cuisineids%5B%5D=f09f8e08-e736-4c40-905a-ff2296e786b9&cuisineids%5B%5D=e0c16bdd-c1ff-403c-969d-5c446e50f84e&cuisineids%5B%5D=aba0f9b4-13c4-40db-81fc-0ac9cc3fc2bb"
 
 # page = Nokogiri::HTML(open(url))
