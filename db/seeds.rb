@@ -17,7 +17,7 @@ Message.destroy_all
 Conversation.destroy_all
 Tag.destroy_all
 Category.destroy_all
-User.destroy_all
+# User.destroy_all
 
 puts 'Database cleaned!'
 
@@ -129,22 +129,22 @@ puts 'Categories created!'
 
 #user seed
 # -------------------------------------------------------------------------------------
-puts 'Creating users...'
+# puts 'Creating users...'
 
-lucien = User.new(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
-lucien.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg'
-lucien.save!
-gaby = User.new(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
-gaby.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg'
-gaby.save!
-izzy = User.new(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
-izzy.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg'
-izzy.save!
-ife = User.new(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
-ife.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg'
-ife.save!
+# lucien = User.new(first_name: 'lucien', last_name: 'george', age: 23, email: 'lucien@gmail.com', password: '123456')
+# lucien.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542810609/ehokhv0hcox05t7yv38g.jpg'
+# lucien.save!
+# gaby = User.new(first_name: 'gaby', last_name: 'martinez', age: 24, email: 'gaby@gmail.com', password: '123456')
+# gaby.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542973583/fflhzynkvkhgosfi0gvg.jpg'
+# gaby.save!
+# izzy = User.new(first_name: 'izzy', last_name: 'brown', age: 23, email: 'izzy@gmail.com', password: '123456')
+# izzy.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542653555/y65fftsptbowqbv0vyg5.jpg'
+# izzy.save!
+# ife = User.new(first_name: 'ife', last_name: 'odugbesan', age: 29, email: 'ife@gmail.com', password: '123456')
+# ife.remote_photo_url = 'https://res.cloudinary.com/luciengeorge/image/upload/v1542548118/ku3ggbedmoe3gxufajbx.jpg'
+# ife.save!
 
-puts 'Users created!'
+# puts 'Users created!'
 
 
 #categories seed
@@ -331,8 +331,6 @@ persepolis = Activity.create!(category: food, title: 'Persepolis', location: '30
 taco_queen = Activity.create!(category: food, title: 'Taco Queen', location: '191 Rye Ln, London, SE15 4TP', phone: '020 7639 8007', hours: '', description: 'Thier tacos may not be traditional but they are delicious, expect bring and tangy flavours', instagram: 'tacoqueenldn', price: '£', age: 0, photo: 'https://video-images.vice.com/articles/5ad8a0d0a397c90008d157a9/lede/1524146387398-IMG_4847.jpeg', date: '')
 jb_soulfood = Activity.create!(category: food, title: 'JBs Soulfood', location: '27a Peckham Highstreet, London, SE15 5EB', phone: '07980 940001', hours: '', description: 'Serving warm carribean vibes, fans will travel far and wide to get a taste of their punchy flavours', instagram: 'jbs_soulfood', price: '£', age: 0, photo: 'https://media.superpages.com/media/photos/27/21/49/84/72/images/micrositeimage_photo1.jpg', date: '')
 the_begging_bowl = Activity.create!(category: food, title: 'The Begging Bowl', location: '168 Bellenden Road, London, SE15 4BW', phone: '020 7635 2627', hours: '', description: 'The constantly changing menu is brimming with seasonal dishes that are meant to be shared - perfect for groups', instagram: '', price: '££', age: 0, photo: 'https://385y0b1mqr4b126xs21flg4w-wpengine.netdna-ssl.com/wp-content/uploads/sites/17/2016/10/Begging1.jpg', date: '')
-forza_win = Activity.create!(category: food, title: 'Forza Win', location: '133 Copeland Road, London, SE15 3SN', phone: '020 7732 9012', hours: '', description: 'The most delicious Italian food will be found in a restored old grain store in Copeland park', instagram: '', price: '£', age: 0, photo: 'https://www.forzawin.com/files/peckham/Forza_Space_022.jpg', date: '')
-
 
 
 
@@ -1161,5 +1159,4 @@ end
 
 
 puts 'Tags added!'
-
 

@@ -4,7 +4,7 @@
       <% if @today.downcase.include? "broken clouds" %>
         <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "rain" %>
-        <p><i class="fas fa-tint"></i> <%= @temperature %>˚C</p>
+        <p><i class="fas fa-umbrella"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "scattered clouds" %>
         <p><i class="fas fa-cloud"></i> <%= @temperature %>˚C</p>
       <% elsif @today.downcase.include? "few clouds" %>
@@ -65,7 +65,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-                <i class="fas fa-search"></i> SEARCH
+                <i class="fas fa-search"></i> FIND FRIENDS
               <% end %>
             </li>
             <li>
@@ -81,14 +81,19 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "LOG OUT") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "SIGN OUT") %>
               <% end %>
             </li>
           </ul>
         </div>
       <% else %>
         <div class="login-link-navbar" style="flex-grow: 1">
-          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% unless (params[:controller] == "devise/sessions" && (params[:action] == "new" || (params[:action] == "create"))) %>
+            <%= link_to t(".sign_in", default: "SIGN IN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
+          <% if ((params[:controller] == 'devise/sessions') && (params[:action] == 'new' || params[:action] == 'create')) %>
+            <%= link_to t(".sign_up", default: "SIGN UP"), new_registration_path(resource_name), class: "navbar-wagon-item navbar-wagon-link" %>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -141,7 +146,7 @@
             </li>
             <li>
               <%= link_to search_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-                <i class="fas fa-search"></i> SEARCH
+                <i class="fas fa-search"></i> FIND FRIENDS
               <% end %>
             </li>
             <li>
@@ -157,14 +162,17 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "LOG OUT") %>
+                <i class="fas fa-sign-out-alt"></i> <%= t(".sign_out", default: "SIGN OUT") %>
               <% end %>
             </li>
           </ul>
         </div>
       <% else %>
-        <% unless params[:controller] == "devise/sessions" && params[:action] == "new"%>
-          <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% unless (params[:controller] == "devise/sessions" && (params[:action] == "new" || (params[:action] == "create"))) %>
+          <%= link_to t(".sign_in", default: "SIGN IN"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
+        <% if ((params[:controller] == 'devise/sessions') && (params[:action] == 'new' || params[:action] == 'create')) %>
+          <%= link_to t(".sign_up", default: "SIGN UP"), new_registration_path(resource_name), class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
       <% end %>
     </div>

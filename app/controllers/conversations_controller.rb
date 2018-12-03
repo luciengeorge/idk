@@ -1,8 +1,16 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :conversations_and_users, only: %i[index show]
+  before_action :conversations_and_users, only: %i[show]
+  before_action :filter_conversations, only: %i[index]
   before_action :find_conversation, only: :show
   def index
+    if params[:name]&.empty?
+      @users = User.all.reject { |user| user.id == current_user.id }.sort_by { |user| user.first_name.downcase }
+    elsif params[:name]
+      @users = User.search_by_firstname_and_lastname(params[:name]).reject { |user| user.id == current_user.id }.sort_by { |user| user.first_name.downcase }
+    else
+      @users = []
+    end
   end
 
   def show
@@ -26,6 +34,14 @@ class ConversationsController < ApplicationController
 
   def conversations_and_users
     @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+  end
+
+  def filter_conversations
+    conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id))
+    conversations.each do |conversation|
+      conversation.destroy if conversation.messages.count.zero?
+    end
+    @conversations = Conversation.where(sender_id: current_user.id).or(Conversation.where(recipient_id: current_user.id)).sort_by { |conv| conv.messages.last.created_at  }.reverse
   end
 
   def find_conversation

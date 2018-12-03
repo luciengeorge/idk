@@ -1,22 +1,49 @@
 <div class="wrapper">
   <div class="container">
     <h2 class="page-title">inbox<strong class="play-show-dot">.</strong></h2>
-    <% if @conversations.count.zero? %>
-      <p>No conversations yet</p>
-    <% else %>
-      <ul class="list-group inbox-list">
-        <% @conversations.each do |conversation| %>
-          <% unread_messages = conversation.messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
-          <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-            <% if conversation.sender_id == current_user.id %>
-              <% recipient = User.find(conversation.recipient_id) %>
-            <% else %>
-              <% recipient = User.find(conversation.sender_id) %>
-            <% end %>
-            <%= render 'card_inbox', recipient: recipient, unread_messages: unread_messages, conversation: conversation %>
+    <div class="inbox-search">
+      <%= form_tag(conversations_path, method: :get, class: "search-form" ) do %>
+        <%= text_field_tag(:name, "", placeholder: "search for buddies...", class:"searchTerm") %>
+        <%= button_tag type: 'submit', name: nil, class: "searchButton" do %>
+          <i class="fas fa-search search-icon"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <% unless @users.count.zero? %>
+      <div class="users">
+        <% @users.each do |user| %>
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
+            <div class="user-info">
+              <% if user.photo? %>
+                <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% else %>
+                <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+              <% end %>
+              <p style="font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></p>
+            </div>
           <% end %>
         <% end %>
-      </ul>
+      </div>
+      <hr>
+    <% end %>
+    <% if @conversations.count.zero? %>
+      <p>No conversations yet.</p>
+    <% else %>
+      <div class="all-conversations">
+        <ul class="list-group inbox-list">
+          <% @conversations.each do |conversation| %>
+            <% unread_messages = conversation.messages.reject { |message| message.read || message.user_id == current_user.id }.count %>
+            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+              <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+              <% else %>
+                <% recipient = User.find(conversation.sender_id) %>
+              <% end %>
+              <%= render 'card_inbox', recipient: recipient, unread_messages: unread_messages, conversation: conversation %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
   </div>
 </div>

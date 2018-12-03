@@ -15,7 +15,7 @@
 
 .left-div {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
 }
@@ -51,7 +51,7 @@
 }
 
 .recipient-name {
-  margin: 0 20px;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   color: black;

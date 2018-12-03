@@ -1,14 +1,13 @@
-<div class="wrapper">
+<div class="wrapper profile-wrapper">
   <%= link_to :back do %>
-    <i class="fas fa-long-arrow-alt-left" style="font-size: 25px; margin: 5px 10px;"></i>
+    <%= image_tag 'left_arrow.png', class: "back-button" %>
   <% end %>
-  <div class="container text-center" id="profile-info">
+  <div class="container text-center profile-container" id="profile-info">
     <% if @user.photo? %>
       <%= cl_image_tag(@user.photo, width: 150, height: 150, crop: :fill, class:"avatar-xl") %>
     <% else %>
       <%= image_tag('default-avatar.png', width: 150, height: 150, crop: :fill, class:"avatar-xl") %>
     <% end %>
-    <h1 class="page-title text-center"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong></h1>
     <div class="interaction">
       <div class="follow-unfollow" id="follow-unfollow">
         <% if Follower.find_by(user_id: @user, follower_id: current_user.id).nil? %>
@@ -21,6 +20,14 @@
         <%= link_to 'CONTACT', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post, id:'contact_user' %>
       </div>
     </div>
+    <hr>
+    <% if @user.email == 'lucien@gmail.com' || @user.email == 'izzy@gmail.com' || @user.email == 'gaby@gmail.com' || @user.email == 'ife@gmail.com' %>
+      <h1 class="page-title text-center name-profile" style="margin: 40px auto 10px auto !important;"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
+      <p><em>co-founder</em></p>
+    <% else %>
+      <h1 class="page-title text-center name-profile"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile" style="margin: 40px auto !important;">.</strong> </h1>
+    <% end %>
+    <hr>
     <div class="followers-followings-hostings">
       <div class="hostings">
         <p>Hostings</p>
@@ -36,18 +43,6 @@
         <div class="followings">
           <p>Following</p>
           <p id="following_count"><%= Follower.where(follower_id: @user.id).count %></p>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <% @events.each do |event| %>
-        <div class="col-xs-4">
-          <%= link_to event_path(event) do %>
-            <%= cl_image_tag event.activity.photo, class: 'avatar-large' %>
-            <br>
-            <% title = event.title.length > 10 ? "#{event.title.first(9)}..." : event.title %>
-            <p style="margin: 0;"><%= title %></p>
-          <% end %>
         </div>
       <% end %>
     </div>

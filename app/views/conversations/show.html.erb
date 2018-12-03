@@ -3,7 +3,7 @@
     <div class="header-inbox">
       <div class="back-arrow">
         <%= link_to :back, class: 'back-to-conversations' do %>
-          <i class="fas fa-long-arrow-alt-left" style="font-size: 25px;"></i>
+          <%= image_tag 'left_arrow.png', class: "back-button" %>
         <% end %>
       </div>
       <div class="user-info-inbox">
@@ -25,7 +25,9 @@
             <% end %>
           </h2>
           <div class="recipient-name-show">
-            <p><%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %></p>
+            <%= link_to user_path(recipient) do %>
+              <p><%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %></p>
+            <% end %>
           </div>
         </div>
       </div>

@@ -2,16 +2,18 @@
   <div class="password-reset-container">
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <div class="password-reset-input">
-        <div class="form-inputs">
+        <div class="password-reset-form-inputs">
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
+          <div class="reset-password">
+            <%= f.button :submit, "RESET PASSWORD", class: "plain-reset-password-button" %>
+          </div>
         </div>
       </div>
       <div class="password-reset-button">
         <div class="form-actions">
-          <%= f.button :submit, "RESET PASSWORD", class: "plain-log-in-button" %>
           <div class="shared-links">
             <%= render "devise/shared/links" %>
           </div>
@@ -20,4 +22,3 @@
     <% end %>
   </div>
 </div>
-

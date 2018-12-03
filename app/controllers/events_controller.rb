@@ -9,6 +9,8 @@ class EventsController < ApplicationController
       @all_events << Event.find(hosting.event_id)
     end
     @all_events = @all_events + @events
+    @all_events = @all_events.reject { |event| event.date < Time.now }
+    @all_events.sort_by { |event| event.date }
   end
 
   def new
@@ -32,6 +34,7 @@ class EventsController < ApplicationController
       search_results = User.search_by_firstname_and_lastname(params[:name])
       followers_array = followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
       @followers_array = followers_array & search_results
+      @followers_array = @followers_array.sort_by { |user| user.first_name.downcase }
     else
       followers = current_user.followers
       following = Follower.where(follower_id: current_user.id)
@@ -43,13 +46,14 @@ class EventsController < ApplicationController
         @followers_array << User.find(user.user_id)
       end
       @followers_array = @followers_array.uniq
-      @followers_array = @followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }
+      @followers_array = @followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }.sort_by { |user| user.first_name.downcase }
     end
     guests = Hosting.where(event: @event)
     @event_guests = []
     guests.each do |guest|
       @event_guests << User.find(guest.user.id)
     end
+    @event_guests = @event_guests.sort_by { |user| user.first_name.downcase }
     respond_to do |format|
       format.html
       format.js

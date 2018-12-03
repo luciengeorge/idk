@@ -1,10 +1,22 @@
+.profile-wrapper {
+  height: calc(100vh - 65px);
+}
+
 .logo-period-profile {
   color: $rose-red;
 }
 
+.profile-container {
+  height: calc(100vh - 115px);
+}
+
+.name-profile {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
 #edit-profile-button {
-  height: 40px;
-  width: 110px;
+  padding: 5px 10px;
   color: white;
   background-color: white;
   justify-content: center;
@@ -30,7 +42,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: $silver-sand
+  margin-top: 20px;
 }
 
 .profile-events {
@@ -52,5 +64,11 @@ a{
   display: flex;
   align-items:center;
   justify-content: space-around;
+  margin: 20px;
+}
+
+.back-button {
+  height: 20px;
+  width: 20px;
   margin: 10px;
 }

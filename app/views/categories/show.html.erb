@@ -8,7 +8,20 @@
           <%= select_tag "who_are_you_with", options_for_select([ "Parents", "Friends", "Mistress", "Partner", "Co Worker", "Someone from out of town", "Grandparents", "The Boys", "The Girls", "Boss" ], params[:who_are_you_with]), class: "form-control index-search", prompt: "Who are you with" %>
           <%= select_tag "location", options_for_select([ "Covent Garden", "Soho", "West End", "Southbank", "City of London", "Chinatown", "Camden Town", "Islington", "Hamstead", "Notting Hill", "South Kensington", "Shoreditch", "Peckham", "Brixton" ], params[:location]), class: "form-control index-search", prompt: "Location" %>
           <%= select_tag "vibe", options_for_select([ "Romantic", "Sexy", "Chill",  "Quiet", "Swanky", "Loud", "Trendy", "Posh", "Discreet",  "With a view" ], params[:vibe]), class: "form-control index-search", prompt: "Vibe" %>
-          <%= submit_tag "UPDATE", :name => nil, class: "search-button" %>
+          <% if @category.title == 'food' %>
+            <%= select_tag "and", options_for_select([ "Dance", "Live music", "Celebrate",  "Best deals", "Talk business", "Im game for anything", "Treat myself", "Pop up", "Coffee", "Snacks", "Brunch", "Lunch", "Dinner", "Late night", "Sweets", "Vegetarian", "Vegan", "Pizza", "Sushi", "Steak", "Healthy", "Street Food"], params[:and]), class: "form-control index-search", prompt: "And.." %>
+          <% elsif @category.title == 'drink' %>
+            <%= select_tag "and", options_for_select([ "Dance", "Live music", "Celebrate",  "Best deals", "Talk business", "Im game for anything", "Treat myself", "Pop up", "Speakeasy", "Martinis", "Hotel bar", "Bougie cocktails", "Rave", "See a performance", "Pub"], params[:and]), class: "form-control index-search", prompt: "And.." %>
+          <% elsif @category.title == 'adventure' %>
+            <%= select_tag "and", options_for_select([ "Dance", "Live music", "Celebrate",  "Best deals", "Talk business", "Im game for anything", "Treat myself", "Pop up", "Get dirty", "Break a sweat", "Gallery", "Market", "Cultural trip", "Fast and furious", "Problem solve"], params[:and]), class: "form-control index-search", prompt: "And.." %>
+          <% elsif @category.title == 'chill' %>
+            <%= select_tag "and", options_for_select([ "Dance", "Live music", "Celebrate",  "Best deals", "Talk business", "Im game for anything", "Treat myself", "Pop up", "Detox", "Indoors", "Outdoors"], params[:and]), class: "form-control index-search", prompt: "And.." %>
+          <% end %>
+          <div class="search-update">
+            <div class="position-center">
+              <%= submit_tag "UPDATE", :name => nil, class: "search-button" %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

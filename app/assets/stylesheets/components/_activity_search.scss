@@ -2,7 +2,6 @@
   margin-bottom: 0;
 }
 
-
 .index-search {
   margin: 10px;
   width: 70vw;
@@ -15,20 +14,24 @@
   border-color: $viridian-green;
   border-radius: 10px;
   color: white;
-  height: 39px;
-  width: 93px;
-  text-align: center;
+  padding: 5px 10px;
+  text-align: center !important;
 }
 
 .search-container {
   margin: auto;
-  height: 290px;
+  height: 338px;
   padding-top: 10px;
   border: 1px solid $viridian-green;
   border-top: transparent;
   border-radius: 0px 0px 5px 5px;
   background-color: white;
   overflow: hidden;
+}
+
+.search-update {
+  width: 100%;
+  text-align: center !important;
 }
 
 // SLIDING FUNCTION
@@ -54,7 +57,7 @@ label[for="toggle"] {
 
 aside {
   position: fixed;
-  top: -200px;
+  top: -248px;
   left: 0;
   right: 0;
   z-index: 10000;
@@ -63,4 +66,10 @@ aside {
 
 #toggle:checked + aside {
   top: 59px;
+}
+
+.position-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

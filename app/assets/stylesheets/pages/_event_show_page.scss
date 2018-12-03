@@ -43,8 +43,13 @@
 }
 
 .submit-div {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  // width: 100%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+  background-color: $viridian-green;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  padding: 15px;
 }
