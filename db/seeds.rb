@@ -11,11 +11,11 @@ puts 'Cleaning Database...'
 Hosting.destroy_all
 Event.destroy_all
 Wish.destroy_all
-ActivityTag.destroy_all
+# ActivityTag.destroy_all
 Activity.destroy_all
 Message.destroy_all
 Conversation.destroy_all
-Tag.destroy_all
+# Tag.destroy_all
 Category.destroy_all
 # User.destroy_all
 
@@ -30,59 +30,62 @@ chill = Category.create!(title: 'chill')
 
 puts 'Categories created!'
 
-## food scraping
-# #_____________________________________________________________________________________________________________________________
-# url = "https://www.opentable.co.uk/s/?covers=2&dateTime=2018-12-03%2019%3A00&latitude=51.511386&longitude=-0.135943&metroId=72&term=london&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0"
+# food scraping
+#_____________________________________________________________________________________________________________________________
+url = "https://www.opentable.co.uk/s/?covers=2&dateTime=2018-12-03%2019%3A00&latitude=51.511386&longitude=-0.135943&metroId=72&term=london&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0"
 
-# page = Nokogiri::HTML(open(url))
+page = Nokogiri::HTML(open(url))
 
-# images = []
-# links = []
+images = []
+links = []
+tag_list = []
 
-# page.search(".result").each do |e|
-#   e.search(".rest-row-name").each do |f|
-#     links << "https://www.opentable.co.uk" + f["href"]
-#   end
-# end
+page.search(".result").each do |e|
+  e.search(".rest-row-name").each do |f|
+    links << "https://www.opentable.co.uk" + f["href"]
+  end
+end
 
-# links.each do |e|
-#   begin
-#     p "###################################################################"
-#     page = Nokogiri::HTML(open(e))
-#     title = page.search("h1").text
-#     tag = page.search(".oc-reviews-eda4e1f7").first.text
-#     cuisine = page.at("//span[@itemprop = 'servesCuisine']").children.text
-#     location = page.at("//span[@itemprop = 'streetAddress']").children.text
-#     description = page.at("//div[@itemprop = 'description']").children.text
-#     price = page.at("//span[@itemprop = 'priceRange']").children.text
-#     phone = page.at("._43a18c63._7b5ff70d").children.text.match(/(\d+) (\d+) (\d+)/)[0]
+links.each do |e|
+  begin
+    p "###################################################################"
+    page = Nokogiri::HTML(open(e))
+    title = page.search("h1").text
+    tag = page.search(".oc-reviews-eda4e1f7").first.text
+    cuisine = page.at("//span[@itemprop = 'servesCuisine']").children.text
+    location = page.at("//span[@itemprop = 'streetAddress']").children.text
+    description = page.at("//div[@itemprop = 'description']").children.text
+    price = page.at("//span[@itemprop = 'priceRange']").children.text
+    phone = page.at("._43a18c63._7b5ff70d").children.text.match(/(\d+) (\d+) (\d+)/)[0]
+    tag = page.search(".oc-reviews-eda4e1f7").each do |child|
+      tag_list << child.text
+    end
+    image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
+    p tag_list
 
-#     image = page.search(".photo__1uTC33_t img").first.attributes["src"].value
-#     # p image
+    if price.include?("£25 and under")
+      price = '£'
+    elsif price.include?("£41 and over")
+      price = "£££"
+    else
+      price = "££"
+    end
 
-#     if price.include?("£25 and under")
-#       price = '£'
-#     elsif price.include?("£41 and over")
-#       price = "£££"
-#     else
-#       price = "££"
-#     end
-
-#     act = Activity.create!(
-#       category: Category.find_by(title: 'food'),
-#       title: title,
-#       cuisine: cuisine,
-#       description: description,
-#       location: location,
-#       phone: phone,
-#       price: price,
-#       photo: image
-#       )
-#     p act
-#   rescue StandardError => e
-#     p e.message
-#   end
-# end
+    # act = Activity.create!(
+    #   category: Category.find_by(title: 'food'),
+    #   title: title,
+    #   cuisine: cuisine,
+    #   description: description,
+    #   location: location,
+    #   phone: phone,
+    #   price: price,
+    #   photo: image
+    #   )
+    # p act
+  rescue StandardError => e
+    p e.message
+  end
+end
 # #_________________________________________________________
 # url = "https://www.opentable.co.uk/s/?areaid=geohash%3Agcpvhc&covers=2&currentview=list&datetime=2018-11-27+19%3A00&latitude=51.511413&longitude=-0.135915&metroid=72&size=100&sort=Popularity&cuisineids%5B%5D=9b925f03-fbea-46c6-b75e-01f7ccf8e50c&cuisineids%5B%5D=c718224e-a5a3-4c46-9102-74d4cdd7c36b&cuisineids%5B%5D=f09f8e08-e736-4c40-905a-ff2296e786b9&cuisineids%5B%5D=e0c16bdd-c1ff-403c-969d-5c446e50f84e&cuisineids%5B%5D=aba0f9b4-13c4-40db-81fc-0ac9cc3fc2bb"
 

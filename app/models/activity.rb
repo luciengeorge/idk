@@ -6,6 +6,7 @@ class Activity < ApplicationRecord
   has_many :wishes, dependent: :destroy
   has_many :users, through: :wishes
   geocoded_by :location
+  acts_as_taggable_on :tags
   after_validation :geocode, if: :will_save_change_to_location?
   acts_as_mappable default_units: :kms,
                    default_formula: :sphere,
