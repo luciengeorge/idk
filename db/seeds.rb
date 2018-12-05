@@ -1053,11 +1053,6 @@ the_begging_bowl_tags.each do |tag|
   ActivityTag.create(activity: the_begging_bowl, tag: tag)
 end
 
-forza_win_tags = [couple, small_group, large_group, alone, boss, co_worker, partner, friends, parents, grandparents, someone_from_out_of_town, partner, mistress, peckham, trendy, discreet, talk_business, lunch, pizza, snacks, dinner, im_game_for_anything, brunch, treat_myself]
-forza_win_tags.each do |tag|
-  ActivityTag.create(activity: forza_win, tag: tag)
-end
-
 
 # tags for peckham drinks
 #____________________________________________________________________________________________________________________________

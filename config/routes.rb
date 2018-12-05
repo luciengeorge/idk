@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: :registrations }
+  devise_for :users, controllers: { confirmations: :confirmations }, as: 'confirmation'
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
   get '/feed', to: 'pages#feed'
