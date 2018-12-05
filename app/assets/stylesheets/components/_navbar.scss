@@ -107,6 +107,16 @@
   text-align: right;
 }
 
+.mobile-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.notification-logo {
+  margin: 0 20px;
+}
+
 // .navbar-wagon-dropdown-menu:before {
 //   content: ' ';
 //   height: 10px;

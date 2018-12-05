@@ -1,0 +1,13 @@
+.notification-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.notification-text {
+  margin: 0 10px;
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}

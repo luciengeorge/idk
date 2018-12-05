@@ -53,4 +53,8 @@ class PagesController < ApplicationController
       @users = User.all.reject { |user| user.id == current_user.id }.sort_by { |user| user.first_name.downcase }
     end
   end
+
+  def notifications
+    @notifications = Hosting.where(user_id: current_user.id, status: 'pending')
+  end
 end
