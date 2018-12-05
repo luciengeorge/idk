@@ -60,8 +60,16 @@
         <%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "FEED", feed_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "MY EVENTS", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-          <i class="fas fa-bell"></i>
+        <% if Hosting.where(user_id: current_user.id, status: 'pending').count.zero? %>
+          <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link notification-logo" do %>
+            <i class="fas fa-bell"></i>
+          <% end %>
+        <% else %>
+          <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link notification-logo" do %>
+            <i class="fas fa-bell" style="position: relative;">
+              <span class="red-dot" style=" position: absolute; height: 7px; width: 7px; background: red; top: -2px; right: -1px; border-radius: 50%;"></span>
+            </i>
+          <% end %>
         <% end %>
         <div class="dropdown">
           <i class="fas fa-bars dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
@@ -110,7 +118,9 @@
           <% end %>
         <% else %>
           <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link notification-logo" do %>
-            <i class="fas fa-bell" style="color: red;"></i>
+            <i class="fas fa-bell" style="position: relative;">
+              <span class="red-dot" style=" position: absolute; height: 7px; width: 7px; background: red; top: -2px; right: -1px; border-radius: 50%;"></span>
+            </i>
           <% end %>
         <% end %>
         <div class="dropdown">
