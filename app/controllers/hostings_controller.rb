@@ -25,4 +25,16 @@ class HostingsController < ApplicationController
     end
     redirect_to event_path(Event.find(params[:event_id].to_i))
   end
+
+  def update
+    @hosting = Hosting.find(params[:id])
+    @hosting.update(status: 'approved')
+    redirect_to notifications_path
+  end
+
+  def destroy
+    @hosting = Hosting.find(params[:id])
+    @hosting.delete
+    redirect_to notifications_path
+  end
 end

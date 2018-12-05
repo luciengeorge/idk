@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
   get '/feed', to: 'pages#feed'
+  get '/notifications', to: 'pages#notifications'
   resources :users, only: [:show] do
     resources :followers, only: [:create]
   end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create]
     resources :hostings, only: [:create, :new]
   end
+  resources :hostings, only: [:update, :destroy]
   resources :comments, only: [:destroy]
   resources :likes, only: [:destroy]
   resources :activities, only: [:show] do

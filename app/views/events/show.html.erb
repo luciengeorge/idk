@@ -35,6 +35,9 @@
         <p style="margin: 10px 0 0 0;"><i class="fas fa-comments"></i> Contact host</p>
       <% end %>
     <% end %>
+    <% unless @pending_guests.count.zero? %>
+      <p style="font-size: 13px; opacity: 0.7;"><%= @pending_guests.count %> pending <%= 'guest'.pluralize(@pending_guests.count) %></p>
+    <% end %>
     <div class="guests">
       <% @event_guests.each do |guest| %>
         <%= link_to user_path(guest), class:"guest" do %>

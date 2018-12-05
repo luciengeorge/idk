@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="container">
+    <h2 class="page-title">notifications<strong class="play-show-dot">.</strong></h2>
+    <% if @notifications.count.zero? %>
+      <p>You have no notifications.</p>
+    <% else %>
+      <% @notifications.each do |hosting| %>
+        <div class="notification-card">
+          <div class="event-avatar">
+            <%= cl_image_tag hosting.event.activity.photo, class: 'avatar-large' %>
+          </div>
+          <div class="notification-text">
+            <p>You have been invited by <em><%= "#{hosting.event.user.first_name.capitalize} #{hosting.event.user.last_name.capitalize}" %></em> to <%= hosting.event.title %> on <strong><%= hosting.event.date.strftime('%A, %b %d') %></strong></p>
+              <%= link_to 'Accept', hosting_path(hosting), method: :put %> |
+              <%= link_to 'Decline', hosting_path(hosting), method: :delete %>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    <% end %>
+  </div>
+</div>

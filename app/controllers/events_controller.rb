@@ -3,13 +3,13 @@ class EventsController < ApplicationController
 
   def index
     @events = current_user.events
-    @hostings = Hosting.where(user: current_user.id)
+    @hostings = Hosting.where(user: current_user.id, status: 'approved')
     @all_events = []
     @hostings.each do |hosting|
       @all_events << Event.find(hosting.event_id)
     end
     @all_events = @all_events + @events
-    @all_events = @all_events.reject { |event| event.date < Time.now }
+    # @all_events = @all_events.reject { |event| event.date < Time.now }
     @all_events.sort_by { |event| event.date }
   end
 
@@ -48,10 +48,15 @@ class EventsController < ApplicationController
       @followers_array = @followers_array.uniq
       @followers_array = @followers_array.reject { |follower| Hosting.find_by(user: follower.id, event: @event) }.sort_by { |user| user.first_name.downcase }
     end
-    guests = Hosting.where(event: @event)
+    guests = Hosting.where(event: @event, status: 'approved')
     @event_guests = []
     guests.each do |guest|
       @event_guests << User.find(guest.user.id)
+    end
+    pendings = Hosting.where(event: @event, status: 'pending')
+    @pending_guests = []
+    pendings.each do |pending|
+      @pending_guests << User.find(pending.user.id)
     end
     @event_guests = @event_guests.sort_by { |user| user.first_name.downcase }
     respond_to do |format|
