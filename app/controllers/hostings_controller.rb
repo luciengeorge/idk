@@ -28,7 +28,7 @@ class HostingsController < ApplicationController
 
   def update
     @hosting = Hosting.find(params[:id])
-    @hosting.update(status: 'approved')
+    @hosting.update(status: params[:status])
     redirect_to notifications_path
   end
 

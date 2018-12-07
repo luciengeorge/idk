@@ -11,3 +11,21 @@
     font-size: 14px;
   }
 }
+
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.page-subtitle {
+  font-size: 20px;
+  margin: 20px auto ;
+  letter-spacing: 2px;
+}
+
+.submit-status-button {
+  background: none;
+  border: none;
+  padding: 0;
+}
