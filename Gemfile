@@ -21,6 +21,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'forest_liana'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

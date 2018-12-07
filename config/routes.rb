@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: { registrations: :registrations }
   root to: 'pages#home'
   get '/profile', to: 'pages#profile'
