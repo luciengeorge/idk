@@ -55,6 +55,12 @@ class PagesController < ApplicationController
   end
 
   def notifications
-    @notifications = Hosting.where(user_id: current_user.id, status: 'pending')
+    Follower.where(user_id: current_user, count: 0).or(Follower.where(user_id: current_user, count: 1)).each do |follower|
+      if follower.count < 2
+        follower.update(count: (follower.count + 1))
+      end
+    end
+    @new_notifications = (Hosting.where(user_id: current_user, status: 'pending') + Follower.where(user_id: current_user, count: 0).or(Follower.where(user_id: current_user, count: 1))).sort_by(&:updated_at).reverse
+    @past_notifications = (Hosting.where(user_id: current_user, status: 'approved').or(Hosting.where(user_id: current_user, status: 'declined')) + Follower.where(user_id: current_user, count: 2)).sort_by(&:updated_at).reverse
   end
 end

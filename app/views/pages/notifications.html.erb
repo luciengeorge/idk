@@ -1,21 +1,95 @@
 <div class="wrapper">
   <div class="container">
     <h2 class="page-title">notifications<strong class="play-show-dot">.</strong></h2>
-    <% if @notifications.count.zero? %>
-      <p>You have no notifications.</p>
+    <% if @new_notifications.count.zero? && @past_notifications.count.zero? %>
+      <p>You have no new_notifications.</p>
     <% else %>
-      <% @notifications.each do |hosting| %>
-        <div class="notification-card">
-          <div class="event-avatar">
-            <%= cl_image_tag hosting.event.activity.photo, class: 'avatar-large' %>
-          </div>
-          <div class="notification-text">
-            <p>You have been invited by <em><%= "#{hosting.event.user.first_name.capitalize} #{hosting.event.user.last_name.capitalize}" %></em> to <%= hosting.event.title %> on <strong><%= hosting.event.date.strftime('%A, %b %d') %></strong></p>
-              <%= link_to 'Accept', hosting_path(hosting), method: :put %> |
-              <%= link_to 'Decline', hosting_path(hosting), method: :delete %>
-          </div>
-        </div>
-        <hr>
+      <% unless @new_notifications.count.zero? %>
+        <h6 class="page-subtitle">new notifications<strong class="play-show-dot">.</strong></h6>
+        <% @new_notifications.each do |hosting| %>
+          <% if hosting.class == Hosting %>
+            <div class="notification-card">
+              <%= link_to event_path(hosting.event) do %>
+                <div class="event-avatar">
+                  <%= cl_image_tag hosting.event.activity.photo, class: 'avatar-large' %>
+                </div>
+              <% end %>
+              <div class="notification-text">
+                <%= link_to event_path(hosting.event) do %>
+                  <p>You have been invited by <em><%= "#{hosting.event.user.first_name.capitalize} #{hosting.event.user.last_name.capitalize}" %></em> to <%= hosting.event.title %> on <strong><%= hosting.event.date.strftime('%A, %b %d') %></strong></p>
+                <% end %>
+                <div class="forms">
+                  <div class="accepted-form" style="font-size: 14px;">
+                    <%= form_for hosting, method: :put do |f| %>
+                      <%= hidden_field_tag 'status', 'approved' %>
+                      <%= f.submit 'Accept', class: "submit-status-button" %>
+                    <% end %>
+                  </div> |
+                  <div class="declined-form" style="font-size: 14px;">
+                    <%= form_for hosting, method: :put do |f| %>
+                      <%= hidden_field_tag 'status', 'declined' %>
+                      <%= f.submit 'Decline', class: "submit-status-button" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <div class="following">
+              <% user = User.find(hosting.follower_id) %>
+              <%= link_to user_path(user) do %>
+                <div class="following-info">
+                  <% if user.photo? %>
+                    <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                  <% else %>
+                    <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                  <% end %>
+                  <p><%= "#{user.first_name.capitalize} #{user.last_name.capitalize} started following you" %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <hr>
+        <% end %>
+      <% end %>
+      <% unless @past_notifications.count.zero? %>
+        <h6 class="page-subtitle">past notifications<strong class="play-show-dot">.</strong></h6>
+        <% @past_notifications.each do |hosting| %>
+          <% if hosting.class == Hosting %>
+            <div class="notification-card">
+              <%= link_to event_path(hosting.event) do %>
+                <div class="event-avatar">
+                  <%= cl_image_tag hosting.event.activity.photo, class: 'avatar-large' %>
+                </div>
+              <% end %>
+              <%= link_to event_path(hosting.event) do %>
+                <div class="notification-text">
+                  <p>You have been invited by <em><%= "#{hosting.event.user.first_name.capitalize} #{hosting.event.user.last_name.capitalize}" %></em> to <%= hosting.event.title %> on <strong><%= hosting.event.date.strftime('%A, %b %d') %></strong></p>
+                  <% if hosting.status == 'approved' %>
+                    <p style="color: green;">Approved</p>
+                  <% else %>
+                    <p style="color: red;">Declined</p>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="following">
+              <% user = User.find(hosting.follower_id) %>
+              <%= link_to user_path(user) do %>
+                <div class="following-info">
+                  <% if user.photo? %>
+                    <%= cl_image_tag(user.photo, width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                  <% else %>
+                    <%= image_tag('default-avatar.png', width: 200, height: 200, crop: :fill, class:"avatar-large") %>
+                  <% end %>
+                  <p><%= "#{user.first_name.capitalize} #{user.last_name.capitalize} started following you" %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <hr>
+        <% end %>
       <% end %>
     <% end %>
   </div>
