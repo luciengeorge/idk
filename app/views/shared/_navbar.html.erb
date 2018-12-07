@@ -60,7 +60,7 @@
         <%= link_to "WISHLIST", wishes_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "FEED", feed_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "MY EVENTS", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <% if Hosting.where(user_id: current_user.id, status: 'pending').count.zero? %>
+        <% if (Hosting.where(user_id: current_user, status: 'pending') + Follower.where(user_id: current_user, count: 0).or(Follower.where(user_id: current_user, count: 1))).count.zero? %>
           <%= link_to notifications_path, class: "navbar-wagon-item navbar-wagon-link notification-logo" do %>
             <i class="fas fa-bell"></i>
           <% end %>
