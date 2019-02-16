@@ -73,30 +73,26 @@
   display: flex;
   align-items: center;
   width: 100% !important;
-  @media only screen and (max-width: 600px) {
-  }
-  @media only screen and (min-width: 600px) {
-    // width: 70%;
-  }
-
 }
+
 .message-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px);
   @media only screen and (min-width: 992px) {
     margin: 50px 200px 0 200px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     height: calc(90vh - 60px);
   }
+  @media only screen and (max-width: 992px) {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .messages {
-  @media only screen and (max-width: 600px) {
-  }
-  @media only screen and (min-width: 600px) {
-    // width: 70%;
-  }
   width: 100%;
   margin: 0 auto 0 auto;
   overflow: scroll;
@@ -132,6 +128,7 @@
   padding: 5px 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   resize: none;
+  box-shadow: none;
 }
 
 .msg-button {
