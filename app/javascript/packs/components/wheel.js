@@ -1,7 +1,13 @@
+
+// DISABLE WHEEL AFTER CLICK
+document.getElementById("spin").addEventListener('click', () => {
+  document.querySelector(".disable-wheel").style.display = "block";
+});
+
+
 var degree = 1800;
 //number of clicks = 0
 var clicks = 0;
-
 
 $(document).ready(function(){
 
@@ -64,7 +70,4 @@ $(document).ready(function(){
 
     });
   });
-
-
-
 });
