@@ -10,12 +10,22 @@
   transform: rotate(0deg);
 }
 
+.disable-wheel {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .wheel-container {
   height: calc(100vh - 380px);
   width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 
 .wheel-icons {
