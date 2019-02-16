@@ -2,6 +2,8 @@
   <div class="message-right">
     <p class="message-sender text-right">
       <%= message.body %>
+      <span class="message-time"><%= message.created_at.strftime("%I:%M%p") %></span>
     </p>
   </div>
 </div>
+

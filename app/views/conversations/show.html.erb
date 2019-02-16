@@ -1,5 +1,5 @@
-<div class="wrapper">
-  <div class="container">
+<div class="message-wrapper">
+  <div style="height: 75px;">
     <div class="header-inbox">
       <div class="back-arrow">
         <%= link_to :back, class: 'back-to-conversations' do %>
@@ -26,15 +26,17 @@
           </h2>
           <div class="recipient-name-show">
             <%= link_to user_path(recipient) do %>
-              <p><%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %></p>
+              <p><strong><%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %></strong></p>
             <% end %>
           </div>
         </div>
       </div>
     </div>
-    <div class="inbox">
-      <div class="messages" id="messages">
-        <ul class="list-unstyled" id="message-list" style="margin: 0;">
+  </div>
+  <div class="inbox">
+    <hr style="margin: 0;">
+      <div class="messages" id="messages" style="background-image: url('<%= image_url 'white-waves.png' %>')">
+        <ul class="list-unstyled" id="message-list" style="margin: 0; background-image: url('<%= image_url 'white-waves.png' %>')">
           <% @messages.each_with_index do |message, index| %>
             <% if message.body %>
               <% user = User.find(message.user_id) %>
@@ -44,6 +46,7 @@
                     <div class="message-right">
                       <p class="message-sender text-justify">
                         <%= message.body %>
+                        <span class="message-time"><%= message.created_at.strftime("%I:%M%p") %></span>
                       </p>
                     </div>
                   </div>
@@ -54,6 +57,7 @@
                     <div class="message-left">
                       <p class="message-receiver text-justify" style="color: black;">
                         <%= message.body %>
+                        <span class="message-time"><%= message.created_at.strftime("%I:%M%p") %></span>
                       </p>
                     </div>
                   </div>
@@ -63,12 +67,15 @@
           <% end %>
         </ul>
       </div>
-      <%= render 'form_message', conversation: @conversation, message: @message %>
+      <hr style="margin: 0;">
+        <div style="height: 52px;">
+          <div class="send-message-box">
+            <%= render 'form_message', conversation: @conversation, message: @message %>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-
-
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'components/message' %>
 <% end %>
