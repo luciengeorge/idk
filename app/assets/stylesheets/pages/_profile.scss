@@ -16,16 +16,18 @@
 }
 
 #edit-profile-button {
-  padding: 5px 10px;
-  color: white;
-  background-color: white;
+  padding: 10px 15px;
+  background-color: $rose-red;
   justify-content: center;
   border-radius: 5px;
-  box-shadow: 1px;
-}
-
-#edit-profile-button a {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  border: none;
+  a {
+    font-size: 12px;
+    color: white;
+  }
 }
 
 a{
@@ -50,14 +52,15 @@ a{
 }
 
 #contact_user {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 3px 5px;
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.2);
-  &:hover {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: rgba(0, 0, 0, 0.5);
-  }
+  padding: 10px 15px;
+  background-color: #BF1363;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  border: none;
 }
 
 .interaction {

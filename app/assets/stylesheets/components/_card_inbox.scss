@@ -29,13 +29,7 @@
 .message:last-child {
   border-bottom: none;
 }
-.message-body {
-  flex-grow: 1;
-  p {
-    font-size: 16px;
-    margin: auto;
-  }
-}
+
 
 .right-div {
   display: flex;
@@ -50,25 +44,30 @@
   flex-grow: 1;
 }
 
-.recipient-name {
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  color: black;
+.recipient-info {
+  margin: 0 3px;
   justify-content: start;
-  width: 35%;
-  p {
-    padding: 5px;
-    margin: auto 0;
-  }
+  width: 100%;
+}
+
+.recipient-name {
+  font-size: 15px;
+  color: black;
+  padding: 0 5px;
+  margin: auto 0;
+  width: 100%;
+}
+.message-body {
+  font-size: 16px;
+  padding: 0 5px;
 }
 
 .recipient-name-show {
-  margin: 0 20px;
-  display: flex;
-  align-items: center;
-  color: black;
-  justify-content: start;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    color: black;
+    justify-content: start;
   p {
     padding: 5px;
     margin: auto 0;
@@ -87,4 +86,14 @@
   &:hover {
     color: black;
   }
+}
+
+.send-message-box {
+  display: flex;
+  padding: 0 5px;
+  height: 52px !important;
+}
+
+#send-message-form {
+  width: 100%;
 }

@@ -48,21 +48,21 @@
       <% else %>
         <%= image_tag('default-avatar.png', class: "avatar-large") %>
       <% end %>
-      <div class="recipient-name">
-        <div style="height:50px; max-width: 100px; align-items: left; display: flex; font-size: 10px;">
-          <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+      <div class="recipient-info">
+        <div style="align-items: left;">
+          <p class="recipient-name" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
             <strong>
               <%= "#{recipient.first_name.capitalize} #{recipient.last_name.capitalize}" %>
             </strong>
           </p>
         </div>
-      </div>
-      <div class="message-body" style="max-width: 200px;">
-        <% if conversation.messages.empty? %>
-          <p style="font-size: 10px;">No Messages yet</p>
-        <% else %>
-          <p style="font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100px;"><em><%= conversation.messages.last.body %></em></p>
-        <% end %>
+        <div class="message-body" style="max-width: 200px;">
+          <% if conversation.messages.empty? %>
+            <p style="font-size: 10px;">No Messages yet</p>
+          <% else %>
+            <p style="font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100px;"><em><%= conversation.messages.last.body %></em></p>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="right-div">
@@ -81,4 +81,4 @@
     </div>
   </div>
 <% end %>
-<hr style="border-color: rgba(0, 0, 0, 0.3); margin: 10px 0;">
+<hr style="margin: 10px 0;">
