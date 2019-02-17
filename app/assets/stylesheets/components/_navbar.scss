@@ -17,6 +17,21 @@
   }
 }
 
+.red-dot-navbar {
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  background: red;
+  top: -3px;
+  right: -5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 8px;
+  color: white;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
