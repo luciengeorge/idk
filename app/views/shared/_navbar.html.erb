@@ -135,7 +135,7 @@
           <% if unread_messages.zero? %>
             <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
           <% else %>
-            <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" style="color: red !important"> <%= unread_messages %></i>
+            <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"><span class="red-dot-navbar"><%= unread_messages %></i></span>
           <% end %>
           <ul class="dropdown-menu pull-right navbar-wagon-dropdown-menu">
             <% if unread_messages.zero? %>

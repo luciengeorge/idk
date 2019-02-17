@@ -1,6 +1,6 @@
 <%= link_to conversation_path(conversation), class:"message-card-link" do %>
 <!-- web view -->
-  <div class="message hidden-xs">
+  <div class="message hidden">
     <div class="left-div">
       <% if recipient.photo? %>
         <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
@@ -41,7 +41,7 @@
   </div>
 
 <!-- mobile view -->
-  <div class="message hidden-md hidden-lg hidden-xl hidden-sm" style="padding: 0; margin: 0;">
+  <div class="message" style="padding: 0; margin: 0;">
     <div class="left-div">
       <% if recipient.photo? %>
         <%= cl_image_tag(recipient.photo, class:"avatar-large") %>
@@ -72,7 +72,7 @@
         <% elsif unread_messages.zero? %>
           <p class="date-created" style="font-size: 8px;"><%= conversation.messages.last.message_time %></p>
         <% else %>
-          <div class="avatar-unread-messages avatar-sm" style="background-color: red; color: white; font-size:10px;">
+          <div class="avatar-unread-messages avatar-sm" style="background-color: red; color: white; font-size:10px;font-weight: lighter;">
             <%= unread_messages %>
           </div>
           <p class="date-created" style="font-size: 8px;"><%= conversation.messages.last.message_time %></p>
