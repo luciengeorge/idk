@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="page-title">notifications<strong class="play-show-dot">.</strong></h2>
     <% if @new_notifications.count.zero? && @past_notifications.count.zero? %>
-      <p>You have no new_notifications.</p>
+      <p>You have no new notifications.</p>
     <% else %>
       <% unless @new_notifications.count.zero? %>
         <h6 class="page-subtitle">new notifications<strong class="play-show-dot">.</strong></h6>
