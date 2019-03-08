@@ -12,7 +12,7 @@
             </div>
             <div class="event-info">
               <% unless current_user.id == event.user.id %>
-                <p><%= "#{event.user.first_name.capitalize} #{event.user.last_name} invited you to the event at" %></p>
+                <p><%= "#{event.user.first_name.capitalize} #{event.user.last_name.capitalize} invited you to the event at" %></p>
               <% end %>
               <p><%= event.title %>, on <strong><%= event.date.strftime('%A, %b %d') %></strong></p>
             </div>

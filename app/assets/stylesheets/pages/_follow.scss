@@ -28,23 +28,27 @@
 }
 
 #unfollow {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 3px 5px;
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.2);
-  &:hover {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: rgba(0, 0, 0, 0.5);
-  }
+  padding: 10px 15px;
+  background-color: #BF1363;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  border: none;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
 
 #follow {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 3px 5px;
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.2);
-  &:hover {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: rgba(0, 0, 0, 0.5);
-  }
+  padding: 10px 15px;
+  background-color: #BF1363;
+  color: white;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  border: none;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
 }

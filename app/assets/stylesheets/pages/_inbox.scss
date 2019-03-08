@@ -9,10 +9,6 @@
   overflow: scroll;
 }
 
-.messages {
-  height: 100%;
-}
-
 .inbox-list {
   margin: 10px auto;
 }
@@ -36,5 +32,5 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding-bottom: 10px;
 }

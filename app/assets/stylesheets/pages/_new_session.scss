@@ -40,6 +40,19 @@
   border-bottom: 1px solid $silver-sand;
 }
 
+#user_remember_me {
+  margin-right: 3px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-check-label {
+  margin: 0;
+}
+
 .log-in-button {
   background-color: $rose-red;
   width: 250px;

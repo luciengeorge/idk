@@ -1,7 +1,8 @@
-<div class="message-div" style="justify-content: flex-end">
-  <div class="message-right">
-    <p class="message-sender text-right">
-      <%= message.body %>
-    </p>
+<div class="message-div" style="justify-content: flex-end;">
+  <div class="message-right" style="max-width: 85%;">
+    <div class="message-sender">
+      <p><%= message.body %></p>
+      <span class="message-time"><%= message.created_at.strftime("%I:%M%p") %></span>
+    </div>
   </div>
 </div>

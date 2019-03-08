@@ -1,9 +1,11 @@
-<div class="form-div" style="margin: auto;">
-  <%= form_for [conversation, message], html: { class: "ui reply form form-inline", id: "send-message-form" }, remote: true do |f| %>
+<%= form_for [conversation, message], html: { class: "ui reply form form-inline", id: "send-message-form" }, remote: true do |f| %>
+  <div class="form-div" style="margin: 0;">
     <%= f.text_area :body %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+  </div>
+  <div class="form-button-container">
     <%= button_tag(type: 'submit', class: "btn msg-button") do %>
-      SEND <i class="fab fa-telegram-plane"></i>
+      <i class="fab fa-telegram-plane"></i>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
