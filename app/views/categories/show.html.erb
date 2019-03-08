@@ -54,7 +54,11 @@
             <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= activity.photo %>');">
             </div>
             <div class="card-info" id="card_info_<%= activity.id %>">
-              <p><%= activity.title.upcase %></p>
+              <% if activity.title.length >= 25 %>
+                <p><%= "#{activity.title.upcase.first(25)}..." %></p>
+              <% else %>
+                <p><%= activity.title.upcase %></p>
+              <% end %>
               <% if @distance && @direction %>
                 <p style="font-size:12px; color: #C4C4C4;"><strong><i class="fas fa-map-pin" style="margin: 0 10px; font-size:16px;"></i></strong> <%= @distance.round(1) %>km</p>
               <% end %>
