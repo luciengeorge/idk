@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>We're sorry, but something went wrong (500)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500|Roboto:400,500,700" rel="stylesheet">
+    <style>
+      h2 {
+        font-family: 'Raleway';
+      }
+
+      p {
+        font-family: 'Roboto';
+      }
+
+      .error-page-container {
+        height: 100vh;
+        width: 100vw;
+        background:  #FFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .error-page-info {
+        width: 100%;
+        max-width: 800px;
+      }
+
+      h1, h2, p {
+        text-align: center;
+        color: #676767;
+      }
+      a {
+        background-color: #6B2022;
+        color: #FFF;
+        border-radius: 20px;
+        padding: 8px 45px;
+        text-decoration: none;
+        border: 1px solid #6B2022;
+        transition: background-color 0.5s !important;
+        cursor: pointer;
+        margin: 20px 0 20px auto;
+        display: block;
+        width: fit-content;
+      }
+
+      a:hover {
+        color: #FFF;
+        background-color: #802e30;
+      }
+      .error-page-swan {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .error-page-info {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0;">
+    <div class="error-page-container">
+      <div class="error-page-info">
+        <h2>Oops! You appear to be offline</h2>
+        <p>This app requires an internet connection</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "short_name": "idk.",
+  "name": "idk.",
+  "icons": [
+    {
+      "src": "/images/idk-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/idk-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFF"
+}
