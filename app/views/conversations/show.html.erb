@@ -35,8 +35,8 @@
   </div>
   <div class="inbox">
     <hr style="margin: 0;">
-      <div class="messages" id="messages" style="background-image: url('<%= image_url 'white-waves.png' %>')">
-        <ul class="list-unstyled" id="message-list" style="margin: 0; background-image: url('<%= image_url 'white-waves.png' %>')">
+      <div class="messages" id="messages" style="background-image: url('<%= image_url 'question-background.png' %>'); background-size: cover; background-position: center;">
+        <ul class="list-unstyled" id="message-list" style="margin: 0;">
           <% @messages.each_with_index do |message, index| %>
             <% if message.body %>
               <% user = User.find(message.user_id) %>
@@ -70,7 +70,7 @@
         </ul>
       </div>
       <hr style="margin: 0;">
-        <div style="height: 60px;">
+        <div class="send-message-box-container">
           <div class="send-message-box">
             <%= render 'form_message', conversation: @conversation, message: @message %>
           </div>

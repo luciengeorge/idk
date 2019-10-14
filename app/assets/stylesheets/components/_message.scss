@@ -5,6 +5,7 @@
   border-radius: 10px;
   margin: 0 0 0 auto;
   font-size: 14px;
+  background: #FFF;
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
   position: relative;
   padding-right: 55px;
@@ -38,6 +39,7 @@
   border-radius: 10px;
   margin: 0 auto 0 0;
   font-size: 14px;
+  background: #FFF;
   position: relative;
   padding-right: 55px;
   p {
@@ -167,28 +169,43 @@
 
 #message_body {
   width: 100%;
-  height: 70%;
+  height: 80%;
   border: none;
-  // border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 20px;
-  padding: 5px 10px;
+  border: 2px solid #DCDCDC;
+  border-radius: 25px;
+  padding: 5px 46px 5px 20px;
+  font-size: 16px;
   resize: none;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 5px rgba(0,0,0,0.2);
   font-family: 'Roboto';
   -webkit-appearance: none;
+  line-height: 32px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.send-message-box-container {
+  height: 60px;
 }
 
 .msg-button {
-  height: 45px;
-  width: 45px;
+  height: 38px;
+  width: 38px;
   border-radius: 50%;
-  background-color: $rose-red;
+  background-color: #ADADAD;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 3px rgba(0,0,0,0.3);
-  padding: 6px 12px 6px 10px;
+  // box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  padding: 0;
+  position: absolute;
+  right: 6px;
+  top: calc(50% - 19px);
+  img {
+    width: 80%;
+  }
 }
 
 .form-button-container {
@@ -201,4 +218,34 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+@media only screen
+  and (device-width: 375px)
+  and (device-height: 812px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .send-message-box-container {
+      height: 100px;
+    }
+}
+
+@media only screen
+  and (device-width: 414px)
+  and (device-height: 896px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .send-message-box-container {
+      height: 100px;
+    }
+}
+
+@media only screen
+  and (device-width: 414px)
+  and (device-height: 896px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .send-message-box-container {
+      height: 100px;
+    }
 }
