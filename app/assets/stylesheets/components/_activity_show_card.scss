@@ -1,6 +1,9 @@
 .activity-show-card {
   width: 100vw;
   height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .activity-photo {
