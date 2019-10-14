@@ -7,10 +7,12 @@
 }
 
 .activity-photo {
-  height: 30%;
+  // height: 30%;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
+  flex: 1;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 10px;
@@ -53,4 +55,37 @@
 
 .left-link-div {
   align-items: center;
+}
+
+@media only screen
+  and (device-width: 375px)
+  and (device-height: 812px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait)
+  and (display-mode: standalone) {
+  .card-links {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen
+  and (device-width: 414px)
+  and (device-height: 896px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait)
+  and (display-mode: standalone) {
+  .card-links {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen
+  and (device-width: 414px)
+  and (device-height: 896px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait)
+  and (display-mode: standalone) {
+  .card-links {
+    margin-bottom: 40px;
+  }
 }
