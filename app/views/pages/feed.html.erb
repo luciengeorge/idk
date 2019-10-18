@@ -17,17 +17,7 @@
                 <p> <strong><%=" #{event.user.first_name.capitalize} #{event.user.last_name.capitalize}" %></strong> <%= "is going to" %> <em><%= "#{event.activity.title}" %></em></p>
               </div>
               <div class="feed-card-right">
-                <% time = "#{((Time.now - event.created_at) / 60).floor}m" %>
-                <% if (((Time.now - event.created_at) / 60).floor) > 60 %>
-                  <% time = "#{(((Time.now - event.created_at) / 3600).floor)}h" %>
-                  <% if (((Time.now - event.created_at) / 3600).floor) > 24 %>
-                    <% time = "#{((Time.now - event.created_at) / (3600 * 24)).floor}d" %>
-                    <% if ((Time.now - event.created_at) / (3600 * 24)).floor > 7 %>
-                      <% time = "#{((Time.now - event.created_at) / (3600 * 24 * 7)).floor}w" %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-                <p id="time-feed"><%= time %></p>
+                <p id="time-feed"><%= distance_of_time_in_words_to_now(event.created_at) %></p>
               </div>
             </div>
             <div class="feed-card-bottom" id="feed_bottom_<%= event.id %>">
