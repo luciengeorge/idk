@@ -13,7 +13,7 @@
     <br>
     <button id="edit-profile-button"><%= link_to 'EDIT PROFILE', edit_user_registration_path %></button>
     <hr>
-    <% if current_user.email == 'lucien@gmail.com' || current_user.email == 'izzy@gmail.com' || current_user.email == 'gaby@gmail.com' || current_user.email == 'ife@gmail.com' %>
+    <% if User.CO_FOUNDERS.include?(current_user.email) %>
       <h1 class="page-title text-center name-profile" style="margin: 40px auto 10px auto !important;"><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
       <p><em>co-founder</em></p>
     <% else %>
