@@ -21,7 +21,7 @@
       </div>
     </div>
     <hr>
-    <% if @user.email == 'lucien@gmail.com' || @user.email == 'izzy@gmail.com' || @user.email == 'gaby@gmail.com' || @user.email == 'ife@gmail.com' %>
+    <% if User.CO_FOUNDERS.include?(@user.email) %>
       <h1 class="page-title text-center name-profile" style="margin: 40px auto 10px auto !important;"><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %><strong class="logo-period-profile">.</strong> </h1>
       <p><em>co-founder</em></p>
     <% else %>
