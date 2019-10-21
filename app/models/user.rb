@@ -17,7 +17,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
   mount_uploader :photo, PhotoUploader
-  after_create :send_confirmation_instructions
   include PgSearch
   pg_search_scope :search_by_firstname_and_lastname,
                   against: [:first_name, :last_name],
