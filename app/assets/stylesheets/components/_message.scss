@@ -118,6 +118,7 @@
 }
 
 .form-div {
+  margin: 13px 0;
   display: flex;
   align-items: center;
   width: 100% !important;
@@ -169,31 +170,38 @@
 
 #message_body {
   width: 100%;
-  height: 80%;
+  height: 34px;
+  // max-height: 135px;
   border: none;
-  border: 2px solid #DCDCDC;
+  // border: 2px solid #DCDCDC;
   border-radius: 25px;
-  padding: 5px 46px 5px 20px;
+  padding: 5px 46px 5px 15px;
   font-size: 16px;
   resize: none;
-  // box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
   font-family: 'Roboto';
   -webkit-appearance: none;
-  line-height: 32px;
+  line-height: 25px;
+  overflow: scroll;
   &:focus {
     outline: none;
+    .form-div {
+      margin: 13px 0 !important;
+    }
   }
 }
 
 .send-message-box-container {
-  height: 60px;
+  // height: 60px;
+  background: $rose-red;
 }
 
 .msg-button {
-  height: 38px;
-  width: 38px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  background-color: #ADADAD;
+  // background-color: #ADADAD;
+  background-color: $rose-red;
   color: white;
   display: flex;
   justify-content: center;
@@ -201,10 +209,12 @@
   // box-shadow: 0 0 3px rgba(0,0,0,0.3);
   padding: 0;
   position: absolute;
-  right: 6px;
-  top: calc(50% - 19px);
+  right: 2px;
+  bottom: 2px;
+  // top: calc(50% - 15px);
+  border: none;
   img {
-    width: 80%;
+    width: 55%;
   }
 }
 
@@ -225,9 +235,9 @@
   and (device-height: 812px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-    .send-message-box-container {
-      height: 100px;
-    }
+  .form-div-iphone {
+    margin: 13px 0 53px 0;
+  }
 }
 
 @media only screen
@@ -235,9 +245,9 @@
   and (device-height: 896px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-    .send-message-box-container {
-      height: 100px;
-    }
+  .form-div-iphone {
+    margin: 13px 0 53px 0;
+  }
 }
 
 @media only screen
@@ -245,7 +255,8 @@
   and (device-height: 896px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-    .send-message-box-container {
-      height: 100px;
-    }
+  .form-div-iphone {
+    margin: 13px 0 53px 0;
+  }
 }
+
