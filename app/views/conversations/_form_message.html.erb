@@ -1,5 +1,5 @@
 <%= form_for [conversation, message], html: { class: "ui reply form form-inline", id: "send-message-form" }, remote: true do |f| %>
-  <div class="form-div" style="margin: 0; position: relative;">
+  <div class="form-div" style="position: relative;">
     <%= f.text_area :body %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
     <%= button_tag(type: 'submit', class: "btn msg-button") do %>
