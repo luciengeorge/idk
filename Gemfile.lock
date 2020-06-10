@@ -102,7 +102,7 @@ GEM
       rails (>= 4.0)
       rotp
       useragent
-    geocoder (1.5.0)
+    geocoder (1.6.1)
     geokit (1.13.1)
     geokit-rails (2.3.1)
       geokit (~> 1.5)
