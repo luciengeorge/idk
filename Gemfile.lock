@@ -122,7 +122,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    json (2.2.0)
+    json (2.3.1)
     jsonapi-serializers (1.0.1)
       activesupport
     jwt (2.1.0)
